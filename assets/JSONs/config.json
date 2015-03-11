@@ -1,0 +1,83 @@
+{
+    "path": "PICS",
+    "prefix": "FULL_DROP_",
+    "extension": "jpg",
+    "frameNumberTemplate": "00000",
+    "frameCount": 1495,
+    "hiResDelay": 100,
+    "group": [
+        [1,223],
+        [
+            [224,385],
+            [386,479],
+            [480,490]
+        ],
+        [
+            [491,500],
+            [501,600],
+            [601,700]
+        ],
+        [
+            [701,800],
+            [801,900],
+            [901,1495]
+        ]
+    ],
+    "sections": [
+        ["", 10, 0, "", ""],
+        ["Chapter 1", 63, 235, "", "brings to chapter 1"],
+        ["Chapter 2", 235, 540, "", "brings to chapter 2"],
+        ["Chapter 3", 540, 849, "", "brings to chapter 3"],
+        ["Chapter 4", 849, 1101, "", "brings to packshot page"]
+    ],
+    "chapters": [{
+        "id": 1,
+        "begin": 258,
+        "end": 335
+    }, {
+        "id": 2,
+        "begin": 336,
+        "end": 406
+    }, {
+        "id": 3,
+        "begin": 407,
+        "end": 482
+    }, {
+        "id": 4,
+        "begin": 561,
+        "end": 645
+    }, {
+        "id": 5,
+        "begin": 646,
+        "end": 715
+    }, {
+        "id": 6,
+        "begin": 716,
+        "end": 791
+    }, {
+        "id": 7,
+        "begin": 876,
+        "end": 950
+    }, {
+        "id": 8,
+        "begin": 951,
+        "end": 1029
+    }, {
+        "id": 9,
+        "begin": 1030,
+        "end": 1098
+    }],
+    "transitions": [{
+        "id": 1,
+        "begin": 483,
+        "end": 540
+    }, {
+        "id": 2,
+        "begin": 792,
+        "end": 875
+    }, {
+        "id": 3,
+        "begin": 1099,
+        "end": 1100
+    }]
+}
