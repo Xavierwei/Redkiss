@@ -659,8 +659,8 @@ article .hotspot {
   left: -130px;
   /*background: url(../img/hotspot.png) 0px 0px no-repeat;*/
     cursor: url('../img/play-button.gif'), pointer;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   display: block;
   margin: 0;
   -webkit-transform-origin: center center;
@@ -2606,7 +2606,7 @@ html.tablet .static .product.guinea .headline, html.mobile .static .product.guin
     margin-top: -8px;
     font-size: 16px;
     line-height: 16px;
-    /*font-family: "Helvetica";*/
+    font-family: "FranklinGothicLT-DemiCmpr", "frankgoth_xcn_btregular" , Helvetica, Arial, sans-serif;
     text-align: center;
 }
 
@@ -3134,11 +3134,14 @@ html.mobile .nav-bar {
   display: none !important;
 }
 
+html.mobile .badwidth {
+  display: none !important;
+}
 
 .end_frame {z-index:10;display:none;background:url('../../PICS/end.jpg') no-repeat;background-size:cover;color:#fff;position: fixed;top:0;right:0;height:100%;width:100%;}
-.end_frame .end_title {width:55%;height:auto;position: absolute;right:2%;top:15%;}
+.end_frame .end_title {width:55%;height:auto;position: absolute;right:2%;top:10%;}
 .end_frame .end_title img {width:100%;height:auto;}
-.end_frame .end_list_wrap {width:400px;height:auto;position: absolute;right:11%;bottom:15%;}
+.end_frame .end_list_wrap {width:400px;height:auto;position: absolute;right:11%;bottom:22%;}
 .end_frame .end_list .end_sns_title span {color:#cc2e4f;}
 .end_frame .end_list ul {height:41px;background:#000;margin:0;padding:0;list-style: none;}
 .end_frame .end_list li {float:left;}
@@ -3146,19 +3149,36 @@ html.mobile .nav-bar {
 .end_frame .end_sns .before,.end_frame .end_sns .after {background:url('../img/last_icons.gif') no-repeat;width:35px;height:38px;}
 .end_frame .end_sns .after {float:right;}
 .end_frame .end_sns {margin-top:15px;}
-.end_frame .end_sns a {background:url('../img/last_icons.gif') no-repeat;margin:0 22px;display:block;width:38px;height:38px;font-size:0;}
+.end_frame .end_sns a {background:url('../img/last_icons.gif') no-repeat;margin:0 22px;display:block;width:66px;height:38px;font-size:0;}
 .end_frame .end_sns .sns_email a {background-position:-74px 0;}
 .end_frame .end_sns .sns_fb a {background-position:-152px 0;}
 .end_frame .end_sns .sns_twitter a {background-position:-223px 0;}
 .end_frame .end_sns .sns_ins a {background-position:-290px 0;}
 .end_frame .end_sns .end_sns_title {letter-spacing: 2px;}
-.end_frame .end_sns_links {margin:20px 80px 0 80px;}
+.end_frame .end_sns_links {margin:20px 80px 0 80px;text-transform: uppercase;}
 .end_frame .end_sns_links .before,.end_frame .end_sns_links .after {background:url('../img/last_icons.gif') no-repeat;width:35px;height:38px;}
 .end_frame .end_sns_links .end_sns_link {width:160px;text-align: center;padding-top:10px;}
 .end_frame .end_sns_links .after {float:right;}
+.end_frame footer {position: fixed;bottom:0;width:100%;height:76px;background:#000 url('../img/footer.png') no-repeat center 38px;text-align: center;}
+.end_frame footer ul {margin:0.5em 0;}
+.end_frame footer li {display: inline;margin:0 20px;font-size:10px;text-transform: uppercase;}
+.end_frame footer li a {color:#fff;text-decoration: none;}
+.end_frame footer li a:hover {color:#ccc;}
 
-.btn_scrolldown {position:fixed;display:none;bottom:20px;left:50%;margin-left:-15px;z-index: 11;cursor: pointer;}
+.badwidth {display:none;position: fixed;background:rgba(0,0,0,0.8);width:100%;height:100%;z-index:1100;}
+.badwidth_inner {text-transform:uppercase;width:661px;height:500px;font-size:15px;position: absolute;top:50%;left:50%;margin:-200px 0 0 -300px;text-align: center;color:#fff;line-height:200%;}
+
+.btn_scrolldown,.btn_scrolldown2 {position:fixed;display:none;bottom:20px;left:50%;margin-left:-15px;z-index: 11;cursor: pointer;}
 
 article .hotspot {
     
 }
+
+.popup_content {display:none;position: fixed;width:80%;height:80%;top:10%;left:10%;background:rgba(255,255,255,0.8);z-index:100;}
+.popup_content .close_btn {position: absolute;width:20px;height:20px;background:url('../img/close.png') no-repeat center;cursor: pointer;right:10px;top:10px;}
+.popup_content .content_wrap {width:100%;height:100%;color:#555;overflow:auto;}
+.popup_content .content_wrap a {color:#555;}
+.popup_content .content_box {padding:40px;height:80%;}
+
+.content_box2 {color:#555;}
+.content_box2 a {color:#555;}

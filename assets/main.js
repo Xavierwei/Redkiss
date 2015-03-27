@@ -4391,6 +4391,7 @@ function (factory) {
       absDeltaXY = 0;
     return event = $.event.fix(orgEvent), event.type = "mousewheel", orgEvent.wheelDelta && (delta = orgEvent.wheelDelta), orgEvent.detail && (delta = -1 * orgEvent.detail), deltaY = delta, void 0 !== orgEvent.axis && orgEvent.axis === orgEvent.HORIZONTAL_AXIS && (deltaY = 0, deltaX = -1 * delta), orgEvent.deltaY && (deltaY = -1 * orgEvent.deltaY, delta = deltaY), orgEvent.deltaX && (deltaX = orgEvent.deltaX, delta = -1 * deltaX), void 0 !== orgEvent.wheelDeltaY && (deltaY = orgEvent.wheelDeltaY), void 0 !== orgEvent.wheelDeltaX && (deltaX = -1 * orgEvent.wheelDeltaX), absDelta = Math.abs(delta), absDeltaXY = Math.max(Math.abs(deltaY), Math.abs(deltaX)), lowestDelta = (absDelta + lowestDelta * eventCount) / (eventCount + 1), lowestDeltaXY = (absDeltaXY + lowestDeltaXY * eventCount) / (eventCount + 1), lowestDelta || (lowestDelta = 1), lowestDeltaXY || (lowestDeltaXY = 1), eventCount += 1, delta /= lowestDelta, deltaY /= lowestDeltaXY, deltaX /= lowestDeltaXY, args.unshift(event, delta, deltaX, deltaY), ($.event.dispatch || $.event.handle).apply(this, args)
   }
+  ///zzz
   var toFix = ["wheel", "mousewheel", "DOMMouseScroll", "MozMousePixelScroll"],
     toBind = "onwheel" in document || document.documentMode >= 9 ? ["wheel"] : ["mousewheel", "DomMouseScroll", "MozMousePixelScroll"],
     lowestDelta = 0,
@@ -6010,28 +6011,23 @@ var SH;
       //        200毫秒后调用一次f()
       setTimeout(f, 5 * distance)
     }
-      var globalData = {
-          endFrame : 11494,
-          initFrameStart: 55,
-          initFrameEnd: 80,
-          navFrameStart: 256,
-          navFrameEnd: 390,
-          navFrameStart2: 583,
-          navFrameEnd2: 786
-      }
+
     var ImageFrameSource = function () {
       function ImageFrameSource(config) {
         this.frames = {},
         this.customFrames = [],
         this.groupFrames = [],
+        this.reSection = [],
         this.largeFrames = {},
         this.startFrame = 0,
+        this.currentPos = 0,
         this.currentFrameNumber = null,
         this.length = config.frameCount,
         this.group = config.group,
         this.frameLoads = new Array(this.length), // redkiss.playhead.videoController.source.frameLoads
         this.customSequence = [],
         this.FLAG_customSequenceLast = 0;
+        this.downScrolling = 0;
         for (var i = 0; this.length > i; i++) {
           this.customSequence[i] = i;
         }
@@ -6055,6 +6051,10 @@ var SH;
                     }
                 }
             }
+            this.reSection[i] = [];
+            for(var m = 0; m < 4; m ++) {
+              this.reSection[i].push(m);
+            }
         }
         this.customFrames = _.flatten(this.groupFrames);
         console.log(this.customFrames);
@@ -6070,7 +6070,6 @@ var SH;
         }, this.el = document.createElement("div"), this.currentFrame = null, this.loadGauge = new SH.Interface.FrameLoadGauge($("#frameLoads"), this.length)
       }
       return ImageFrameSource.prototype.loadFrame = function (n, immediately) {
-
           var _this = this;
           if (typeof immediately == "undefined") {
             immediately = false
@@ -6089,7 +6088,7 @@ var SH;
           i.onload = function () {
             _this.frames[n] = i,
             _this.frameLoads[n].resolve(i),
-            _this.loadGauge.setLoaded(n)
+            _this.loadGauge.setLoaded(n);
           };
           var distanceFromStart = Math.abs(n - this.startFrame);
 
@@ -6139,10 +6138,10 @@ var SH;
             return n >= 0 && n < _this.length
           };
           this.startFrame = startFrame;
-          _this.preloadFramesAhead = 65;
-          var preloadFramesAhead = 65,
+          _this.preloadFramesAhead = 600;
+          var preloadFramesAhead = 600,
             reverseDecay = 2;
-          SH.Config.isMobile && (preloadFramesAhead = 65, reverseDecay = 1);
+          SH.Config.isMobile && (preloadFramesAhead = 600, reverseDecay = 1);
           for (var firstPhasePreloads = [], counter = 0, counterBack = 0, l = this.length, incrExtra = 0, incrBack = 0; l > counter; counterBack++, counter++) {
             incrExtra = Math.max(0, 2 * Math.floor(counter / preloadFramesAhead) - 1),
             incrBack = Math.max(0, 2 * Math.floor(counterBack / preloadFramesAhead) - 1),
@@ -6234,15 +6233,26 @@ var SH;
           var num = n;
           var customNum = this.customFrames[num];
           this.currentFrame = this.frames[customNum];
+          if(!this.currentFrame) {
+            this.currentFrame = this.frames[customNum - 1];
+          }
           this.currentFrameNumber = num;
-          console.log(num, customNum, this.currentFrame);
-
+          //zzz
+          var globalData = {
+              endFrame : 2086,
+              initFrameStart: 55,
+              initFrameEnd: 80,
+              navFrameStart: this.customFrames.indexOf(256),
+              navFrameEnd: this.customFrames.indexOf(399),
+              navFrameStart2: this.customFrames.indexOf(860),
+              navFrameEnd2: this.customFrames.indexOf(1010)
+          }
           // show end frame layout
           if(num >= globalData.endFrame && !$('.end_frame').is(':visible')) {
-              $('.end_frame').show();
+              $('.end_frame').fadeIn();
           }
           else if(num <= globalData.endFrame && $('.end_frame').is(':visible')) {
-              $('.end_frame').hide();
+              $('.end_frame').fadeOut();
           }
 
           // show scroll button
@@ -6261,29 +6271,47 @@ var SH;
               $('.nav-bar').show();
           }
 
+          if(!this.downScrolling) {
+            $('.btn_scrolldown2').hide();
+          }
+
 
           for (var back, forward, i = 1; i < this.length && !this.currentFrame;)
             // back = this.frames[n - i], forward = this.frames[n + i], this.currentFrame = back || forward, i++;
             back = this.frames[num - i], forward = this.frames[num + i], this.currentFrame = back || forward, i++;
           return this.currentFrame
         }, ImageFrameSource.prototype.reGroup = function (story,section) {
-            var pos = 1;
+          //zzz
             section --;
-            for(var i = 0; i < 3; i++) {
-              console.log(this.currentFrameNumber, this.group[story][i]);
-              if(this.currentFrameNumber >= this.group[story][i][0] && this.currentFrameNumber <= this.group[story][i][1]) {
-                pos = ++i;
-                break;
-              }
-            }
+            // for(var i = 0; i < 3; i++) {
+            //   var num = this.customFrames[this.currentFrameNumber];
+            //   console.log(num, this.group[story][i]);
+
+            //   if(num >= this.group[story][i][0] && num <= this.group[story][i][1]) {
+            //     pos = i+1;
+            //     break;
+            //   }
+            // }
+            var pos = this.currentPos;
+            console.log('currentPos',this.currentPos);
+            section = this.reSection[story].indexOf(section);
             if(section == pos) {
-              return this.groupFrames[story][section][0];
+              var reIndex = this.groupFrames[story][section][0];
+              return this.customFrames.indexOf(reIndex);
             }
             var currentItem = this.groupFrames[story].splice(section, 1);
-            this.groupFrames[story].splice(--pos, 0, currentItem[0]);
+            this.groupFrames[story].splice(pos, 0, currentItem[0]);
+
+            var currentOrignalItem = this.group[story].splice(section, 1);
+            this.group[story].splice(pos, 0, currentOrignalItem[0]);
+
+            var currentSection = this.reSection[story].splice(section, 1);
+            this.reSection[story].splice(pos, 0, currentSection[0]);
+            console.log(pos, section, this.reSection);
+
             this.customFrames = _.flatten(this.groupFrames);
-            console.log(this.customFrames);
-            return currentItem[0][0]; //zzz
+            var reIndex = currentItem[0][0];
+            return this.customFrames.indexOf(reIndex); //zzz
         }, ImageFrameSource.prototype.getLargeFrame = function (n) {
           var p = $.Deferred(),
             i = new Image;
@@ -6352,7 +6380,6 @@ var SH;
                 srcAspect = w / h;
             //srcAspect < this.aspect ? (sx = 0, sw = w, sh = sw / this.aspect, sy = (h - sh) / 2) : (sy = 0, sh = h, sw = sh * this.aspect, sx = (w - sw) / 2),
             srcAspect < this.aspect ? (sx = 0, sw = w, sh = sw / this.aspect, sy = ((h - sh) / 2)) : (sy = 0, sh = h, sw = sh * this.aspect, sx = (w - sw) / 2),
-                //console.log('sy: ',sy),
             this.context.drawImage(image, sx, 0, sw, sh, 0, 0, this.canvas.width, this.canvas.height),
             this.prevImage = image
           }
@@ -6399,6 +6426,10 @@ var SH;
         "undefined" == typeof silent && (silent = !1);
         var f = this.calculateCurrentFrame(),
           rawProgress = Math.round((this.length - 1) * this.currentProgress);
+          if(!rawProgress) {
+            _this.renderer.render(_this.source.getFrame(1));
+          }
+
         rawProgress != this.lastFrameNumber && (this.resetScrubTimer(), !silent && this.progressCallback && this.progressCallback(this.currentProgress, rawProgress, this.length), this.lastFrameNumber = rawProgress, requestAnimationFrame(function () {
           _this.renderer.render(_this.source.getFrame(f));
         }), this.frameQueued = null)
@@ -6411,9 +6442,18 @@ var SH;
         if ("undefined" == typeof n && (n = null), SH.Config.hiResOnPause) {
           var upscaleFrameNumber = n || this.lastFrameNumber,
             framePromise = this.source.getLargeFrame(upscaleFrameNumber),
-            f = this.calculateCurrentFrame();
+            f = redkiss.playhead.videoController.source.currentFrameNumber;
           framePromise.then(function (f) {
-            upscaleFrameNumber !== _this.lastFrameNumber || _this.frameQueued && upscaleFrameNumber !== _this.frameQueued || _this.renderer.render(f)
+            upscaleFrameNumber !== _this.lastFrameNumber || _this.frameQueued && upscaleFrameNumber !== _this.frameQueued || (function(){
+              // f = redkiss.playhead.videoController.source.currentFrameNumber;
+              // if(f && f < 20) return;
+              // console.log(f);
+              // _this.renderer.render(f);
+              // if(f<40) {
+              //   _this.renderer.render(f);
+              // }
+              
+            }())
           })
         }
       }, Controller.prototype.nextKeyFrame = function () {
@@ -6537,6 +6577,13 @@ var SH;
         this.aspect = aspect;
         this.el = contentElement;
         $(window).on("resize", $.proxy(function () {
+          if(($(window).width() / $(window).height()) > (19/9)) {
+            $('.badwidth').fadeIn();
+          }
+          else {
+            $('.badwidth').fadeOut();
+          }
+          //zzz
           requestAnimationFrame($.proxy(this, "update"))
         }, this));
         requestAnimationFrame($.proxy(this, "update"));
@@ -6605,6 +6652,8 @@ var SH;
 var SH;
 ! function (SH) {
   ! function (Interface) {
+    var arrowImg = new Image();
+    arrowImg.src = "assets/img/play-button.gif";
       var sourceClass = SH.Video.ImageFrameSource;
     var storyData = {
         "S01_STORY_1": {
@@ -6757,33 +6806,45 @@ var SH;
               //zzz
               var _pageIndexList = el.prop('id').split('_');
               var pageIndex = [parseInt(_pageIndexList[0].substr(1)),parseInt(_pageIndexList[2])];
+              console.log(pageIndex);
               var jumpToPage = redkiss.playhead.videoController.source.reGroup(pageIndex[0],pageIndex[1]);
               console.log(jumpToPage);
+              redkiss.playhead.videoController.source.currentPos ++;
+
+              
 
               //var jumpToPage = parseInt(el.data('jump_to_destination'));
-              var stopAtPage = jumpToPage + 15 + delta;
+              $('.btn_scrolldown2').delay(200).fadeIn();
+              redkiss.playhead.videoController.source.downScrolling = 1;
+              setTimeout(function(){
+                  redkiss.playhead.videoController.source.downScrolling = 0;
+              },5000);
+              var stopAtPage = jumpToPage + 50 + delta;
                    redkiss.playhead.seekTo(jumpToPage);
                    redkiss.playhead.start();
                    redkiss.playhead.playTo(stopAtPage);
 
+                  redkiss.stream.acceptingInput = true;
+                  console.log("acceptingInput",redkiss.stream.acceptingInput);
+
               var newCSS = clsName + ' {display: none !important;}';
               $('#my-override').text($('#my-override').text() + newCSS);
 
-              requestAnimationFrame(function () {
-                  _.each([header, content, line], function (el) {
-                      el[0].style.display = "block"
-                  }), header.height(header.find("h1").height()), content.css({
-                      opacity: 0
-                  }), header.find("h1").stop(!0).transition({
-                      top: "0%"
-                  }, 200, "linear", function () {
-                      _this.visible && el.find(".content,.more").stop(!0).transition({
-                          opacity: 1
-                      }, 200)
-                  }), el.find("hr.head").stop(!0).transition({
-                      width: "100%"
-                  }, 200)
-              }),
+              // requestAnimationFrame(function () {
+              //     _.each([header, content, line], function (el) {
+              //         el[0].style.display = "block"
+              //     }), header.height(header.find("h1").height()), content.css({
+              //         opacity: 0
+              //     }), header.find("h1").stop(!0).transition({
+              //         top: "0%"
+              //     }, 200, "linear", function () {
+              //         _this.visible && el.find(".content,.more").stop(!0).transition({
+              //             opacity: 1
+              //         }, 200)
+              //     }), el.find("hr.head").stop(!0).transition({
+              //         width: "100%"
+              //     }, 200)
+              // }),
             this.visible = !0, el.addClass("open")
           }
         }, Story.prototype.hide = function () {
@@ -6882,7 +6943,7 @@ var SH;
         function MobilePoster(el) {
           this.el = $(el), this.init()
         }
-        return MobilePoster.prototype.init = function () {
+        return MobilePoster.prototype.init1131 = function () {
           this.popupContent = this.el.find(".popup").hide(), this.popupLink = $("<a href='#' class='popup-link'>Read the Story</a>"), this.popupContent.after($("<p></p>").append(this.popupLink)), this.bind()
         }, MobilePoster.prototype.bind = function () {
           var self = this;
@@ -6903,6 +6964,10 @@ var SH;
 var SH;
 ! function (SH) {
   ! function (Interface) {
+    //zzz
+    var stopFrames = [245,399,547,849,1006,1160,1453,1610,1762];
+    var resetFrames = [709,1313];
+    var lastFrame = 0;
     function appendOrCreate(obj, key, val) {
       obj[key] ? obj[key].push(val) : obj[key] = [val]
     }
@@ -6911,6 +6976,7 @@ var SH;
       return m >= l && h >= m
     }
     var Overlays = function () {
+
       function Overlays(overlayData, sections, offset) {
         "undefined" == typeof offset && (offset = 0);
         var _this = this;
@@ -6943,6 +7009,20 @@ var SH;
           nonAnchor = "right" == xAnchor ? "left" : "right";
         el.style[xAnchor] = "" + 100 * x + "%", el.style[nonAnchor] = "auto", el.style.top = "" + 100 * y + "%"
       }, Overlays.prototype.setProgress = function (f) {
+        //zzz
+        var fIndex = stopFrames.indexOf(f);
+        //f = redkiss.playhead.videoController.source.customFrames[f];
+        if(resetFrames.indexOf(f) != -1) {
+          redkiss.playhead.videoController.source.currentPos = 0;
+        }
+        if(fIndex != -1) {
+            redkiss.stream.acceptingInput = false;
+            stopFrames.splice(fIndex,1);
+            console.log('delete stop',stopFrames);
+            console.log("acceptingInput",redkiss.stream.acceptingInput,fIndex);
+        }
+        lastFrame = f;
+      
         var _this = this;
         f -= this.offset;
         var currentObjects = this.frameIndex["" + f] || [],
@@ -7239,7 +7319,7 @@ var SH;
     Core.TIME_SCALE = 1;
     var Playhead = function () {
       function Playhead(introController, videoController, stream) {
-        this.velocity = 0, this.position = 0, this.acceleration = 1.65, this.deceleration = .85, this.braking = .8, this.inertia = .85, this.frameInterval = function () {
+        this.velocity = 0, this.position = 0, this.acceleration = 30.00, this.deceleration = 6.85, this.braking = .3, this.inertia = 0.88, this.frameInterval = function () {
           return 1e3 / 30 * Core.TIME_SCALE
         }, this.lastDecay = null, this.lastPosition = null, this.lastInput = null, this.keyframeCounter = 0, this.keyframeRepeat = 21, this.approachingKeyFrame = !1, this.targetFrame = null, this.targetFromFrame = null, this.targetDistance = 0, this.targetStartTime = 0, this.speedLimited = !0, this.isRunning = !1, this.events = $({}), this.introController = introController, this.videoController = videoController, this.length = introController.offset + videoController.length, this.stream = stream, this.bind()
       }
@@ -7251,13 +7331,16 @@ var SH;
         // console.log(Math.max(0, this.position - this.introController.offset));
         return Math.max(0, this.position - this.introController.offset)
       }, Playhead.prototype.bind = function () {
+        console.log('init');
         var _this = this,
           $stream = $(this.stream);
         $stream.on("Scrub", $.proxy(this, "handleScrub")), $stream.on("JumpForward", $.proxy(this, "jumpForward")), $stream.on("JumpBack", $.proxy(this, "jumpBack")), $stream.on("SingleFrame", $.proxy(this, "singleFrame")), this.introController.setProgressCallback(function (p, f) {
-          _this.events.triggerHandler("progress", [f / _this.length, f, _this.length])
+          _this.events.triggerHandler("progress", [f / _this.length, f, _this.length]);
+
         }), this.videoController.setProgressCallback(function (p, f) {
           var newF = f + _this.introController.offset;
-          _this.events.triggerHandler("progress", [newF / _this.length, newF, _this.length])
+          _this.events.triggerHandler("progress", [newF / _this.length, newF, _this.length]);
+
         })
       }, Playhead.prototype.handleScrub = function (e, d) {
         if (d = -d, !(this.position <= 0 && 0 >= d)) {
@@ -7300,8 +7383,15 @@ var SH;
          this.keyframeCounter = this.keyframeRepeat - 1 
       }, Playhead.prototype.start = function () {
         this.isRunning || (this.lastDecay = null, this.lastPosition = null, this.velocity || (this.velocity = Playhead.minVelocity), this.step())
-      }, Playhead.prototype.step = function (stopFrame) {
+      },
+      Playhead.prototype.stop = function(){
+          return this.events.triggerHandler("stop", this.position);
+      }, 
+      Playhead.prototype.step = function (stopFrame) {
           var _this = this;
+          //zzz
+          
+
           // return this.events.triggerHandler("stop", this.position);
           this.isRunning = !0;
           var now = Playhead.now(),
@@ -7319,7 +7409,14 @@ var SH;
             this.velocity *= positive(this.velocity) == positive(this.targetFrame - this.position) ? shouldAccelerate ? this.acceleration : this.deceleration : Math.abs(this.velocity) <= Playhead.minVelocity ? -1 : this.braking, this.velocity = (positive(this.velocity) ? 1 : -1) * SH.Util.clamp(Playhead.minVelocity, Math.abs(this.velocity), this.speedLimited ? 40 : 240)
           }
 
+          // console.log('step'); zzz
+          // if(redkiss.playhead.videoController.source.scrollLock === 1) {
+          //   requestAnimationFrame(function () { return _this.step() })
+          //   return; //this.events.triggerHandler("stop", this.position);
+          // }
+
           this.position <= 0 && this.velocity < 0 && (this.velocity = 0), this.updatePosition(now), this.position = SH.Util.clamp(0, this.position, this.length - 1), (this.velocity < 0 && this.position - this.targetFrame < 0 || this.velocity > 0 && this.position - this.targetFrame > 0) && null !== this.targetFrame && Math.abs(this.position - this.targetFrame) < 8 && (this.position = this.targetFrame, this.velocity = 0),
+          
           this.seekTo(this.position),
           null === this.targetFrame && Math.abs(this.velocity) >= Playhead.minVelocity && this.position >= 0 && this.position <= this.length - 1 ? requestAnimationFrame(function () { return _this.step() }) : null !== this.targetFrame && Math.round(this.position) != this.targetFrame && 1 > progressToTarget ? requestAnimationFrame(function () { return _this.step() }) : (null !== this.targetFrame && (this.position = this.targetFrame, this.seekTo(this.position)), this.targetFrame = null, this.isRunning = !1, this.velocity = 0, this.events.triggerHandler("stop", this.position)), this.videoController.currentVelocity = this.velocity
 }, Playhead.prototype.singleFrame = function (e, d) {
@@ -7481,7 +7578,7 @@ var SH;
           $('.btn_scrolldown').on('click', function(){
               redkiss.playhead.seekTo(65);
               redkiss.playhead.start()
-              redkiss.playhead.playTo(257);
+              redkiss.playhead.playTo(249);
           });
         }, App
     }();

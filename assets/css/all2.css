@@ -1,0 +1,114 @@
+@font-face {
+    font-family: "Franklin Gothic LT BOOK";
+    src: url("../fonts/FrankGotLTBooCmp.eot");
+    src: url('../fonts/FrankGotLTBooCmp.eot') format('embedded-opentype'),
+         url('../fonts/FrankGotLTBooCmp.woff2') format('woff2'),
+         url('../fonts/FrankGotLTBooCmp.woff') format('woff'),
+         url('../fonts/FrankGotLTBooCmp.ttf') format('truetype'),
+         url('../fonts/FrankGotLTBooCmp.svg#FrankGotLTBooCmp') format('svg');
+}
+
+@font-face {
+    font-family: "FranklinGothicLT-DemiCmpr";
+    src: url("../fonts/FranklinGothicLT-DemiCmpr.eot");
+    src: url('../fonts/FranklinGothicLT-DemiCmpr.eot') format('embedded-opentype'),
+    url('../fonts/FranklinGothicLT-DemiCmpr.woff2') format('woff2'),
+    url('../fonts/FranklinGothicLT-DemiCmpr.woff') format('woff'),
+    url('../fonts/FranklinGothicLT-DemiCmpr.ttf') format('truetype'),
+    url('../fonts/FranklinGothicLT-DemiCmpr.svg#FrankGotLTBooCmp') format('svg');
+}
+
+* {
+    outline: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/*
+ * Prevents modern browsers from displaying 'audio' without controls
+ * Remove excess height in iOS5 devices
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/*
+ * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+ * Known issue: no IE6 support
+ */
+
+[hidden] {
+    display: none;
+}
+
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Prevents iOS text size adjust after orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+
+html {
+    font-size: 100%; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
+}
+
+/*
+ * Addresses font-family inconsistency between 'textarea' and other form elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/*
+ * Addresses margins handled incorrectly in IE6/7
+ */
+
+body {
+    margin: 0;
+}
+
+
+.content_box2 {color:#555;font-size:12px;}
+.content_box2 a {color:#555;}
