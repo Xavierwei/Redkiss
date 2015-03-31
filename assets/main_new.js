@@ -6737,7 +6737,8 @@ var SH;
       Story = function () {
         function Story(idString, el) {
           var _this = this;
-          this.visible = !1, this.expanded = !1, this.inProgress = !1, this.lastState = -1, this.id = idString, this.el = el, this.$el = $(this.el), this.$el.find(".hotspot").on("click", function (e) {
+          this.visible = !1, this.expanded = !1, this.inProgress = !1, this.lastState = -1, this.id = idString, this.el = el, this.$el = $(this.el),
+              this.$el.find(".hotspot").on("click", function (e) {
             e.preventDefault(), _this.visible ? _this.hide() : _this.show()
           }).css({
             //cursor: "pointer"
@@ -7325,7 +7326,18 @@ var SH;
       function Playhead(introController, videoController, stream) {
         this.velocity = 0, this.position = 0, this.acceleration = 30.00, this.deceleration = 6.85, this.braking = .3, this.inertia = 0.88, this.frameInterval = function () {
           return 1e3 / 30 * Core.TIME_SCALE
-        }, this.lastDecay = null, this.lastPosition = null, this.lastInput = null, this.keyframeCounter = 0, this.keyframeRepeat = 21, this.approachingKeyFrame = !1, this.targetFrame = null, this.targetFromFrame = null, this.targetDistance = 0, this.targetStartTime = 0, this.speedLimited = !0, this.isRunning = !1, this.events = $({}), this.introController = introController, this.videoController = videoController, this.length = introController.offset + videoController.length, this.stream = stream, this.bind()
+        }, this.lastDecay = null,
+            this.lastPosition = null,
+            this.lastInput = null,
+            this.keyframeCounter = 0,
+            //czhang
+            this.keyframeRepeat = 15,
+            this.approachingKeyFrame = !1,
+            this.targetFrame = null,
+            this.targetFromFrame = null,
+            this.targetDistance = 0,
+            this.targetStartTime = 0,
+            this.speedLimited = !0, this.isRunning = !1, this.events = $({}), this.introController = introController, this.videoController = videoController, this.length = introController.offset + videoController.length, this.stream = stream, this.bind()
       }
       return Playhead.now = function () {
         return (new Date).getTime()
@@ -7582,7 +7594,7 @@ var SH;
           $('.btn_scrolldown').on('click', function(){
               redkiss.playhead.seekTo(38);
               redkiss.playhead.start()
-              redkiss.playhead.playTo(153);
+              redkiss.playhead.playTo(152);
           });
         }, App
     }();
