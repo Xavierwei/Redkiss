@@ -6284,18 +6284,20 @@ var SH;
             back = this.frames[num - i], forward = this.frames[num + i], this.currentFrame = back || forward, i++;
           return this.currentFrame
         }, ImageFrameSource.prototype.reGroup = function (story,section) {
-          //zzz
+          //zzz czhang 加锁
             section --;
-            // for(var i = 0; i < 3; i++) {
-            //   var num = this.customFrames[this.currentFrameNumber];
-            //   console.log(num, this.group[story][i]);
+            var pos=0;
+            for(var i = 0; i < 3; i++) {
+               var num = this.customFrames[this.currentFrameNumber];
+               console.log(num, this.group[story][i]);
 
-            //   if(num >= this.group[story][i][0] && num <= this.group[story][i][1]) {
-            //     pos = i+1;
-            //     break;
-            //   }
-            // }
-            var pos = this.currentPos;
+               if(num >= this.group[story][i][0] && num <= this.group[story][i][1]) {
+                 pos = i+1;
+                 break;
+               }
+            }
+            //var pos = this.currentPos;
+
             console.log('currentPos',this.currentPos);
             section = this.reSection[story].indexOf(section);
             if(section == pos) {
