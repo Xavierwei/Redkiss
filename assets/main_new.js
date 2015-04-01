@@ -6242,13 +6242,13 @@ var SH;
           this.currentFrameNumber = num;
           //zzz
           var globalData = {
-              endFrame : 1408,
+              endFrame : 1244,
               initFrameStart: 38,
               initFrameEnd: 53,
-              navFrameStart: this.customFrames.indexOf(367),
-              navFrameEnd: this.customFrames.indexOf(456),
-              navFrameStart2: this.customFrames.indexOf(560),
-              navFrameEnd2: this.customFrames.indexOf(698)
+              navFrameStart: this.customFrames.indexOf(327),
+              navFrameEnd: this.customFrames.indexOf(424),
+              navFrameStart2: this.customFrames.indexOf(510),
+              navFrameEnd2: this.customFrames.indexOf(601)
           }
           // show end frame layout
           if(num >= globalData.endFrame && !$('.end_frame').is(':visible')) {
@@ -7590,11 +7590,11 @@ var SH;
             opacity: 1,
             marginRight: 0
           }), this.nav.hide(), $('#loader').remove(), $('#preloader').remove(),
-          redkiss.playhead.seekTo(0),redkiss.playhead.start(),redkiss.playhead.playTo(38);
+          redkiss.playhead.seekTo(0),redkiss.playhead.start(),redkiss.playhead.playTo(40);
           $('.btn_scrolldown').on('click', function(){
-              redkiss.playhead.seekTo(38);
+              redkiss.playhead.seekTo(40);
               redkiss.playhead.start()
-              redkiss.playhead.playTo(152);
+              redkiss.playhead.playTo(132);
           });
         }, App
     }();

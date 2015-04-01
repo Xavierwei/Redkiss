@@ -10,65 +10,19 @@
 <script src="assets/jquery-2.1.3.min.js"></script>
 <script>
     var html='';
-    var startArray=[141,238,341,540,670,748,935,1185,1288];
-    var endArray=[156,242,345,550,680,754,945,1192,1298];
+    var startArray=[132,230,326,490,603,691,864,960,1056];
+    var endArray=[230,242,337,518,613,699,880,965,1062];
     var positionArray=[
         '[0.35, 0.23]',
         '[0.79, 0.74]',
         '0.2, 0.6]',
         '[0.15, 0.26]',
-        '[0.8, 0.4]',
+        '[0.8, 0.5]',
         '[0.34, 0.88]',
         '[0.81, 0.81]',
         '[0.61, 0.24]',
         '[0.15, 0.26]'
     ];
-    var startAndEnd={
-        "S01_STORY_1":{
-            start:141,
-            end:156,
-            position:'[0.35, 0.23]'
-        },
-        "S01_STORY_2":{
-            start:238,
-            end:242,
-            position:'[0.79, 0.74]'
-        },
-        "S01_STORY_3":{
-            start:341,
-            end:345,
-            position:'0.2, 0.6]'
-        },
-        "S02_STORY_1":{
-            start:540,
-            end:550,
-            position:'[0.15, 0.26]'
-        },
-        "S02_STORY_2":{
-            start:670,
-            end:680,
-            position:'[0.8, 0.4]'
-        },
-        "S02_STORY_3":{
-            start:748,
-            end:754,
-            position:'[0.34, 0.88]'
-        },
-        "S03_STORY_1":{
-                start:935,
-                end:945,
-                position:'[0.15, 0.26]'
-            },
-        "S03_STORY_2":{
-                start:1185,
-                end:1192,
-                position:'[0.61, 0.24]'
-            },
-        "S03_STORY_3":{
-                start:1288,
-                end:1298,
-                position:'[0.81, 0.81]'
-        }}
 
     var html='';
 
@@ -77,17 +31,6 @@
             html=html+'"'+i+'"'+':'+position+',<br>';
         }
     }
-//
-//    var index=0;
-//    for(var key in startAndEnd){
-//        while((index+1)%3==0) {
-//            var start = startArray[index];
-//            var end = endArray[index];
-//            var position = startAndEnd[key]['position'];
-//            print(start, end, position);
-//            index++;
-//        }
-//    }
 
     var border=0;
     for(var i=0;i<9;i++){
