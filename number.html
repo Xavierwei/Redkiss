@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script src="assets/jquery-2.1.3.min.js"></script>
+<script>
+    var html='';
+    var startArray=[141,238,341,540,670,748,935,1185,1288];
+    var endArray=[156,242,345,550,680,754,945,1192,1298];
+    var positionArray=[
+        '[0.35, 0.23]',
+        '[0.79, 0.74]',
+        '0.2, 0.6]',
+        '[0.15, 0.26]',
+        '[0.8, 0.4]',
+        '[0.34, 0.88]',
+        '[0.15, 0.26]',
+        '[0.61, 0.24]',
+        '[0.81, 0.81]'
+    ];
+    var startAndEnd={
+        "S01_STORY_1":{
+            start:141,
+            end:156,
+            position:'[0.35, 0.23]'
+        },
+        "S01_STORY_2":{
+            start:238,
+            end:242,
+            position:'[0.79, 0.74]'
+        },
+        "S01_STORY_3":{
+            start:341,
+            end:345,
+            position:'0.2, 0.6]'
+        },
+        "S02_STORY_1":{
+            start:540,
+            end:550,
+            position:'[0.15, 0.26]'
+        },
+        "S02_STORY_2":{
+            start:670,
+            end:680,
+            position:'[0.8, 0.4]'
+        },
+        "S02_STORY_3":{
+            start:748,
+            end:754,
+            position:'[0.34, 0.88]'
+        },
+        "S03_STORY_1":{
+                start:935,
+                end:945,
+                position:'[0.15, 0.26]'
+            },
+        "S03_STORY_2":{
+                start:1185,
+                end:1192,
+                position:'[0.61, 0.24]'
+            },
+        "S03_STORY_3":{
+                start:1288,
+                end:1298,
+                position:'[0.81, 0.81]'
+        }}
+
+    var html='';
+
+    function print(start,end,position){
+        for(var i=start;i<=end;i++){
+            html=html+'"'+i+'"'+':'+position+',<br>';
+        }
+    }
+//
+//    var index=0;
+//    for(var key in startAndEnd){
+//        while((index+1)%3==0) {
+//            var start = startArray[index];
+//            var end = endArray[index];
+//            var position = startAndEnd[key]['position'];
+//            print(start, end, position);
+//            index++;
+//        }
+//    }
+
+    var border=0;
+    for(var i=0;i<9;i++){
+        var position=positionArray[i];
+        if(i%3==0){
+            border=i;
+        }
+        for(var j=border;j<border+3;j++){
+            var start=startArray[j];
+            var end=endArray[j];
+            print(start,end,position);
+        }
+        html=html+'<br>';
+    }
+
+    $('body').html(html);
+</script>
+</html>
+
+
+

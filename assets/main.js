@@ -7321,7 +7321,7 @@ var SH;
       function Playhead(introController, videoController, stream) {
         this.velocity = 0, this.position = 0, this.acceleration = 30.00, this.deceleration = 6.85, this.braking = .3, this.inertia = 0.88, this.frameInterval = function () {
           return 1e3 / 30 * Core.TIME_SCALE
-        }, this.lastDecay = null, this.lastPosition = null, this.lastInput = null, this.keyframeCounter = 0, this.keyframeRepeat = 21, this.approachingKeyFrame = !1, this.targetFrame = null, this.targetFromFrame = null, this.targetDistance = 0, this.targetStartTime = 0, this.speedLimited = !0, this.isRunning = !1, this.events = $({}), this.introController = introController, this.videoController = videoController, this.length = introController.offset + videoController.length, this.stream = stream, this.bind()
+        }, this.lastDecay = null, this.lastPosition = null, this.lastInput = null, this.keyframeCounter = 0, this.keyframeRepeat = 25, this.approachingKeyFrame = !1, this.targetFrame = null, this.targetFromFrame = null, this.targetDistance = 0, this.targetStartTime = 0, this.speedLimited = !0, this.isRunning = !1, this.events = $({}), this.introController = introController, this.videoController = videoController, this.length = introController.offset + videoController.length, this.stream = stream, this.bind()
       }
       return Playhead.now = function () {
         return (new Date).getTime()
