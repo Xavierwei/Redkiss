@@ -6024,6 +6024,7 @@ var SH;
         this.currentFrameNumber = null,
         this.length = config.frameCount,
         this.group = config.group,
+        this.initGroup = {};
         this.frameLoads = new Array(this.length), // redkiss.playhead.videoController.source.frameLoads
         this.customSequence = [],
         this.FLAG_customSequenceLast = 0;
@@ -6057,6 +6058,18 @@ var SH;
             }
         }
         this.customFrames = _.flatten(this.groupFrames);
+
+        this.initGroup = cloneObject(this.group);
+        function cloneObject(obj){
+          var o = obj.constructor === Array ? [] : {}; 
+          for(var i in obj){ 
+            if(obj.hasOwnProperty(i)){
+              o[i] = typeof obj[i] === 'object' ? cloneObject(obj[i]) : obj[i]; 
+            }
+          }
+          return o;
+        } 
+
         console.log(this.customFrames);
 
         this.urlFunc = function (n, prefix) {
@@ -6286,19 +6299,22 @@ var SH;
         }, ImageFrameSource.prototype.reGroup = function (story,section) {
           //zzz czhang 加锁
             section --;
-            var pos=0;
+            var pos = 0;
+            var offset = 20;
+            console.log(this.initGroup);
             for(var i = 0; i < 3; i++) {
-               var num = this.customFrames[this.currentFrameNumber];
-               console.log(num, this.group[story][i]);
+               //var num = this.customFrames[this.currentFrameNumber]; // 获取原始桢
+               var num = this.currentFrameNumber;
+               console.log(num, this.initGroup[story][i]);
 
-               if(num >= this.group[story][i][0] && num <= this.group[story][i][1]) {
+               if(num >= (this.initGroup[story][i][0] + offset) && num <= (this.initGroup[story][i][1] + offset)) {
                  pos = i+1;
                  break;
                }
             }
             //var pos = this.currentPos;
 
-            console.log('currentPos',this.currentPos);
+            console.log('currentPos',pos);
             section = this.reSection[story].indexOf(section);
             if(section == pos) {
               var reIndex = this.groupFrames[story][section][0];
