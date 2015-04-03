@@ -8,7 +8,7 @@
 
 ```
 method: post
-params: {emai: "", allow_rcv: ""}
+params: {email: "", allow_rcv: ""}
 return: {status: "", error: "", "data": ""}
 
 *** 返回说明:
