@@ -4,7 +4,7 @@
 
 ### Backend API
 
-#####  user/email
+*  user/email
 
 ```
 method: post
