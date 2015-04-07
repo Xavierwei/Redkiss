@@ -318,6 +318,8 @@ img {
         background-size: 51px auto
     }
 }
+.shoppingLi { padding-top: 5px; }
+.shoppingImg { display: block; width: 35px; height: 27px; background: url(shopping.jpg) no-repeat; }
 
 
 menu,ol,ul { padding: 0 0 0 40px; }
@@ -332,7 +334,7 @@ footer li a {color:#fff;text-decoration: none;}
 footer li a:hover {color:#ccc;}
 
 .end_list_wrap { width:400px; height:auto; position: absolute; 
-    right: 11%; bottom: 2%; color: #fff; 
+    right: 11%; bottom: 8%; color: #fff; 
     font-family: "Franklin Gothic LT BOOK",sst_prolight,"Helvetica Neue",Helvetica,Arial,sans-serif; 
     font-style: normal; font-weight: normal; line-height: 1.35; }
 .end_sns { margin-top: 15px; }
@@ -352,5 +354,5 @@ display: block; width:66px; height:38px; font-size:0;}
 .end_sns_links { margin: 20px 80px 0; text-transform: uppercase; }
 .end_sns_links .before, .end_sns_links .after { 
     background:url('last_icons.gif') no-repeat; width:35px;height:38px;}
-.end_sns_links .end_sns_link {width:160px;text-align: center;padding-top:10px;}
+.end_sns_links .end_sns_link {width:100px;text-align: center;padding-top:10px;}
 .end_sns_links .after { float: right; }
