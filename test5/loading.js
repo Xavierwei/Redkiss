@@ -43,11 +43,12 @@
         function documentReady() {
             var dom = $(this),
                 crtLoaded = 0,
+                minItem = 5;
                 total = dom.size();
 
             var animator = false;
-            if (total < 5) {
-                total = 5;
+            if (total < minItem) {
+                total = minItem;
                 animator = true;
             }
 
@@ -73,12 +74,20 @@
             }
             if (animator) {
                 // 模拟动画
-                for (var i = 0; i < 5; i++) {
+                var crtTime = 1;
+                total = minItem = 20;
+                function animatorFn(time) {
+                    if (crtTime >= minItem) {
+                        return;
+                    }
                     setTimeout(function () {
-                        console.log('模拟...');
                         loadCb();
-                    }, 500);
+                        animatorFn(time);
+                        crtTime += 1;
+                    }, time);
                 }
+
+                animatorFn(options.delay);
             }
             else{
                 dom.each(function () {
