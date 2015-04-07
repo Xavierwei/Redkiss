@@ -6,17 +6,37 @@
 
 		<link rel="stylesheet" href="test5/nav.css" />
 		<link rel="stylesheet" href="test5/largeScreen.css" />
+        <link rel="stylesheet" href="test5/loading.css" />
 
 		<script src="test5/jquery.min.js"></script>
 		<script src="test5/jquery.stellar.min.js"></script>
+        <script src="test5/loading.js"></script>
 		<script>		
 			$(function (){
 				$.stellar({
 				    horizontalScrolling: false,
 				    responsive: true
 				});
-
 			});
+
+
+            $('img').loadingAnimate({
+                templateSelector: '#loading_html',
+                percentSelector: '#loader',
+                beforeLoad: function () {
+                    var mask = $('<div id="mask-dddd"></div>').append(this.templateEl.html());
+                    $('body').prepend(mask);
+                },
+                itemPerLoad: function (index, total) {
+                    this.percent(Math.round(index/total) * 100  + '%');
+                    this.background(function (width) {
+                        $('#preloader .inner').width(width);
+                    });
+                },
+                loadFinished: function () {
+                    //$('body > #mask-dddd').remove();
+                }
+            });
 		</script>
 		<!--[if lt IE 9]>
 	　　　　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -143,6 +163,35 @@
 	          <li><a data-link="4" href="javascript:void(0)" class="inner">Contact</a></li>
 	        </ul>
       </footer>
+
+        <script type="text/tpl" id="loading_html">
+            <div id="preloader" class="preloader pre-animation-state" style="display: block; top: 0%;">
+                <div class="inner" style="">
+                    <h1 class="artists-engineers" style="opacity: 1;"></h1>
+                    <p id="intro-text-3">
+                    </p>
+
+                    <p id="intro-text-4"></p>
+                    <p id="intro-text-5"></p>
+
+                    <p id="intro-p-6-7">
+                        <span id="intro-text-6"></span>
+                        <span id="intro-text-7"></span>
+                    </p>
+
+                    <h1 class="be-moved"></h1>
+
+
+                    <p id="intro-scroll-button">
+                        <button class="scroll-down">
+                            <h1 class="sony"></h1>
+                            <span class="scroll-message">PLEASE SCROLL DOWN</span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+            <div class="loader" id="loader" style="display: block;">20%</div>
+        </script>
 
 	</body>
 </html>
