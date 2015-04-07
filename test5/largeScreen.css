@@ -1,0 +1,100 @@
+
+@font-face {
+    font-family: "Franklin Gothic LT BOOK";
+    src: url("fonts/FrankGotLTBooCmp.eot");
+    src: url('fonts/FrankGotLTBooCmp.eot') format('embedded-opentype'),
+         url('fonts/FrankGotLTBooCmp.woff2') format('woff2'),
+         url('fonts/FrankGotLTBooCmp.woff') format('woff'),
+         url('fonts/FrankGotLTBooCmp.ttf') format('truetype'),
+         url('fonts/FrankGotLTBooCmp.svg#FrankGotLTBooCmp') format('svg');
+}
+
+@font-face {
+    font-family: "FranklinGothicLT-DemiCmpr";
+    src: url("fonts/FranklinGothicLT-DemiCmpr.eot");
+    src: url('fonts/FranklinGothicLT-DemiCmpr.eot') format('embedded-opentype'),
+    url('fonts/FranklinGothicLT-DemiCmpr.woff2') format('woff2'),
+    url('fonts/FranklinGothicLT-DemiCmpr.woff') format('woff'),
+    url('fonts/FranklinGothicLT-DemiCmpr.ttf') format('truetype'),
+    url('fonts/FranklinGothicLT-DemiCmpr.svg#FrankGotLTBooCmp') format('svg');
+}
+
+* { margin: 0; padding: 0; }
+
+li { list-style: none; }
+a { text-decoration: none; }
+body {
+	width: 100%; height: 100%;
+	color: #fff;
+	font-family: "FranklinGothicLT-DemiCmpr", "frankgoth_xcn_btregular" , Helvetica, Arial, sans-serif; }
+}		
+.clear { clear: both; }
+.fl { float: left; }
+
+.content { position: relative; }
+.content1 { background:#57000e url("bg1.jpg") no-repeat;}
+.content2 { background:#57000e url("bg2.jpg") no-repeat;}
+.content3 { background:#57000e url("bg3.jpg") no-repeat;}
+
+.su_constellation { position: relative; letter-spacing: 5px; font-size: 24px; 
+    background-attachment: fixed; }
+
+@media screen and (max-width: 1000px) {
+    .su_constellation { font-size: 16px!important; }
+}
+@media screen and (max-width: 1200px) {
+    .su_constellation { font-size: 18px!important; }
+    .e .star2 { top: 260px!important; }
+    .e .star3 { top: 320px!important; left: 450px!important; }
+    .e .star4 { top: 420px!important; }
+    .e .star5 { top: 520px!important; }
+    .e .star6 { left: 200px!important; top: 600px!important; }
+}
+@media screen and (max-width: 1400px) {
+    .su_constellation { font-size: 20px!important; }
+    .e .star3 { left: 500px!important; }
+    .e .star6 { top: 800px!important; }
+    .e .star8 { top: 360px!important; }
+    .e .star9 { top: 434px!important; }
+    .e .star10 { top: 548px!important; }
+    .e .star11 { top: 648px!important; }
+    .e .star12 { top: 758px!important; }
+}
+@media screen and (max-width: 1600px) {
+    .su_constellation { font-size: 22px!important; }
+}
+
+.star { position: absolute; z-index: 2; 
+	font-family: "FranklinGothicLT-DemiCmpr", "frankgoth_xcn_btregular" , Helvetica, Arial, sans-serif; }
+			
+.e .star1 { left: 55px; top: 110px; }
+
+.e .star2 { left: 90px; top: 350px; }
+
+.e .star3 { left: 588px; top: 410px; }
+
+.e .star4 { left: 275px; top: 560px; }
+
+.e .star5 { left: 90px; top: 670px; }
+
+.e .star6 { left: 280px; top: 790px; }
+
+.e .star7 { right: 206px; top: 165px; }
+
+.e .star8 { right: 428px; top: 415px; }
+
+.e .star9 { right: 90px; top: 484px; }
+
+.e .star10 { right: 268px; top: 598px; }
+
+.e .star11 { right: 527px; top: 698px; }
+
+.e .star12 { right: 88px; top: 808px; }
+
+.e .star1, .e .star7 {  height: 98px; padding: 0 30px; line-height: 98px; }
+
+
+.su_constellation .medium { font-size: 1.5em; }
+.su_constellation .large { font-size: 1.7em; }
+.su_constellation .small { font-size: 1.2em; font-weight: normal; }
+
