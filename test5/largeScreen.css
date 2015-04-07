@@ -91,8 +91,7 @@ body {
 
 .e .star12 { right: 88px; top: 808px; }
 
-.e .star1, .e .star7 {  height: 98px; padding: 0 30px; line-height: 98px;
-border: 3px solid #ea0030; }
+.e .star1, .e .star7 {  height: 98px; padding: 0 30px; line-height: 98px; }
 
 
 .su_constellation .medium { font-size: 1.5em; }

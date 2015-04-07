@@ -1126,10 +1126,9 @@ article.story.clicked .hotspot .highlight{
     cursor: pointer; }
 .viewport #S01_POSTER_TITLE {
     margin-top: -3%;
-    color: #894551; }
+    color: #fff; }
 .viewport #S01_POSTER_TITLE h1 {
-    margin-right: -20px;
-    margin-left: 20px; }
+    margin-right: -20px;  }
 .viewport #S01_PRODUCT {
     margin-top: -3%;
     height: 30%; }
@@ -1152,7 +1151,7 @@ article.story.clicked .hotspot .highlight{
     background: rgba(57, 20, 37, 0.6); }
 .viewport #S02_POSTER_TITLE {
     margin-top: -5%;
-    color: #175d77;
+    color: #FFF;
     height: 0px; }
 .viewport #S02_POSTER_TITLE h1 {
     position: relative;
@@ -1513,7 +1512,7 @@ article.story.clicked .hotspot .highlight{
     -moz-transform-origin: center top;
     -ms-transform-origin: center top;
     -o-transform-origin: center top;
-    color: #666; }
+    color: #fafafa; }
 .viewport #S10_POSTER_TITLE h1 {
     width: 100%;
     position: absolute;
@@ -3182,3 +3181,101 @@ article .hotspot {
 
 .content_box2 {color:#555;}
 .content_box2 a {color:#555;}
+
+.sns_email_popup{
+    position: absolute;
+    z-index: 100;
+    background-color: black;
+    display:none;
+    padding:20px;
+}
+.sns_email_popup div{
+    margin-bottom: 15px;
+}
+
+#sns_form_email{
+    width: 320px;
+}
+
+#sns_form_email_validate{
+    color:red;
+    display:none;
+}
+
+.clear{
+    clear:both;
+}
+
+#sns_form_rcv_span{
+    position: relative;
+    display: inline-block;
+    top:-25px;
+    left:35px;
+    width:300px;
+}
+
+/**
+ * 隐藏默认的checkbox
+ */
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+/**
+ * Checkbox Five
+ */
+.checkboxFive {
+    width: 25px;
+    position: relative;
+}
+
+/**
+ * Create the box for the checkbox
+ */
+.checkboxFive label {
+    cursor: pointer;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    left: 0;
+    background: #eee;
+    border:1px solid #ddd;
+}
+
+/**
+ * Display the tick inside the checkbox
+ */
+.checkboxFive label:after {
+    opacity: 0.2;
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 5px;
+    background: transparent;
+    top: 6px;
+    left: 7px;
+    border: 3px solid #333;
+    border-top: none;
+    border-right: none;
+
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/**
+ * Create the hover event of the tick
+ */
+.checkboxFive label:hover::after {
+    opacity: 0.5;
+}
+
+/**
+ * Create the checkbox state for the tick
+ */
+.checkboxFive input[type=checkbox]:checked + label:after {
+    opacity: 1;
+}
