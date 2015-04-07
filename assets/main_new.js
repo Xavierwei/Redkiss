@@ -7488,7 +7488,7 @@ var SH;
         var _this = this,
           configPromise = $.Deferred(),
           loadConfig = this.loadMember("config_new.json"),
-          loadOverlays = this.loadMember("overlays_new.json"),
+          loadOverlays = this.loadMember("overlays_old.json"),
           loadNavColors = this.loadMember("nav_colors.json");
         return SH.Util.whenAll([loadConfig, loadOverlays, loadNavColors]).then(function (config, overlays, colors) {
           config.overlays = overlays, config.navColors = colors, config.path || (config.path = "assets/" + _this.assetVersion), configPromise.resolve(config)
