@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8' name="viewport" content="width=device-width, initial-scale=1" >
+		<title></title>
+		<style>
+			#div1 { position: fixed; z-index: 99; background: #ccc; width: 100%; height: 100%; }
+			#bar { position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+			 background: url(trans-grad.png) repeat; }
+			#s1 { position: absolute; left: 0; top: 0; width: 100%; height: 100%; 
+			    line-height: 100%; text-align: center; color: #fff; font-size: 20px; z-index: 3; }
+		</style>
+		<script>
+			window.onload = function (){			
+				var s_oDiv = document.getElementById("div1");
+				var s_oBar = document.getElementById("bar");
+				var s_oSpan = document.getElementById("s1");
+				var s_total = 777;
+				var s_count = 0;
+				for(var i = 0; i < s_total; i++){
+					var oImg = new Image();
+					oImg.onload = function(){
+						s_count++;
+						var s_scale = s_count/s_total;
+						s_oBar.style.width = parseInt(s_scale*s_oDiv.offsetWidth) + "px";
+						s_oSpan.innerHTML = (s_scale*100).toFixed(2)+ "%";
+						if(s_count == s_total){
+							s_oSpan.innerHTML = "100%";
+						}
+					};
+					s_oImg.src = "../test5";
+				}	
+			};
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<span id="s1"></span>
+		    <div id="bar"></div>
+		</div>
+	</body>
+</html>
+
