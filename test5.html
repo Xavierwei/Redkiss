@@ -24,7 +24,7 @@
         $('img').loadingAnimate({
             templateSelector: '#loading_html',
             percentSelector: '#loader',
-            delay: 1000 * 100 ,
+            delay: 100,
             beforeLoad: function () {
                 var mask = $('<div id="mask-dddd"></div>').append(this.templateEl.html());
                 $('body').prepend(mask);
@@ -37,6 +37,7 @@
             },
             loadFinished: function () {
                 $('body > #mask-dddd').remove();
+                $('loader').css('display','none');
             }
         });
         </script>
@@ -255,7 +256,7 @@
                     </p>
                 </div>
             </div>
-            <div class="loader" id="loader" style="display: block;">20%</div>
+            <div class="loader" id="loader" style="display: block; font-size: 14px; position: fixed; z-index: 99;">20%</div>
         </script>
 
 	</body>
