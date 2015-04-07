@@ -45,7 +45,14 @@
                 crtLoaded = 0,
                 total = dom.size();
 
+            var animator = false;
+            if (total < 5) {
+                total = 5;
+                animator = true;
+            }
+
             if (total < 1) return;
+
 
             dom.each(function () {
                 if ($(this).prop('tagName') != 'IMG') {
@@ -53,20 +60,30 @@
                 }
             });
 
-            dom.each(function () {
+            var loadCb = function () {
+                crtLoaded += 1;
+                self.crtLoaded = crtLoaded;
+                self.total = total;
+
+                options.itemPerLoad.apply(self, [crtLoaded, total]);
+
+                if (crtLoaded == total) {
+                    options.loadFinished.apply(self, [total]);
+                }
+            }
+            if (animator) {
+                // 模拟动画
+                for (var i = 0; i < 5; i++) {
+                    setTimeout(function () {
+                        console.log('模拟...');
+                        loadCb();
+                    }, 500);
+                }
+            }
+            else{
+                dom.each(function () {
                 var img = $(this);
                 img.data('src', img.attr('src')).removeAttr('src');
-                var loadCb = function () {
-                    crtLoaded += 1;
-                    self.crtLoaded = crtLoaded;
-                    self.total = total;
-
-                    options.itemPerLoad.apply(self, [crtLoaded, total, img]);
-
-                    if (crtLoaded == total) {
-                        options.loadFinished.apply(self, [total, img]);
-                    }
-                }
                 img.load(function () {
                     if (options.delay) {
                         setTimeout(loadCb, options.delay);
@@ -78,6 +95,9 @@
                 });
                 img.attr('src', img.data('src'));
             });
+            }
+
+
         }
     }
 })(jQuery);
