@@ -13,30 +13,32 @@
 		<script src="test5/jquery.stellar.min.js"></script>
 		<script src="test5/main2.js"></script>
         <script src="test5/loading.js"></script>
+        <script>
         $(function (){
-				$.stellar({
-				    horizontalScrolling: false,
-				    responsive: true
-				});
+            $.stellar({
+                horizontalScrolling: false,
+                responsive: true
+            });
+        });
 
-            $('img').loadingAnimate({
-                templateSelector: '#loading_html',
-                percentSelector: '#loader',
-                beforeLoad: function () {
-                    var mask = $('<div id="mask-dddd"></div>').append(this.templateEl.html());
-                    $('body').prepend(mask);
-                },
-                itemPerLoad: function (index, total) {
-                    this.percent(Math.round(index/total) * 100  + '%');
-                    this.background(function (width) {
-                        $('#preloader .inner').width(width);
-                    });
-                },
-                loadFinished: function () {
-                    //$('body > #mask-dddd').remove();
-                }
-            });			});
-		</script>
+        $('img').loadingAnimate({
+            templateSelector: '#loading_html',
+            percentSelector: '#loader',
+            beforeLoad: function () {
+                var mask = $('<div id="mask-dddd"></div>').append(this.templateEl.html());
+                $('body').prepend(mask);
+            },
+            itemPerLoad: function (index, total) {
+                this.percent(Math.round(index/total) * 100  + '%');
+                this.background(function (width) {
+                    $('#preloader .inner').width(width);
+                });
+            },
+            loadFinished: function () {
+                //$('body > #mask-dddd').remove();
+            }
+        });
+        </script>
 		<!--[if lt IE 9]>
 	　　　　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 	　　<![endif]-->
