@@ -253,3 +253,27 @@ footer ul {margin:0.5em 0;}
 footer li {display: inline;margin:0 20px;font-size:10px;text-transform: uppercase;}
 footer li a {color:#fff;text-decoration: none;}
 footer li a:hover {color:#ccc;}
+
+.end_list_wrap { width:400px; height:auto; position: absolute; 
+    right: 11%; bottom: 2%; color: #fff; 
+    font-family: "Franklin Gothic LT BOOK",sst_prolight,"Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-style: normal; font-weight: normal; line-height: 1.35; }
+.end_sns { margin-top: 15px; }
+.end_sns .end_sns_title { letter-spacing: 2px; }
+.end_list .end_sns_title span { color: #cc2e4f; }
+.end_list ul {height:41px;background:#000;margin:0;padding:0;list-style: none;}
+.end_sns .before, .end_sns .after { background: url('last_icons.gif') no-repeat;
+  width:35px; height:38px; }
+.end_list li { float: left; }
+.end_sns .sns_email a {background-position: -74px 0;}
+.end_sns a { background: url('last_icons.gif') no-repeat; margin: 0 22px;
+display: block; width:66px; height:38px; font-size:0;}
+.end_list a {text-decoration: none;color:#fff;}
+.end_sns .sns_fb a { background-position: -152px 0;}
+.end_sns .sns_twitter a {background-position: -223px 0;}
+.end_sns .after { float: right; }
+.end_sns_links { margin: 20px 80px 0; text-transform: uppercase; }
+.end_sns_links .before, .end_sns_links .after { 
+    background:url('last_icons.gif') no-repeat; width:35px;height:38px;}
+.end_sns_links .end_sns_link {width:160px;text-align: center;padding-top:10px;}
+.end_sns_links .after { float: right; }
