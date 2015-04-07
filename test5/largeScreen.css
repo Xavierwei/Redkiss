@@ -32,15 +32,23 @@ body {
 .fl { float: left; }
 
 .content { position: relative; }
-.content1 { background: url("bg1.jpg") no-repeat;}
-.content2 { background: url("bg2.jpg") no-repeat;}
-.content3 { background: url("bg3.jpg") no-repeat;}
+.content1 { background:#57000e url("bg1.jpg") no-repeat;}
+.content2 { background:#57000e url("bg2.jpg") no-repeat;}
+.content3 { background:#57000e url("bg3.jpg") no-repeat;}
 
 .su_constellation { position: relative; letter-spacing: 5px; font-size: 24px; 
     background-attachment: fixed; }
 
-@media screen and (max-width: 1600px) {
-    .su_constellation { font-size: 22px!important; }
+@media screen and (max-width: 1000px) {
+    .su_constellation { font-size: 16px!important; }
+}
+@media screen and (max-width: 1200px) {
+    .su_constellation { font-size: 18px!important; }
+    .e .star2 { top: 260px!important; }
+    .e .star3 { top: 320px!important; left: 450px!important; }
+    .e .star4 { top: 420px!important; }
+    .e .star5 { top: 520px!important; }
+    .e .star6 { left: 200px!important; top: 600px!important; }
 }
 @media screen and (max-width: 1400px) {
     .su_constellation { font-size: 20px!important; }
@@ -52,17 +60,14 @@ body {
     .e .star11 { top: 648px!important; }
     .e .star12 { top: 758px!important; }
 }
-@media screen and (max-width: 1200px) {
-    .su_constellation { font-size: 18px!important; }
-}
-@media screen and (max-width: 1000px) {
-    .su_constellation { font-size: 16px!important; }
+@media screen and (max-width: 1600px) {
+    .su_constellation { font-size: 22px!important; }
 }
 
 .star { position: absolute; z-index: 2; 
 	font-family: "FranklinGothicLT-DemiCmpr", "frankgoth_xcn_btregular" , Helvetica, Arial, sans-serif; }
 			
-.e .star1 { left: 55px; top: 98px; }
+.e .star1 { left: 55px; top: 110px; }
 
 .e .star2 { left: 90px; top: 350px; }
 
