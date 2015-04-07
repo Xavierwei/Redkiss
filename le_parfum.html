@@ -36,7 +36,11 @@
                 });
             },
             loadFinished: function () {
-                $('body > #mask-dddd').remove();
+                $('#mask-dddd #preloader').stop().animate({
+                    opacity: 0
+                }, 300, function () {
+                    $('body #mask-dddd').remove();
+                });
             }
         });
         </script>

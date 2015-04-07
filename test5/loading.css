@@ -21,6 +21,7 @@
 }
 
 .preloader {
+    background: url(../assets/img/loading-bg.jpg);
     position: fixed;
     display: none;
     z-index: 3;
