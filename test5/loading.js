@@ -43,9 +43,17 @@
         function documentReady() {
             var dom = $(this),
                 crtLoaded = 0,
+                minItem = 5;
                 total = dom.size();
 
+            var animator = false;
+            if (total < minItem) {
+                total = minItem;
+                animator = true;
+            }
+
             if (total < 1) return;
+
 
             dom.each(function () {
                 if ($(this).prop('tagName') != 'IMG') {
@@ -53,20 +61,38 @@
                 }
             });
 
-            dom.each(function () {
+            var loadCb = function () {
+                crtLoaded += 1;
+                self.crtLoaded = crtLoaded;
+                self.total = total;
+
+                options.itemPerLoad.apply(self, [crtLoaded, total]);
+
+                if (crtLoaded == total) {
+                    options.loadFinished.apply(self, [total]);
+                }
+            }
+            if (animator) {
+                // 模拟动画
+                var crtTime = 1;
+                total = minItem = 20;
+                function animatorFn(time) {
+                    if (crtTime >= minItem) {
+                        return;
+                    }
+                    setTimeout(function () {
+                        loadCb();
+                        animatorFn(time);
+                        crtTime += 1;
+                    }, time);
+                }
+
+                animatorFn(options.delay);
+            }
+            else{
+                dom.each(function () {
                 var img = $(this);
                 img.data('src', img.attr('src')).removeAttr('src');
-                var loadCb = function () {
-                    crtLoaded += 1;
-                    self.crtLoaded = crtLoaded;
-                    self.total = total;
-
-                    options.itemPerLoad.apply(self, [crtLoaded, total, img]);
-
-                    if (crtLoaded == total) {
-                        options.loadFinished.apply(self, [total, img]);
-                    }
-                }
                 img.load(function () {
                     if (options.delay) {
                         setTimeout(loadCb, options.delay);
@@ -78,6 +104,9 @@
                 });
                 img.attr('src', img.data('src'));
             });
+            }
+
+
         }
     }
 })(jQuery);

@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8' name="viewport" content="width=device-width, initial-scale=1" >
+		<title></title>
+
+
+		<link rel="stylesheet" href="test5/largeScreen.css" />
+
+		<script src="test5/jquery.min.js"></script>
+		<script src="test5/jquery.stellar.min.js"></script>
+		<script>		
+			$(function (){
+				$.stellar({
+				    horizontalScrolling: false,
+				    responsive: true
+				});
+				var percent=0,
+					$sall=$(".s_all"),
+					$loadding=$("#loadding");
+				function loadding(){
+					percent=percent+Math.floor(Math.random()*20);
+					if(percent>100){
+						percent=100;
+						$loadding.width(percent+"%");
+						$sall.fadeIn(300);
+						return false;
+					};
+						console.log(percent);
+					$loadding.width(percent+"%");
+					setTimeout(loadding,500);
+				}
+				loadding();
+				
+			});
+		</script>
+		<!--[if lt IE 9]>
+	　　　　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	　　<![endif]-->
+		<style type="text/css">
+			html,body,.s_all,.contents,.content{height: 100%;width: 100%;}
+			.contents{background: none;}
+			.content{background-size:100%;background-position-y:50%;}
+			#loadding{position:absolute;height: 100px;width: 0px;top: 50%;left: 0;margin-top: -50px;background: red;}
+		</style>
+	</head>
+	<body>
+		<div id='loadding'></div>
+		<div class="s_all" style="display:none;">
+
+			<div class="s_nav">
+				<div class="fl">
+					<a href="javascript:;" class="fl"><span class="s_logo"></span></a>
+					<a href="javascript:;" class="fl"><span class="s_logo2"></span></a>
+					<ul class="fl">
+						<li><a href="javascript:;">LE PARFUM</a></li>
+						<li><a href="javascript:;">LE FILM</a></li>
+						<li><a href="javascript:;">JE LE VEUX!</a></li>
+						<li><a href="javascript:;">PRESSROOM</a></li>
+					</ul>
+				</div>
+				<div class="fr"></div>
+				<div class="clear"></div>
+
+				<div class="s_links">
+					<a href="javascript:;" class="links1">aaa</a>
+					<a href="javascript:;" class="links2">sss</a>
+					<a href="javascript:;" class="links3">ddd</a>
+					<a href="javascript:;" class="links4">fff</a>
+				</div>
+				
+			</div>
+
+			<div class="contents">
+				<div class="content content1" data-stellar-background-ratio="0.5">
+					<h2 data-stellar-offset-parent="true">	
+						<div class="su_constellation e">
+							<div class="star star1 large" data-stellar-ratio="5">LE PARFUM LOVERDOSE REDKISS</div> 
+						    
+							<div class="star star2 small" data-stellar-ratio="3">ADDICTIVE NOISETTE AMBREE</div>
+
+						    <div class="star star3 medium" data-stellar-ratio="4">VIBRANT</div>
+
+							<div class="star star4 small" data-stellar-ratio="3">FLORIENTAL ADDICTIF</div>
+
+							<div class="star star5 medium" data-stellar-ratio="4">GOURMAND</div>
+
+							<div class="star star6 small" data-stellar-ratio="3">SENSUELLE FLEUR D'ORANGER</div>
+						</div>
+					</h2>
+				</div>
+			</div>
+		
+
+
+			<div class="contents">
+				<div class="content content2" data-stellar-background-ratio="0.5">
+					<div data-stellar-offset-parent="true">
+						<div class="su_constellation e">
+							<div class="star star7 large" data-stellar-ratio="5">L'EFFET REDKISS</div> 
+							<div class="star star8 small" data-stellar-ratio="3">ONDES SENSUELLES</div>
+							<div class="star star9 medium" data-stellar-ratio="4">SEDUCTION</div>
+
+							<div class="star star10 small" data-stellar-ratio="3">HAUTE TENSION</div>
+							<div class="star star11 medium" data-stellar-ratio="4">ATTENTION</div>
+							<div class="star star12 small" data-stellar-ratio="3">LA TEMPERATURE MONTE</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="contents">
+				<div class="content content3" data-stellar-background-ratio="0.5">
+					<h2 data-stellar-offset-parent="true">	
+						<div class="su_constellation e">
+								<div class="star star1 large" data-stellar-ratio="5">LE PARFUM LOVERDOSE REDKISS</div> 
+							    
+								<div class="star star2 small" data-stellar-ratio="3">ADDICTIVE NOISETTE AMBREE</div>
+
+							    <div class="star star3 medium" data-stellar-ratio="4">VIBRANT</div>
+
+								<div class="star star4 small" data-stellar-ratio="3">FLORIENTAL ADDICTIF</div>
+
+								<div class="star star5 medium" data-stellar-ratio="4">GOURMAND</div>
+
+								<div class="star star6 small" data-stellar-ratio="3">SENSUELLE FLEUR D'ORANGER</div>
+							</div>
+					</h2>			
+				</div>
+			</div>
+
+
+		</div>
+	</body>
+</html>

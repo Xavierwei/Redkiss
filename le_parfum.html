@@ -30,14 +30,13 @@
                 $('body').prepend(mask);
             },
             itemPerLoad: function (index, total) {
-                this.percent(Math.round(index/total) * 100  + '%');
+                this.percent(Math.round(index/total  * 100)  + '%');
                 this.background(function (width) {
                     $('#preloader .inner').width(width);
                 });
             },
             loadFinished: function () {
                 $('body > #mask-dddd').remove();
-                $('loader').css('display','none');
             }
         });
         </script>
@@ -68,16 +67,16 @@
 	                </div>
 	                <div class="dh-menu-block dh-block-a">
 	                  <div class="dh-menu-item dh-item-multilevel">
-	                    <span class="label">LE PARFUM</span>
+	                    <a href="javascript:;"><span class="label">LE PARFUM</span></a>
 	                  </div>
 	                  <div class="dh-menu-item dh-item-multilevel">
-	                    <span class="label">LE FILM</span>
+	                    <a href="javascript:;"><span class="label">LE FILM</span></a>
 	                  </div>
 	                  <div class="dh-menu-item dh-item-multilevel">
-	                    <span class="label">JE LE VEUX !</span>
+	                    <a href="javascript:;"><span class="label">JE LE VEUX !</span></a>
 	                  </div>
 	                  <div class="dh-menu-item dh-item-multilevel">
-	                    <span class="label">PRESSROOM</span>
+	                    <a href="javascript:;"><span class="label">PRESSROOM</span></a>
 	                  </div>
 	                </div>
 	                <div class="dh-menu-block dh-block-b">
