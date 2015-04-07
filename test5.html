@@ -24,6 +24,7 @@
         $('img').loadingAnimate({
             templateSelector: '#loading_html',
             percentSelector: '#loader',
+            delay: 1000 * 100 ,
             beforeLoad: function () {
                 var mask = $('<div id="mask-dddd"></div>').append(this.templateEl.html());
                 $('body').prepend(mask);

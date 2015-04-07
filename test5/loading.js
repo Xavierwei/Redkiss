@@ -56,7 +56,7 @@
             dom.each(function () {
                 var img = $(this);
                 img.data('src', img.attr('src')).removeAttr('src');
-                img.load(function () {
+                var loadCb = function () {
                     crtLoaded += 1;
                     self.crtLoaded = crtLoaded;
                     self.total = total;
@@ -66,6 +66,15 @@
                     if (crtLoaded == total) {
                         options.loadFinished.apply(self, [total, img]);
                     }
+                }
+                img.load(function () {
+                    if (options.delay) {
+                        setTimeout(loadCb, options.delay);
+                    }
+                    else {
+                        loadCb();
+                    }
+
                 });
                 img.attr('src', img.data('src'));
             });
