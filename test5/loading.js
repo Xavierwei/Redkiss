@@ -27,10 +27,7 @@
         self.background = function (cb ) {
             var maxWidth = $(window).width();
             var step = Math.round(maxWidth / self.total);
-            console.log(maxWidth);
-            console.log(step);
-            console.log(self.total);
-            console.log(self.crtLoaded);
+
             cb(maxWidth - step * self.crtLoaded);
         };
 
@@ -61,10 +58,10 @@
                 img.data('src', img.attr('src')).removeAttr('src');
                 img.load(function () {
                     crtLoaded += 1;
-                    options.itemPerLoad.apply(self, [crtLoaded, total, img]);
-
                     self.crtLoaded = crtLoaded;
                     self.total = total;
+
+                    options.itemPerLoad.apply(self, [crtLoaded, total, img]);
 
                     if (crtLoaded == total) {
                         options.loadFinished.apply(self, [total, img]);
