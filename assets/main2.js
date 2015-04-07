@@ -1,4 +1,5 @@
 (function($){
+    var domain='http://redkiss.ffshtest.net';
 	$('.footer_link a').on('click', function(){
 		var index = $(this).data('link');
 		$('.popup_content').fadeIn().find('#ft_content_' + index).show();
@@ -35,7 +36,7 @@
             email:email,
             allow_rcv:allow_rcv
         }
-        $.post('/user/email',post_data,function(response){
+        $.post(domain+'admin/user/email',post_data,function(response){
             if(response.status==0){
                 alert("success!");
             }else{

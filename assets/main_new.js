@@ -6255,7 +6255,7 @@ var SH;
           this.currentFrameNumber = num;
           //zzz
           var globalData = {
-              endFrame : 1244,
+              endFrame : 1707,
               initFrameStart: 38,
               initFrameEnd: 53,
               navFrameStart: this.customFrames.indexOf(327),
@@ -7349,7 +7349,7 @@ var SH;
             this.lastInput = null,
             this.keyframeCounter = 0,
             //czhang
-            this.keyframeRepeat = 15,
+            this.keyframeRepeat = 20,
             this.approachingKeyFrame = !1,
             this.targetFrame = null,
             this.targetFromFrame = null,
