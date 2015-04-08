@@ -72,6 +72,7 @@
         var emailBtn = $('#sns_email > a')
             ,emailSct = $('#sns_email_popup')
             ,sendBtn = $("#sns_email_submit")
+            ,emailInput = $("#sns_form_email")
             ,emailCon = $('.end_list_wrap');
 
         var offset = emailBtn.offset();
@@ -107,11 +108,14 @@
                 emailBtn.click();
 
                 setTimeout(function () {
+                    con.html('');
                     $.each(els, function (index) {
-                        con.html('').append(els[index]);
+                        con.append(els[index]);
                     });
+                    emailInput.val('');
+
                 }, 600);
-            }, 2000);
+            }, 1000);
         }
 
         function showError(error){
@@ -124,8 +128,22 @@
             }, 200);
         }
 
+        function isEmail(email) {
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
+        }
+
         sendBtn.click(function () {
-            setTimeout(showSuccess, 500);
+            if (isEmail(emailInput.val())) {
+                showError("EMAIL IS INVALID");
+            }
+            else {
+                setTimeout(showSuccess, 500);
+            }
+        });
+
+        emailInput.focus(function () {
+            $(this).val(' ');
         });
 
         $('body').click(function (event) {
