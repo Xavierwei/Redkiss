@@ -828,7 +828,7 @@ article.headline h2 {
 article.headline.left h1, article.headline.left h2 {
     float: left;
     clear: both; }
-article.headline.right h1, article.headline.right h2 {
+article.headline.right h1, article.headline.right h2, article.headline.right div {
     float: right;
     clear: both; }
 article.product-name {
