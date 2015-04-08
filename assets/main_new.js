@@ -6154,10 +6154,10 @@ var SH;
             return n >= 0 && n < _this.length
           };
           this.startFrame = startFrame;
-          _this.preloadFramesAhead = 300;
-          var preloadFramesAhead = 300,
+          _this.preloadFramesAhead = 260;
+          var preloadFramesAhead = 260,
             reverseDecay = 2;
-          SH.Config.isMobile && (preloadFramesAhead = 300, reverseDecay = 1);
+          SH.Config.isMobile && (preloadFramesAhead = 260, reverseDecay = 1);
           for (var firstPhasePreloads = [], counter = 0, counterBack = 0, l = this.length, incrExtra = 0, incrBack = 0; l > counter; counterBack++, counter++) {
             incrExtra = Math.max(0, 2 * Math.floor(counter / preloadFramesAhead) - 1),
             incrBack = Math.max(0, 2 * Math.floor(counterBack / preloadFramesAhead) - 1),
