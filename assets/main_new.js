@@ -6265,10 +6265,12 @@ var SH;
           }
           // show end frame layout
           if(num >= globalData.endFrame && !$('.end_frame').is(':visible')) {
-              $('.end_frame').fadeIn();
+              $('.end_frame').fadeIn()
+              //$('#section-nav').fadeOut();
           }
           else if(num <= globalData.endFrame && $('.end_frame').is(':visible')) {
               $('.end_frame').fadeOut();
+              //$('#section-nav').fadeIn();
           }
 
           // show scroll button
@@ -7207,7 +7209,7 @@ var SH;
           lengthOfFrames = this.sections.length;
         for (idx = 1; lengthOfFrames > idx && (curr = this.sections[idx], !(f <= prev[2])); idx++)
           prev = curr, prevIdx = idx;
-        for (var c = this.navColors[f] || "#81C9DF", i = 0, l = this.items.length; l > i; i++) {
+        for (var c = this.navColors[f] || "#FFF", i = 0, l = this.items.length; l > i; i++) {
           var isCurrent = i == prevIdx,
             it = this.items[i],
             it_ = it.firstChild;
@@ -7577,6 +7579,7 @@ var SH;
           // this.preloadAnimation.animationComplete.resolve();
           this.preloadAnimation.animationComplete.then(function () {
             _this.stateAcceptingInput(); //准备界面,绑定事件
+              $('#section-nav').show();
             // debugger; //数网络下载图片数
           }),
           this.statePreloadWait()
@@ -7607,7 +7610,7 @@ var SH;
           }), $(".scrollbar").show().transition({
             opacity: 1,
             marginRight: 0
-          }), this.nav.hide(), $('#loader').remove(), $('#preloader').remove(),
+          }), $('#loader').remove(), $('#preloader').remove(),
           redkiss.playhead.seekTo(0),redkiss.playhead.start(),redkiss.playhead.playTo(40);
           $('.btn_scrolldown').on('click', function(){
               redkiss.playhead.seekTo(50);
