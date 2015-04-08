@@ -3185,16 +3185,32 @@ article .hotspot {
 .sns_email_popup{
     position: absolute;
     z-index: 100;
-    background-color: black;
     display:none;
-    padding:20px;
+    top:90px;
+    left:0px;
+    width: 400px;
 }
+
+.sns_email_triangle{
+    background-image: url("../img/triangle.png");
+    width: 40px;
+    height: 13px;
+    top: -13px;
+    left: 50px;
+    position: absolute;
+}
+
+.sns_email_form{
+    padding:20px 10px 10px 20px;
+    background-color: black;
+}
+
 .sns_email_popup div{
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 #sns_form_email{
-    width: 320px;
+    width: 340px;
 }
 
 #sns_form_email_validate{
@@ -3214,6 +3230,14 @@ article .hotspot {
     width:300px;
 }
 
+#sns_email_submit{
+    width: 400px;
+    height: 35px;
+    margin-top: 5px;
+    background-image: url("../img/mail_ok.png");
+    background-size: 400px 35px;
+    cursor:pointer;
+}
 /**
  * 隐藏默认的checkbox
  */
@@ -3226,6 +3250,7 @@ input[type=checkbox] {
  */
 .checkboxFive {
     width: 25px;
+    height: 30px;
     position: relative;
 }
 
@@ -3279,3 +3304,4 @@ input[type=checkbox] {
 .checkboxFive input[type=checkbox]:checked + label:after {
     opacity: 1;
 }
+

@@ -7610,9 +7610,9 @@ var SH;
           }), this.nav.hide(), $('#loader').remove(), $('#preloader').remove(),
           redkiss.playhead.seekTo(0),redkiss.playhead.start(),redkiss.playhead.playTo(40);
           $('.btn_scrolldown').on('click', function(){
-              redkiss.playhead.seekTo(40);
+              redkiss.playhead.seekTo(50);
               redkiss.playhead.start()
-              redkiss.playhead.playTo(132);
+              redkiss.playhead.playTo(185);
           });
         }, App
     }();

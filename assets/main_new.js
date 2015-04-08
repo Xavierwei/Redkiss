@@ -6258,10 +6258,10 @@ var SH;
               endFrame : 1707,
               initFrameStart: 38,
               initFrameEnd: 53,
-              navFrameStart: this.customFrames.indexOf(327),
-              navFrameEnd: this.customFrames.indexOf(424),
-              navFrameStart2: this.customFrames.indexOf(510),
-              navFrameEnd2: this.customFrames.indexOf(601)
+              navFrameStart: this.customFrames.indexOf(420),
+              navFrameEnd: this.customFrames.indexOf(530),
+              navFrameStart2: this.customFrames.indexOf(680),
+              navFrameEnd2: this.customFrames.indexOf(830)
           }
           // show end frame layout
           if(num >= globalData.endFrame && !$('.end_frame').is(':visible')) {
@@ -7610,9 +7610,9 @@ var SH;
           }), this.nav.hide(), $('#loader').remove(), $('#preloader').remove(),
           redkiss.playhead.seekTo(0),redkiss.playhead.start(),redkiss.playhead.playTo(40);
           $('.btn_scrolldown').on('click', function(){
-              redkiss.playhead.seekTo(40);
+              redkiss.playhead.seekTo(50);
               redkiss.playhead.start()
-              redkiss.playhead.playTo(132);
+              redkiss.playhead.playTo(185);
           });
         }, App
     }();
