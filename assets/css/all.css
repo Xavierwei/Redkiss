@@ -3289,13 +3289,14 @@ input[type=checkbox] {
 }
 
 .email-error-msg {
-    width: 200px;
+    width: 400px;
     display: inline-block;
     position: absolute;
     font-size: 11px;
     color: #f00;
     top: 33px;
-    left: 103px;
+    text-align: center;
+    left: -20px;
 }
 
 .email-success-msg {
