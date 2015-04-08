@@ -104,7 +104,13 @@
             con.html(msg);
 
             setTimeout(function () {
-                emailCon.fadeIn(500);
+                emailBtn.click();
+
+                setTimeout(function () {
+                    $.each(els, function (index) {
+                        con.html('').append(els[index]);
+                    });
+                }, 600);
             }, 2000);
         }
 
