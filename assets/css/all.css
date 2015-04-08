@@ -3184,6 +3184,7 @@ article .hotspot {
     top:90px;
     left:0px;
     width: 400px;
+    margin-top: 2px;
 }
 
 .sns_email_triangle{
@@ -3206,6 +3207,16 @@ article .hotspot {
 
 #sns_form_email{
     width: 340px;
+    background: #000;
+    border: 0px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+}
+
+#sns_form_email::-webkit-input-placeholder {
+    color: #fff;
 }
 
 #sns_form_email_validate{
@@ -3223,6 +3234,7 @@ article .hotspot {
     top:-25px;
     left:35px;
     width:300px;
+    font-size: 15px;
 }
 
 #sns_email_submit{
@@ -3233,51 +3245,44 @@ article .hotspot {
     background-size: 400px 35px;
     cursor:pointer;
 }
-/**
- * 隐藏默认的checkbox
- */
+
 input[type=checkbox] {
     visibility: hidden;
 }
 
-/**
- * Checkbox Five
- */
 .checkboxFive {
     width: 25px;
     height: 30px;
     position: relative;
 }
 
-/**
- * Create the box for the checkbox
- */
 .checkboxFive label {
     cursor: pointer;
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     top: 0;
     left: 0;
-    background: #eee;
-    border:1px solid #ddd;
+    background: #000;
+    border: 2px solid #fff;
 }
 
-/**
- * Display the tick inside the checkbox
- */
 .checkboxFive label:after {
-    opacity: 0.2;
+
+}
+
+.checkboxFive input[type=checkbox]:checked + label:after {
+    opacity: 1;
     content: '';
     position: absolute;
     width: 9px;
     height: 5px;
     background: transparent;
-    top: 6px;
-    left: 7px;
-    border: 3px solid #333;
+    border: 2px solid #fff;
     border-top: none;
     border-right: none;
+    top: 3px;
+    left: 2px;
 
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
@@ -3286,18 +3291,24 @@ input[type=checkbox] {
     transform: rotate(-45deg);
 }
 
-/**
- * Create the hover event of the tick
- */
-.checkboxFive label:hover::after {
-    opacity: 0.5;
+.email-error-msg {
+    width: 200px;
+    display: inline-block;
+    position: absolute;
+    font-size: 11px;
+    color: #f00;
+    top: 33px;
+    left: 103px;
 }
 
-/**
- * Create the checkbox state for the tick
- */
-.checkboxFive input[type=checkbox]:checked + label:after {
-    opacity: 1;
+.email-success-msg {
+    width: 200px;
+    display: inline-block;
+    position: absolute;
+    font-size: 15px;
+    color: #fff;
+    top: 0px;
+    left: 144px;
 }
 
 .section_roll{
