@@ -3140,7 +3140,7 @@ html.mobile .badwidth {
 .end_frame .end_sns .before,.end_frame .end_sns .after {background:url('../img/last_icons.gif') no-repeat;width:35px;height:38px;}
 .end_frame .end_sns .after {float:right;}
 .end_frame .end_sns {margin-top:15px;}
-.end_frame .end_sns a {background:url('../img/last_icons.gif') no-repeat;margin:0 22px;display:block;width:66px;height:38px;font-size:0;}
+.end_frame .end_sns a {background:url('../img/last_icons.gif') no-repeat;margin:0 22px;display:block;width:50px;height:38px;font-size:0;}
 .end_frame .end_sns .sns_email a {background-position:-74px 0;}
 .end_frame .end_sns .sns_fb a {background-position:-152px 0;}
 .end_frame .end_sns .sns_twitter a {background-position:-223px 0;}
@@ -3333,4 +3333,26 @@ input[type=checkbox] {
 .viewport-inner a {
     color: #fff;
     display: inline-block;
+}
+
+.end_sns_music{
+    margin-top: 20px;
+    background-color: #000000;
+}
+
+.end_sns_music i{
+    margin-top:5px;
+}
+
+.end_sns_music a{
+    position: relative;
+    top:-8px;
+    margin-left: 60px;
+    margin-right: 10px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.end_sns_music a:hover {
+    color: #979797;
 }

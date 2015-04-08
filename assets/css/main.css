@@ -1,0 +1,44 @@
+.icon{
+    display: inline-block;
+    width:38px;
+    height: 30px;
+    background-size:38px 30px ;
+}
+
+.icon-arrow{
+    background-image: url(../img/icons/icon_arrow.png);
+}
+
+.icon-email{
+    background-image: url(../img/icons/icon_email.png);
+}
+
+.icon-facebook{
+    background-image: url(../img/icons/icon_facebook.png);
+}
+
+.icon-music{
+    background-image: url(../img/icons/icon_music.png);
+}
+
+.icon-shopping{
+    background-image: url(../img/icons/icon_shopping.png);
+}
+
+.icon-twitter{
+    background-image: url(../img/icons/icon_twitter.png);
+}
+
+.bg{
+    width: 400px;
+    height: 40px;
+    background-color: #000;
+}
+
+.pull-left{
+    float:left
+}
+
+.pull-right{
+    float:right
+}
