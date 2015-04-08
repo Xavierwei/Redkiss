@@ -122,6 +122,7 @@
             error || (error = "ERROR HAPPENED, PLEASE TRY LATER");
             var msg = $('<span style="opacity: 0;" class="email-error-msg">'+error+'</span>');
 
+            $('.checkboxFive').find('.email-error-msg').remove();
             $('.checkboxFive').append(msg);
             msg.animate({
                 opacity: 1
