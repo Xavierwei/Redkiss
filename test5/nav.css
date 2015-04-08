@@ -321,6 +321,9 @@ img {
 .shoppingLi { padding-top: 5px; }
 .shoppingImg { display: block; width: 35px; height: 27px; background: url(shopping.jpg) no-repeat; }
 .dh-menu-item a { display: block; }
+#diesel-header .dh-body .dh-menu .dh-menu-body .dh-menu-block .dh-menu-item .s_active .label {
+    color: #000;
+}
 
 menu,ol,ul { padding: 0 0 0 40px; }
 footer { position: fixed; z-index: 21; bottom: 0; width: 100%; height: 76px;
