@@ -822,7 +822,7 @@ article.headline h2 {
     clear: both;
     margin: 0 0 55px;
     letter-spacing: 3px; }
-article.headline.left h1, article.headline.left h2 {
+article.headline.left h1, article.headline.left h2, article.headline.left div {
     float: left;
     clear: both; }
 article.headline.right h1, article.headline.right h2, article.headline.right div {
