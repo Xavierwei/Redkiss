@@ -130,11 +130,11 @@
 
         function isEmail(email) {
             var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            return regex.test(email);
+            return regex.test(email) ;
         }
 
         sendBtn.click(function () {
-            if (isEmail(emailInput.val())) {
+            if (!isEmail(emailInput.val()) || !emailInput.val().length) {
                 showError("EMAIL IS INVALID");
             }
             else {
