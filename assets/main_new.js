@@ -6466,18 +6466,23 @@ var SH;
           var upscaleFrameNumber = n || this.lastFrameNumber,
             framePromise = this.source.getLargeFrame(upscaleFrameNumber),
             f = redkiss.playhead.videoController.source.currentFrameNumber;
-          framePromise.then(function (f) {
-            upscaleFrameNumber !== _this.lastFrameNumber || _this.frameQueued && upscaleFrameNumber !== _this.frameQueued || (function(){
-              // f = redkiss.playhead.videoController.source.currentFrameNumber;
-              // if(f && f < 20) return;
-              // console.log(f);
-              // _this.renderer.render(f);
-              // if(f<40) {
-              //   _this.renderer.render(f);
-              // }
-              
-            }())
-          })
+
+            framePromise.then(function (f) {
+                upscaleFrameNumber !== _this.lastFrameNumber || _this.frameQueued && upscaleFrameNumber !== _this.frameQueued || _this.renderer.render(f);
+            });
+
+          //framePromise.then(function (f) {
+          //  upscaleFrameNumber !== _this.lastFrameNumber || _this.frameQueued && upscaleFrameNumber !== _this.frameQueued || (function(){
+          //    // f = redkiss.playhead.videoController.source.currentFrameNumber;
+          //    // if(f && f < 20) return;
+          //    // console.log(f);
+          //    // _this.renderer.render(f);
+          //    // if(f<40) {
+          //    //   _this.renderer.render(f);
+          //    // }
+          //
+          //  }())
+          //})
         }
       }, Controller.prototype.nextKeyFrame = function () {
         var f = Math.round((this.length - 1) * this.currentProgress),
