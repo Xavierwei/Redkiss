@@ -6255,7 +6255,7 @@ var SH;
           this.currentFrameNumber = num;
           //zzz
           var globalData = {
-              endFrame : 1244,
+              endFrame : 1707,
               initFrameStart: 38,
               initFrameEnd: 53,
               navFrameStart: this.customFrames.indexOf(327),
@@ -7349,7 +7349,7 @@ var SH;
             this.lastInput = null,
             this.keyframeCounter = 0,
             //czhang
-            this.keyframeRepeat = 15,
+            this.keyframeRepeat = 20,
             this.approachingKeyFrame = !1,
             this.targetFrame = null,
             this.targetFromFrame = null,
@@ -7610,9 +7610,9 @@ var SH;
           }), this.nav.hide(), $('#loader').remove(), $('#preloader').remove(),
           redkiss.playhead.seekTo(0),redkiss.playhead.start(),redkiss.playhead.playTo(40);
           $('.btn_scrolldown').on('click', function(){
-              redkiss.playhead.seekTo(40);
+              redkiss.playhead.seekTo(50);
               redkiss.playhead.start()
-              redkiss.playhead.playTo(132);
+              redkiss.playhead.playTo(185);
           });
         }, App
     }();

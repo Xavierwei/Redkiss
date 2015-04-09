@@ -3,7 +3,6 @@
     src: url("../fonts/FrankGotLTBooCmp.eot");
     src: url('../fonts/FrankGotLTBooCmp.eot') format('embedded-opentype'),
          url('../fonts/FrankGotLTBooCmp.woff2') format('woff2'),
-         url('../fonts/FrankGotLTBooCmp.woff') format('woff'),
          url('../fonts/FrankGotLTBooCmp.ttf') format('truetype'),
          url('../fonts/FrankGotLTBooCmp.svg#FrankGotLTBooCmp') format('svg');
 }
@@ -17,9 +16,7 @@
     url('../fonts/FranklinGothicLT-DemiCmpr.ttf') format('truetype'),
     url('../fonts/FranklinGothicLT-DemiCmpr.svg#FrankGotLTBooCmp') format('svg');
 }
-
 * {
-    outline: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
@@ -825,10 +822,10 @@ article.headline h2 {
     clear: both;
     margin: 0 0 55px;
     letter-spacing: 3px; }
-article.headline.left h1, article.headline.left h2 {
+article.headline.left h1, article.headline.left h2, article.headline.left div {
     float: left;
     clear: both; }
-article.headline.right h1, article.headline.right h2 {
+article.headline.right h1, article.headline.right h2, article.headline.right div {
     float: right;
     clear: both; }
 article.product-name {
@@ -1802,13 +1799,10 @@ button.scroll-down {
     right: 18px;
     left: auto;
     top: 50%;
-    /*margin-top: -110px;*/
     margin-top: -16px;
     width: 20px;
     z-index: 21;
     display: none;
-    opacity: 0;
-    /*display: none !important;*/
 }
 #section-nav ul {
     list-style-type: none;
@@ -1841,9 +1835,7 @@ button.scroll-down {
     right: -10px;
     top: -6px;
     font-family: "Franklin Gothic LT BOOK", sst_proregular, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 21px;
     height: 21px;
     -webkit-transition: opacity 0.1s linear;
@@ -1860,7 +1852,7 @@ button.scroll-down {
     padding-left: 10px;
     text-align: right;
     color: white;
-    background: rgba(0, 0, 0, 0.6); }
+    background: red; }
 #section-nav ul li a:hover span {
     display: block;
     opacity: 0.8; }
@@ -3148,7 +3140,7 @@ html.mobile .badwidth {
 .end_frame .end_sns .before,.end_frame .end_sns .after {background:url('../img/last_icons.gif') no-repeat;width:35px;height:38px;}
 .end_frame .end_sns .after {float:right;}
 .end_frame .end_sns {margin-top:15px;}
-.end_frame .end_sns a {background:url('../img/last_icons.gif') no-repeat;margin:0 22px;display:block;width:66px;height:38px;font-size:0;}
+.end_frame .end_sns a {background:url('../img/last_icons.gif') no-repeat;margin:0 22px;display:block;width:50px;height:38px;font-size:0;}
 .end_frame .end_sns .sns_email a {background-position:-74px 0;}
 .end_frame .end_sns .sns_fb a {background-position:-152px 0;}
 .end_frame .end_sns .sns_twitter a {background-position:-223px 0;}
@@ -3185,16 +3177,43 @@ article .hotspot {
 .sns_email_popup{
     position: absolute;
     z-index: 100;
-    background-color: black;
     display:none;
-    padding:20px;
+    top:90px;
+    left:0px;
+    width: 400px;
+    margin-top: 2px;
 }
+
+.sns_email_triangle{
+    background-image: url("../img/triangle.png");
+    width: 40px;
+    height: 13px;
+    top: -13px;
+    left: 50px;
+    position: absolute;
+}
+
+.sns_email_form{
+    padding:20px 10px 10px 20px;
+    background-color: black;
+}
+
 .sns_email_popup div{
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 #sns_form_email{
-    width: 320px;
+    width: 340px;
+    background: #000;
+    border: 0px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+}
+
+#sns_form_email::-webkit-input-placeholder {
+    color: #fff;
 }
 
 #sns_form_email_validate{
@@ -3212,52 +3231,55 @@ article .hotspot {
     top:-25px;
     left:35px;
     width:300px;
+    font-size: 15px;
 }
 
-/**
- * 隐藏默认的checkbox
- */
+#sns_email_submit{
+    width: 400px;
+    height: 35px;
+    margin-top: 5px;
+    background-image: url("../img/mail_ok.png");
+    background-size: 400px 35px;
+    cursor:pointer;
+}
+
 input[type=checkbox] {
     visibility: hidden;
 }
 
-/**
- * Checkbox Five
- */
 .checkboxFive {
     width: 25px;
+    height: 30px;
     position: relative;
 }
 
-/**
- * Create the box for the checkbox
- */
 .checkboxFive label {
     cursor: pointer;
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     top: 0;
     left: 0;
-    background: #eee;
-    border:1px solid #ddd;
+    background: #000;
+    border: 2px solid #fff;
 }
 
-/**
- * Display the tick inside the checkbox
- */
 .checkboxFive label:after {
-    opacity: 0.2;
+
+}
+
+.checkboxFive input[type=checkbox]:checked + label:after {
+    opacity: 1;
     content: '';
     position: absolute;
     width: 9px;
     height: 5px;
     background: transparent;
-    top: 6px;
-    left: 7px;
-    border: 3px solid #333;
+    border: 2px solid #fff;
     border-top: none;
     border-right: none;
+    top: 3px;
+    left: 2px;
 
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
@@ -3266,16 +3288,71 @@ input[type=checkbox] {
     transform: rotate(-45deg);
 }
 
-/**
- * Create the hover event of the tick
- */
-.checkboxFive label:hover::after {
-    opacity: 0.5;
+.email-error-msg {
+    width: 400px;
+    display: inline-block;
+    position: absolute;
+    font-size: 11px;
+    color: #f00;
+    top: 33px;
+    text-align: center;
+    left: -20px;
 }
 
-/**
- * Create the checkbox state for the tick
- */
-.checkboxFive input[type=checkbox]:checked + label:after {
-    opacity: 1;
+.email-success-msg {
+    width: 200px;
+    display: inline-block;
+    position: absolute;
+    font-size: 15px;
+    color: #fff;
+    top: 0px;
+    left: 144px;
+}
+
+.section_roll{
+    margin-top:20px
+}
+
+.section_roll A:link {
+    color: #FFF;
+    text-decoration: none
+}
+.section_roll A:visited {
+    color: #FFF;
+    text-decoration: none
+}
+.section_roll A:hover {
+    color: #979797;
+    text-decoration: underline;
+}
+.section_roll A:active {
+    color: #979797;
+    text-decoration: underline;
+}
+
+.viewport-inner a {
+    color: #fff;
+    display: inline-block;
+}
+
+.end_sns_music{
+    margin-top: 20px;
+    background-color: #000000;
+}
+
+.end_sns_music i{
+    margin-top:5px;
+}
+
+.end_sns_music a{
+    position: relative;
+    top:-8px;
+    margin-left: 60px;
+    margin-right: 10px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.end_sns_music a:hover {
+    color: #979797;
 }

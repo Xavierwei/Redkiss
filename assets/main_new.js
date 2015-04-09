@@ -6073,13 +6073,13 @@ var SH;
         console.log(this.customFrames);
 
         this.urlFunc = function (n, prefix) {
-          var fileDir = "PICS/frames/";
-          return SH.Config.isMobile ? fileDir = "/small_256/" : SH.Config.isTablet && (fileDir = "/small_512/"), config.path + "/frames/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
+          var fileDir = "PIC/small/";
+          return SH.Config.isMobile ? fileDir = "/small_256/" : SH.Config.isTablet && (fileDir = "/small_512/"), config.path + "/small/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
         },
         this.largeUrlFunc = function (n, prefix) {
           //                    var fileDir = "PICS/large/";
-          var fileDir = "PICS/frames/";
-          return SH.Config.isMobile ? fileDir = "/large_960/" : SH.Config.isTablet && (fileDir = "/large_960/"), config.path + "/frames/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
+          var fileDir = "PICS/big/";
+          return SH.Config.isMobile ? fileDir = "/large_960/" : SH.Config.isTablet && (fileDir = "/large_960/"), config.path + "/big/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
         }, this.el = document.createElement("div"), this.currentFrame = null, this.loadGauge = new SH.Interface.FrameLoadGauge($("#frameLoads"), this.length)
       }
       return ImageFrameSource.prototype.loadFrame = function (n, immediately) {
@@ -6103,7 +6103,7 @@ var SH;
             _this.frames[n] = i,
             _this.frameLoads[n].resolve(i),
             _this.loadGauge.setLoaded(n)
-              //czhang
+               //czhang
               //console.log(n, i.src);
           };
           var distanceFromStart = Math.abs(n - this.startFrame);
@@ -6154,10 +6154,10 @@ var SH;
             return n >= 0 && n < _this.length
           };
           this.startFrame = startFrame;
-          _this.preloadFramesAhead = 600;
-          var preloadFramesAhead = 600,
+          _this.preloadFramesAhead = 260;
+          var preloadFramesAhead = 260,
             reverseDecay = 2;
-          SH.Config.isMobile && (preloadFramesAhead = 600, reverseDecay = 1);
+          SH.Config.isMobile && (preloadFramesAhead = 260, reverseDecay = 1);
           for (var firstPhasePreloads = [], counter = 0, counterBack = 0, l = this.length, incrExtra = 0, incrBack = 0; l > counter; counterBack++, counter++) {
             incrExtra = Math.max(0, 2 * Math.floor(counter / preloadFramesAhead) - 1),
             incrBack = Math.max(0, 2 * Math.floor(counterBack / preloadFramesAhead) - 1),
@@ -6255,20 +6255,22 @@ var SH;
           this.currentFrameNumber = num;
           //zzz
           var globalData = {
-              endFrame : 1244,
+              endFrame : 1707,
               initFrameStart: 38,
               initFrameEnd: 53,
-              navFrameStart: this.customFrames.indexOf(327),
-              navFrameEnd: this.customFrames.indexOf(424),
-              navFrameStart2: this.customFrames.indexOf(510),
-              navFrameEnd2: this.customFrames.indexOf(601)
+              navFrameStart: this.customFrames.indexOf(420),
+              navFrameEnd: this.customFrames.indexOf(530),
+              navFrameStart2: this.customFrames.indexOf(680),
+              navFrameEnd2: this.customFrames.indexOf(830)
           }
           // show end frame layout
           if(num >= globalData.endFrame && !$('.end_frame').is(':visible')) {
-              $('.end_frame').fadeIn();
+              $('.end_frame').fadeIn()
+              //$('#section-nav').fadeOut();
           }
           else if(num <= globalData.endFrame && $('.end_frame').is(':visible')) {
               $('.end_frame').fadeOut();
+              //$('#section-nav').fadeIn();
           }
 
           // show scroll button
@@ -6464,18 +6466,23 @@ var SH;
           var upscaleFrameNumber = n || this.lastFrameNumber,
             framePromise = this.source.getLargeFrame(upscaleFrameNumber),
             f = redkiss.playhead.videoController.source.currentFrameNumber;
-          framePromise.then(function (f) {
-            upscaleFrameNumber !== _this.lastFrameNumber || _this.frameQueued && upscaleFrameNumber !== _this.frameQueued || (function(){
-              // f = redkiss.playhead.videoController.source.currentFrameNumber;
-              // if(f && f < 20) return;
-              // console.log(f);
-              // _this.renderer.render(f);
-              // if(f<40) {
-              //   _this.renderer.render(f);
-              // }
-              
-            }())
-          })
+
+            framePromise.then(function (f) {
+                upscaleFrameNumber !== _this.lastFrameNumber || _this.frameQueued && upscaleFrameNumber !== _this.frameQueued || _this.renderer.render(f);
+            });
+
+          //framePromise.then(function (f) {
+          //  upscaleFrameNumber !== _this.lastFrameNumber || _this.frameQueued && upscaleFrameNumber !== _this.frameQueued || (function(){
+          //    // f = redkiss.playhead.videoController.source.currentFrameNumber;
+          //    // if(f && f < 20) return;
+          //    // console.log(f);
+          //    // _this.renderer.render(f);
+          //    // if(f<40) {
+          //    //   _this.renderer.render(f);
+          //    // }
+          //
+          //  }())
+          //})
         }
       }, Controller.prototype.nextKeyFrame = function () {
         var f = Math.round((this.length - 1) * this.currentProgress),
@@ -7207,7 +7214,7 @@ var SH;
           lengthOfFrames = this.sections.length;
         for (idx = 1; lengthOfFrames > idx && (curr = this.sections[idx], !(f <= prev[2])); idx++)
           prev = curr, prevIdx = idx;
-        for (var c = this.navColors[f] || "#81C9DF", i = 0, l = this.items.length; l > i; i++) {
+        for (var c = this.navColors[f] || "#FFF", i = 0, l = this.items.length; l > i; i++) {
           var isCurrent = i == prevIdx,
             it = this.items[i],
             it_ = it.firstChild;
@@ -7349,7 +7356,7 @@ var SH;
             this.lastInput = null,
             this.keyframeCounter = 0,
             //czhang
-            this.keyframeRepeat = 15,
+            this.keyframeRepeat = 20,
             this.approachingKeyFrame = !1,
             this.targetFrame = null,
             this.targetFromFrame = null,
@@ -7577,6 +7584,7 @@ var SH;
           // this.preloadAnimation.animationComplete.resolve();
           this.preloadAnimation.animationComplete.then(function () {
             _this.stateAcceptingInput(); //准备界面,绑定事件
+              $('#section-nav').show();
             // debugger; //数网络下载图片数
           }),
           this.statePreloadWait()
@@ -7607,12 +7615,12 @@ var SH;
           }), $(".scrollbar").show().transition({
             opacity: 1,
             marginRight: 0
-          }), this.nav.hide(), $('#loader').remove(), $('#preloader').remove(),
+          }), $('#loader').remove(), $('#preloader').remove(),
           redkiss.playhead.seekTo(0),redkiss.playhead.start(),redkiss.playhead.playTo(40);
           $('.btn_scrolldown').on('click', function(){
-              redkiss.playhead.seekTo(40);
+              redkiss.playhead.seekTo(50);
               redkiss.playhead.start()
-              redkiss.playhead.playTo(132);
+              redkiss.playhead.playTo(185);
           });
         }, App
     }();

@@ -3,7 +3,7 @@
     "prefix": "",
     "extension": "jpg",
     "frameNumberTemplate": "00000",
-    "frameCount": 1245,
+    "frameCount": 1708,
     "hiResDelay": 100,
     "group": [
       [1, 150],
@@ -28,12 +28,11 @@
     ],
     "sections": [
         ["", 10, 0, "", ""],
-        ["Chapter 1", 63, 235, "", "brings to chapter 1"],
-        ["Chapter 2", 235, 540, "", "brings to chapter 2"],
-        ["Chapter 3", 540, 849, "", "brings to chapter 3"],
-        ["Chapter 4", 849, 1101, "", "brings to packshot page"]
+        ["Chapter 2", 10, 650, "", "Chapter 2"],
+        ["Chapter 3", 650, 1093, "", "Chapter 3"],
+        ["Packshot Page", 1093, 1707, "", "Packshot Page"]
     ],
-    "chapters": [{
+  "chapters": [{
         "id": 1,
         "begin": 152,
         "end": 242

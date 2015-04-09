@@ -1,0 +1,72 @@
+.icon{
+    display: inline-block;
+    width:38px;
+    height: 30px;
+    background-size:38px 30px ;
+}
+
+.icon-arrow{
+    background-image: url(../img/icons/icon_arrow.png);
+}
+
+.icon-email{
+    background-image: url(../img/icons/icon_email.png);
+}
+
+.icon-facebook{
+    background-image: url(../img/icons/icon_facebook.png);
+}
+
+.icon-music{
+    background-image: url(../img/icons/icon_music.png);
+}
+
+.icon-shopping{
+    background-image: url(../img/icons/icon_shopping.png);
+}
+
+.icon-twitter{
+    background-image: url(../img/icons/icon_twitter.png);
+}
+
+.bg{
+    width: 400px;
+    height: 40px;
+    background-color: #000;
+}
+
+.pull-left{
+    float:left
+}
+
+.pull-right{
+    float:right
+}
+
+.clear-fix{
+    clear: both;
+}
+
+.welcome{
+    padding:0;
+    margin:0;
+}
+
+.welcome>.page1{
+    width: 100%;
+    height: 800px;
+    background-image:url("../img/welcome_bg.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin:0;
+    margin-top: 50px;
+    border: 0;
+    padding:0;
+}
+
+.welcome>.page1>.content{
+    width: 45%;
+    color:#ffffff;
+    padding-top: 300px;
+    padding-left: 100px;
+}
