@@ -6073,8 +6073,8 @@ var SH;
         console.log(this.customFrames);
 
         this.urlFunc = function (n, prefix) {
-          var fileDir = "PICS/frames/";
-          return SH.Config.isMobile ? fileDir = "/small_256/" : SH.Config.isTablet && (fileDir = "/small_512/"), config.path + "/frames/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
+          var fileDir = "PIC/mobile/";
+          return SH.Config.isMobile ? fileDir = "/small_256/" : SH.Config.isTablet && (fileDir = "/small_512/"), config.path + "/mobile/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
         },
         this.largeUrlFunc = function (n, prefix) {
           //                    var fileDir = "PICS/large/";
