@@ -6073,13 +6073,13 @@ var SH;
         console.log(this.customFrames);
 
         this.urlFunc = function (n, prefix) {
-          var fileDir = "PIC/mobile/";
-          return SH.Config.isMobile ? fileDir = "/small_256/" : SH.Config.isTablet && (fileDir = "/small_512/"), config.path + "/mobile/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
+          var fileDir = "PIC/small/";
+          return SH.Config.isMobile ? fileDir = "/small_256/" : SH.Config.isTablet && (fileDir = "/small_512/"), config.path + "/small/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
         },
         this.largeUrlFunc = function (n, prefix) {
           //                    var fileDir = "PICS/large/";
-          var fileDir = "PICS/frames/";
-          return SH.Config.isMobile ? fileDir = "/large_960/" : SH.Config.isTablet && (fileDir = "/large_960/"), config.path + "/frames/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
+          var fileDir = "PICS/big/";
+          return SH.Config.isMobile ? fileDir = "/large_960/" : SH.Config.isTablet && (fileDir = "/large_960/"), config.path + "/big/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
         }, this.el = document.createElement("div"), this.currentFrame = null, this.loadGauge = new SH.Interface.FrameLoadGauge($("#frameLoads"), this.length)
       }
       return ImageFrameSource.prototype.loadFrame = function (n, immediately) {
@@ -6103,7 +6103,7 @@ var SH;
             _this.frames[n] = i,
             _this.frameLoads[n].resolve(i),
             _this.loadGauge.setLoaded(n)
-              //czhang
+               //czhang
               //console.log(n, i.src);
           };
           var distanceFromStart = Math.abs(n - this.startFrame);
