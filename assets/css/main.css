@@ -82,6 +82,9 @@
     position: absolute;
     z-index:100;
     text-transform: uppercase;
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+    -khtml-opacity: 0;
     opacity: 0;
 }
 
@@ -155,5 +158,8 @@
     text-align: center;
     font-size: 26px;
     text-transform: uppercase;
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+    -khtml-opacity: 0;
     opacity: 0;
 }
