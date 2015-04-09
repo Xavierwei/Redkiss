@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	<title>redkiss</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="multiscroll plugin by Alvaro Trigo. Create divided multi-scrolling pages with two splited vertical layouts or panels." />
+	<meta name="keywords"  content="multiscroll,jquery,alvaro,trigo,plugin,divided,splitscreen,screen,panels,layouts,vertical,split,splited" />
+	<meta name="Resource-type" content="Document" />
+
+	
+	<link rel="stylesheet" type="text/css" href="css/jquery.multiscroll.css" />		
+	<link rel="stylesheet" type="text/css" href="css/examples.css" />	
+	<link rel="stylesheet" href="css/largeScreen.css" />
+	<link rel="stylesheet" href="css/nav.css" />
+	<link rel="stylesheet" href="css/loading.css" />	
+
+	<style>
+		html,body, div.ms-left, div.ms-right, div.ms-section, div.s_div { width: 100%; height: 100%; }
+		.s_div img { width: 100%; height: 100%; }
+	</style>
+
+	<script src="js/jquery.1.11.2.js"></script>
+	<script src="js/jquery.easings.min.js"></script>
+	<script src="js/jquery.multiscroll.js"></script>
+	<script src="js/loading.js"></script>
+
+	<script type="text/javascript">
+	 $(document).ready(function() {
+            $('#myContainer').multiscroll({
+            	sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],
+            	anchors: ['first', 'second', 'third'],
+            	menu: '#menu',
+            	navigation: true,
+            	navigationTooltips: ['One', 'Two', 'Three'],
+            	loopBottom: true,
+            	loopTop: true
+            });
+        });
+
+	 $('img').loadingAnimate({
+            templateSelector: '#loading_html',
+            percentSelector: '#loader',
+            delay: 100,
+            beforeLoad: function () {
+                var mask = $('<div id="mask-dddd"></div>').append(this.templateEl.html());
+                $('body').prepend(mask);
+            },
+            itemPerLoad: function (index, total) {
+                this.percent(Math.round(index/total  * 100)  + '%');
+                this.background(function (width) {
+                    $('#preloader .inner').width(width);
+                });
+            },
+            loadFinished: function () {
+                $('#mask-dddd #preloader').stop().animate({
+                    opacity: 0
+                }, 300, function () {
+                    $('body #mask-dddd').remove();
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+
+<div id="myContainer">
+
+	<div class="nav-bar" style="display: block;">
+	<div class=" csstransitions" id="diesel-header">
+	  <div class="dh-logo">
+	    <a onclick="trackWoodland('diesel-header_to_diesel-homepage');" href="/">
+	      <img width="106" height="56" alt="Diesel" src="imgs/diesel-logo.png">
+	    </a>
+	    <div class="dh-toggle-button"></div>
+	  </div>
+	  <div class="dh-body">
+	    <div class="dh-menu">
+	      <div class="dh-menu-body">
+	        <div class="lover-dose-red-kiss-logo">
+	          <a>
+	            <img width="295" height="56" alt="Lover Dose" src="imgs/lover-dose-red-kiss-logo.png">
+	          </a>
+	        </div>
+	        <div class="dh-menu-block dh-block-a">
+	          <div class="dh-menu-item dh-item-multilevel">
+	            <a href="/le_parfum.html" class="s_active"><span class="label">LE PARFUM</span></a>
+	          </div>
+	          <div class="dh-menu-item dh-item-multilevel">
+	            <a href="javascript:;"><span class="label">LE FILM</span></a>
+	          </div>
+	          <div class="dh-menu-item dh-item-multilevel">
+	            <a href="javascript:;"><span class="label">JE LE VEUX !</span></a>
+	          </div>
+	          <div class="dh-menu-item dh-item-multilevel">
+	            <a href="javascript:;"><span class="label">PRESSROOM</span></a>
+	          </div>
+	        </div>
+	        <div class="dh-menu-block dh-block-b">
+	          <div class="dh-social-container">
+	            <a onclick="trackWoodland('diesel-header_to_facebook');" target="_blank" title="Facebook" href="https://www.facebook.com/Diesel" class="dh-social-item dh-item-facebook">Facebook</a>
+	            <a onclick="trackWoodland('diesel-header_to_twitter');" target="_blank" title="Twitter" href="https://twitter.com/#!/DIESEL" class="dh-social-item dh-item-twitter">Twitter</a>
+	            <a onclick="trackWoodland('diesel-header_to_youtube');" target="_blank" title="YouTube" href="http://www.youtube.com/user/DieselPlanet/Diesel" class="dh-social-item dh-item-youtube">YouTube</a>
+	            <a onclick="trackWoodland('diesel-header_to_instagram');" target="_blank" title="Instagram" href="http://instagram.com/diesel" class="dh-social-item dh-item-instagram">Instagram</a>
+	            <div class="dh-clear"></div>
+	          </div>
+	        </div>
+	        <div class="dh-clear"></div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+	<div class="ms-left">
+		<div class="ms-section" id="left1">
+			<div class="s_div">
+				<img src="imgs/img5_1.jpg" />
+			</div>
+		</div>
+		<div class="ms-section" id="left2">
+			<div class="s_div">
+				<img src="imgs/img6_1.jpg" />
+			</div>
+		</div>
+		<div class="ms-section" id="left3">
+			<div class="s_div">
+				<img src="imgs/img7_1.jpg" />
+			</div>
+		</div>
+	</div>
+	
+	<div class="ms-right">
+		<div class="ms-section" id="right1">
+			<div class="s_div">
+				<img src="imgs/img5_2.jpg" />
+			</div>
+
+			<div class="end_list_wrap">
+		          <div class="end_list end_sns_links">
+		              <ul>
+		                  <li class="before"></li>
+		                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
+		                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
+		                  <li class="after"></li>
+		              </ul>
+		          </div>
+	        </div>
+
+		</div>
+		<div class="ms-section" id="right2">
+			<div class="s_div">
+				<img src="imgs/img6_2.jpg" />
+			</div>
+
+			<div class="end_list_wrap">
+		          <div class="end_list end_sns_links">
+		              <ul>
+		                  <li class="before"></li>
+		                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
+		                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
+		                  <li class="after"></li>
+		              </ul>
+		          </div>
+	        </div>
+
+		</div>
+		<div class="ms-section" id="right3">
+			<div class="s_div">
+				<img src="imgs/img7_2.jpg" />
+			</div>
+
+			<div class="end_list_wrap">
+		          <div class="end_list end_sns_links">
+		              <ul>
+		                  <li class="before"></li>
+		                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
+		                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
+		                  <li class="after"></li>
+		              </ul>
+		          </div>
+	        </div>
+
+		</div>
+	</div>	
+
+	<footer>
+        <ul class="footer_link">
+          <li><a target="_blank" href="http://www.diesel.com/fragrances/loverdose/">découvrez l’univers l’overdose</a></li>| 
+          <li><a data-link="1" href="javascript:void(0)" class="inner">Mentions légales</a></li>|
+          <li><a data-link="3" href="javascript:void(0)" class="inner">Cookies - statistiques</a></li>|
+          <li><a data-link="2" href="javascript:void(0)" class="inner">DONNÉES PERSONNELLES</a></li>|
+          <li><a data-link="4" href="javascript:void(0)" class="inner">Contact</a></li>
+        </ul>
+    </footer>
+
+</div>
+
+<script type="text/tpl" id="loading_html">
+    <div id="preloader" class="preloader pre-animation-state" style="display: block; top: 0%;">
+        <div class="inner" style="">
+            <h1 class="artists-engineers" style="opacity: 1;"></h1>
+            <p id="intro-text-3">
+            </p>
+
+            <p id="intro-text-4"></p>
+            <p id="intro-text-5"></p>
+
+            <p id="intro-p-6-7">
+                <span id="intro-text-6"></span>
+                <span id="intro-text-7"></span>
+            </p>
+
+            <h1 class="be-moved"></h1>
+
+
+            <p id="intro-scroll-button">
+                <button class="scroll-down">
+                    <h1 class="sony"></h1>
+                    <span class="scroll-message">PLEASE SCROLL DOWN</span>
+                </button>
+            </p>
+        </div>
+    </div>
+    <div class="loader" id="loader" style="display: block; font-size: 14px; position: fixed; z-index: 99;">20%</div>
+</script>
+
+</body>
+</html>
