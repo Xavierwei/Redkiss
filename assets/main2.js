@@ -69,6 +69,7 @@
     //});
 
     $(function () {
+        return;
         var emailBtn = $('#sns_email > a')
             ,emailSct = $('#sns_email_popup')
             ,sendBtn = $("#sns_email_submit")
