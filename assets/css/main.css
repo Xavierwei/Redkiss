@@ -50,14 +50,18 @@
 .welcome{
     padding:0;
     margin:0;
+    width:100%;
+    height: 100%;
 }
 
 .welcome>.page1{
     width: 100%;
-    height: 800px;
+    height: 100%;
     background-image:url("../img/welcome_bg.jpg") ;
     background-repeat: no-repeat;
-    background-size: 100%;
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size:100% 100%;
+    background-size:100% 100%;
     margin:0;
     margin-top: 50px;
     border: 0;
@@ -69,4 +73,87 @@
     color:#ffffff;
     padding-top: 300px;
     padding-left: 100px;
+}
+
+
+
+#welcome_page{
+    width: 100%;
+    position: absolute;
+    z-index:100;
+    text-transform: uppercase;
+    opacity: 0;
+}
+
+#welcome_page a{
+    color:#fff;
+    text-decoration: none;
+}
+
+#welcome_page>.left{
+    width: 50%;
+    float:left;
+}
+#welcome_page>.right{
+    float:right;
+}
+
+#welcome_page>.bottom{
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+}
+
+#welcome_page>.left>.container{
+    margin-left:20%;
+}
+
+#welcome_page>.right>.container{
+    margin-top:40px;
+    margin-right: 200px;
+}
+
+#welcome_page>.right>.container>.first{
+     width: 250px;
+    height: 40px;
+    padding-top: 5px;
+     background-color: #000000;
+ }
+
+#welcome_page>.right>.container>.second{
+    width: 250px;
+    background-color: #000000;
+}
+
+#welcome_page>.left a,#welcome_page>.right a{
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#welcome_page>.right>.container>.first a{
+    width: 140px;
+    text-align: center;
+    margin-left:10px;
+}
+
+#welcome_page>.right>.container>.second{
+    margin-top: 20px;
+}
+
+#welcome_page>.right>.container>.second a{
+    margin-left:40px;
+    position: relative;
+    top:-5px;
+}
+
+#welcome_page_bottom{
+    position: fixed;
+    z-index: 100;
+    bottom: 70px;
+    width: 100%;
+    color:#fff;
+    text-align: center;
+    font-size: 26px;
+    text-transform: uppercase;
+    opacity: 0;
 }
