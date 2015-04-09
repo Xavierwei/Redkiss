@@ -29,6 +29,10 @@
     background-image: url(../img/icons/icon_twitter.png);
 }
 
+.icon-seperator{
+    background-image: url(../img/icons/icon_seperator.png);
+}
+
 .bg{
     width: 400px;
     height: 40px;
@@ -108,12 +112,12 @@
 }
 
 #welcome_page>.left>.container{
-    margin-left:20%;
+    margin-left:10%;
 }
 
 #welcome_page>.right>.container{
     margin-top:40px;
-    margin-right: 200px;
+    margin-left:-30%;
 }
 
 #welcome_page>.right>.container>.first{
@@ -162,4 +166,22 @@
     -moz-opacity:0;
     -khtml-opacity: 0;
     opacity: 0;
+}
+
+.mobile_end_list_wrap .first{
+    background-color: #000;
+    width: 300px;
+}
+
+.mobile_end_list_wrap .icon-facebook{
+    margin-left:50px;
+}
+.mobile_end_list_wrap .second{
+    background-color: #000;
+    width: 300px;
+    margin-top:20px;
+}
+
+.mobile_end_list_wrap .second a{
+    text-decoration: none;
 }
