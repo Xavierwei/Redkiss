@@ -46,6 +46,7 @@
             beforeLoad: function () {
                 var mask = $('<div id="mask-dddd"></div>').append(this.templateEl.html());
                 $('body').prepend(mask);
+                $('.end_list_wrap').css('display','none');
             },
             itemPerLoad: function (index, total) {
                 this.percent(Math.round(index/total  * 100)  + '%');
@@ -58,6 +59,7 @@
                     opacity: 0
                 }, 300, function () {
                     $('body #mask-dddd').remove();
+                    $('.end_list_wrap').css('display','block');
                 });
             }
         });
