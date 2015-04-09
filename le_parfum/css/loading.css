@@ -1,0 +1,175 @@
+.preloader button.scroll-down {
+    color: #1474A3 !important;
+    color: white !important;
+}
+
+.loader {
+    text-align: center;
+    height: 0;
+    height: 300px;
+    margin-top: -150px;
+    overflow: visible;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: block;
+    z-index: 111;
+    /*display: block !important;*/
+    line-height: 300px;
+    font-size: 50px;
+}
+
+.preloader {
+    background: url("../imgs/loading-bg.jpg");
+    position: fixed;
+    display: none;
+    z-index: 3;
+    height: 100%;
+    top: 0;
+    left: 0%;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    /*background: url(../img/trans-grad.png) left bottom repeat-x;*/
+    /*background: url(../img/trans-grad.png) left bottom repeat;*/
+    /*background: transparent url(../img/trans-grad.png) repeat scroll 0% 0%;*/
+    /*color: #474747;*/
+    color: white;
+}
+/*.preloader .inner {*/
+/*position: absolute;*/
+/*height: 300px;*/
+/*width: 100%;*/
+/*top: 50%;*/
+/*margin-top: -150px;*/
+/*left: 0;*/
+/*right: 0;*/
+/*}*/
+.preloader .inner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /*left: 0%;*/
+    right: 0;
+    background: transparent url("../imgs/trans-grad.png") repeat scroll 0% 0%;
+}
+.preloader.grad-pink {
+    background-image: url("../imgs/trans-grad-pink.png"); }
+.preloader.grad-black {
+    background-image: url("../imgs/trans-grad-black.png"); }
+.preloader.grad-blue {
+    background-image: url("../imgs/trans-grad-blue.png"); }
+.preloader.grad-purple {
+    background-image: url("../imgs/trans-grad-purple.png"); }
+.preloader.text-white {
+    color: white;
+    color: rgba(255, 255, 255, 0.85); }
+.preloader.text-white h1.be-moved {
+    background-image: url("../imgs/logo-be_moved-white.png"); }
+.preloader.text-white h1.redkiss {
+    background-image: url("../imgs/logo-sony-white.png"); }
+.preloader.text-white .scroll-down {
+    color: white !important;
+    border-color: white !important; }
+.preloader.text-white button span {
+    color: white !important; }
+.preloader h1 {
+    position: relative; }
+.preloader h1.artists-engineers, .preloader h1.be-moved {
+    font-size: 32px;
+    font-family: sst_prolight_italic, 'Helvetica Neue';
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px auto 60px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em; }
+.preloader h1.be-moved {
+    margin: 0 auto;
+    margin-top: 12px;
+    height: 0;
+    overflow: hidden;
+    padding-top: 31px;
+    width: 137px;
+    /*background: url("../img/logo-be_moved-black.png") no-repeat scroll top left;*/
+}
+.preloader h1.redkiss {
+    margin: 0 auto;
+    height: 0;
+    overflow: hidden;
+    padding-top: 31px;
+    width: 137px;
+    /*background: url("../img/logo-sony-black.png") no-repeat scroll top left;*/
+    /*
+    position:fixed;
+    top:auto;
+    bottom:140px;
+    left:50%;
+    margin-left:-66px;
+    */
+    margin-left: -17px;
+    position: absolute;
+    bottom: 90px; }
+.preloader p {
+    font-family: sst_prolight, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0 0 0px;
+    /*
+    line-height: 20px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    */
+    line-height: 22px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    position: relative;
+    text-shadow: rgba(255, 255, 255, 0.1) 0px 0px 2px; }
+.preloader p span {
+    position: relative; }
+.preloader #intro-scroll-button {
+    position: static; }
+.preloader #intro-scroll-button button {
+    position: fixed;
+    margin-left: -50px;
+    left: 50%;
+    margin-bottom: 30px;
+    bottom: 0;
+    height: 70px;
+    line-height: 35px;
+    padding: 0;
+    padding-bottom: 5px;
+    overflow: visible;
+    display: none !important;
+}
+.preloader #intro-scroll-button button span {
+    position: relative;
+    display: block;
+    width: 300px;
+    margin-left: -100px;
+    margin-right: -100px;
+    text-align: center;
+    color: white;
+    font-family: Arial;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: 2px;
+    display: none !important;
+}
+.preloader.pre-animation-state .artists-engineers, .preloader.pre-animation-state .be-moved {
+    top: 0px;
+    opacity: 0; }
+.preloader.pre-animation-state .artists-engineers {
+    top: 0px; }
+.preloader.pre-animation-state h1.redkiss {
+    opacity: 0; }
+.preloader.pre-animation-state #intro-p-1-2,
+.preloader.pre-animation-state #intro-text-3, .preloader.pre-animation-state #intro-text-4, .preloader.pre-animation-state #intro-text-5,
+.preloader.pre-animation-state #intro-p-6-7 {
+    opacity: 0;
+    top: 10px; }
+.preloader.pre-animation-state #intro-scroll-button button {
+    opacity: 0;
+    bottom: 30px; }
