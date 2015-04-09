@@ -18,7 +18,25 @@
 
 	<style>
 		html,body, div.ms-left, div.ms-right, div.ms-section, div.s_div { width: 100%; height: 100%; }
-		.s_div img { width: 100%; height: 100%; }
+		.ms-con { position: relative; background: url("imgs/bgs.jpg") !important; background-repeat: no-repeat !important; background-size: cover !important; }
+		.s_div { width: 100%; height: 100%; position: absolute; left: 0;
+		 top: 0; }
+		 .s_div img { width: 100%; height: 100%; }
+
+
+		.clearfix:after {
+		     visibility: hidden;
+		     display: block;
+		     font-size: 0;
+		     content: " ";
+		     clear: both;
+		     height: 0;
+		     }
+		.clearfix { display: inline-block; }
+		/* start commented backslash hack \*/
+		* html .clearfix { height: 1%; }
+		.clearfix { display: block; }
+		/* close commented backslash hack */
 	</style>
 
 	<script src="js/jquery.1.11.2.js"></script>
@@ -29,7 +47,7 @@
 	<script type="text/javascript">
 	 $(document).ready(function() {
             $('#myContainer').multiscroll({
-            	sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],
+            	//sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],
             	anchors: ['first', 'second', 'third'],
             	menu: '#menu',
             	navigation: true,
@@ -49,6 +67,7 @@
                 $('.end_list_wrap').css('display','none');
             },
             itemPerLoad: function (index, total) {
+                $("#myContainer").css("display", "block");
                 this.percent(Math.round(index/total  * 100)  + '%');
                 this.background(function (width) {
                     $('#preloader .inner').width(width);
@@ -63,11 +82,63 @@
                 });
             }
         });
+
+
+	 	$(function (){
+	 		function resize(){
+			 　//获取浏览器的宽高，包括适配ie浏览器 
+			　　var winWidth = (window.innerWidth)?window.innerWidth:((document.body) && (document.body.clientWidth))?document.body.clientWidth:0; 
+			　　var winHeight = (window.innerHeight)?window.innerHeight:((document.body) && (document.body.clientHeight))?document.body.clientHeight:0; 　
+				var w = 832,
+					h = 977;　　　 
+			　　var img_rate = parseFloat(w/h);//图片的宽高比 
+			　　var bg_rate = parseFloat(  winWidth / 2 /winHeight);//浏览器的宽高比
+	 			$(".ms-con").height(winHeight);
+				console.log(img_rate + ' ' + bg_rate);
+			　　//根据宽高比的比较，固定图片的宽高来实现图片铺满屏幕而不变形，多余的部分隐藏 
+			　　if(bg_rate <= 1) {
+					// 视口高 - 将图片高度放到和视口一致，宽度等比增加，隐藏超出宽度
+					var img_h = winHeight,
+						img_w = (img_h / h ) * w ;
+					console.log('img_h:' + img_h + ' img_w:' + img_w);
+					console.log('视口宽 - 图片小');
+					$('.s_img').css({
+						width: img_w,
+						height: img_h,
+						"margin-top": - Math.abs((img_h - winHeight) / 2)
+					});
+			　　}else{
+					// 视口小 - 图片大 -> 将图片高度放到和视口一致，宽度等比增加，隐藏超出宽度
+					var img_w = winWidth /2,
+						img_h = (img_w / w ) * h;
+					console.log('视口小 - 图片大');
+
+					$('.s_img').css({
+						width: img_w,
+						height: img_h,
+						//"margin-left": - Math.abs((img_w - winWidth) / 2)
+					});
+			　　}
+				if (img_w - winWidth / 2 > 0) {
+					$('.ms-left .s_img').css({
+						'margin-left': -(img_w - winWidth / 2 )
+					});
+				} 
+			}
+			
+		 	window.onresize = function (){
+	 			resize();
+	 		};
+	 		window.onload = function (){
+	 			resize();
+	 		};
+
+	 	});
     </script>
 </head>
 <body>
 
-<div id="myContainer">
+<div id="myContainer" style="display:none;">
 
 	<div class="nav-bar" style="display: block;">
 	<div class=" csstransitions" id="diesel-header">
@@ -114,78 +185,83 @@
 	  </div>
 	</div>
 </div>
-
-	<div class="ms-left">
-		<div class="ms-section" id="left1">
-			<div class="s_div">
-				<img src="imgs/img5_1.jpg" />
-			</div>
-		</div>
-		<div class="ms-section" id="left2">
-			<div class="s_div">
-				<img src="imgs/img6_1.jpg" />
-			</div>
-		</div>
-		<div class="ms-section" id="left3">
-			<div class="s_div">
-				<img src="imgs/img7_1.jpg" />
-			</div>
-		</div>
-	</div>
 	
-	<div class="ms-right">
-		<div class="ms-section" id="right1">
-			<div class="s_div">
-				<img src="imgs/img5_2.jpg" />
+	<div class="ms-con clearfix">
+		<div class="ms-left">
+			<div class="ms-section" id="left1">
+				<div class="s_div s_div1">
+					<img class="s_img" src="imgs/image1_01.png" />
+				</div>
 			</div>
-
-			<div class="end_list_wrap">
-		          <div class="end_list end_sns_links">
-		              <ul>
-		                  <li class="before"></li>
-		                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
-		                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
-		                  <li class="after"></li>
-		              </ul>
-		          </div>
-	        </div>
-
-		</div>
-		<div class="ms-section" id="right2">
-			<div class="s_div">
-				<img src="imgs/img6_2.jpg" />
+			<div class="ms-section" id="left2">
+				<div class="s_div s_div3">
+					<img class="s_img" src="imgs/image2_01.png" />
+				</div>
 			</div>
-
-			<div class="end_list_wrap">
-		          <div class="end_list end_sns_links">
-		              <ul>
-		                  <li class="before"></li>
-		                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
-		                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
-		                  <li class="after"></li>
-		              </ul>
-		          </div>
-	        </div>
-
-		</div>
-		<div class="ms-section" id="right3">
-			<div class="s_div">
-				<img src="imgs/img7_2.jpg" />
+			<div class="ms-section" id="left3">
+				<div class="s_div s_div5">
+					<img class="s_img" src="imgs/image3_01.png" />
+				</div>
 			</div>
-
-			<div class="end_list_wrap">
-		          <div class="end_list end_sns_links">
-		              <ul>
-		                  <li class="before"></li>
-		                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
-		                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
-		                  <li class="after"></li>
-		              </ul>
-		          </div>
-	        </div>
-
 		</div>
-	</div>	
+		
+		<div class="ms-right">
+			<div class="ms-section" id="right1">
+				<div class="s_div s_div2">
+					<img class="s_img" src="imgs/image1_02.png" />
+				</div>
+
+				<div class="end_list_wrap">
+			          <div class="end_list end_sns_links">
+			              <ul>
+			                  <li class="before"></li>
+			                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
+			                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
+			                  <li class="after"></li>
+			              </ul>
+			          </div>
+		        </div>
+
+			</div>
+			<div class="ms-section" id="right2">
+				<div class="s_div s_div4">
+					<img class="s_img" src="imgs/image2_02.png" />
+				</div>
+
+				<div class="end_list_wrap">
+			          <div class="end_list end_sns_links">
+			              <ul>
+			                  <li class="before"></li>
+			                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
+			                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
+			                  <li class="after"></li>
+			              </ul>
+			          </div>
+		        </div>
+
+			</div>
+			<div class="ms-section" id="right3">
+				<div class="s_div s_div6">
+					<img class="s_img" src="imgs/image3_02.png" />
+				</div>
+
+				<div class="end_list_wrap">
+			          <div class="end_list end_sns_links">
+			              <ul>
+			                  <li class="before"></li>
+			                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
+			                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
+			                  <li class="after"></li>
+			              </ul>
+			          </div>
+		        </div>
+
+			</div>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+
 
 	<footer>
         <ul class="footer_link">
