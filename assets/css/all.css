@@ -2632,7 +2632,7 @@ p.social {
     line-height: 11px;
     font-size: 11px;
     color: #000;
-    z-index: 30;
+    z-index: 1000;
     font-family: "American Typewriter";
 }
 .nav-bar {
@@ -3353,6 +3353,6 @@ input[type=checkbox] {
     text-decoration: none;
 }
 
-.end_sns_music a:hover {
+.end_frame a:hover {
     color: #979797;
 }
