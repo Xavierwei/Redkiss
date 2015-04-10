@@ -6431,9 +6431,15 @@ var SH;
                             h = image.height,
                             srcAspect = w / h;
                         //srcAspect < this.aspect ? (sx = 0, sw = w, sh = sw / this.aspect, sy = (h - sh) / 2) : (sy = 0, sh = h, sw = sh * this.aspect, sx = (w - sw) / 2),
-                        srcAspect < this.aspect ? (sx = 0, sw = w, sh = sw / this.aspect, sy = ((h - sh) / 2)) : (sy = 0, sh = h, sw = sh * this.aspect, sx = (w - sw) / 2),
-                            this.context.drawImage(image, sx, sy, sw, sh, 0, 0, this.canvas.width, this.canvas.height),
-                            this.prevImage = image
+                        srcAspect < this.aspect ? (sx = 0, sw = w, sh = sw / this.aspect, sy = ((h - sh) / 2)) : (sy = 0, sh = h, sw = sh * this.aspect, sx = (w - sw) / 2);
+
+                        try {
+                            this.context.drawImage(image, sx, sy, sw, sh, 0, 0, this.canvas.width, this.canvas.height);
+                        }
+                        catch (e) {
+                            console.log([image, image.width, image.height, sx, sy, sw, sh]);
+                        }
+                        this.prevImage = image;
                     }
                 }, ImageToCanvas
             }();
