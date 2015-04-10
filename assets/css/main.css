@@ -238,11 +238,6 @@ body{
     background-color: #000;
 }
 
-.mobile_end_list_wrap .icon{
-    width: 25px;
-    height: 20px;
-    background-size: 25px 20px;
-}
 
 .mobile_end_list_wrap .icon-facebook{
     margin-left:20px;
@@ -331,4 +326,11 @@ body{
     width: 20px;
     position: relative;
     top:-15px;
+}
+
+
+.mobile_end_list_wrap .icon{
+    width: 40px;
+    height: 30px;
+    background-size: 40px 30px;
 }
