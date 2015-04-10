@@ -7709,7 +7709,7 @@ if (function (SH) {
     Interface.StaticFallback = StaticFallback
   }(SH.Interface || (SH.Interface = {}));
   SH.Interface
-}(SH || (SH = {})), MobileEsp.DetectTierIphone() ? $("html").addClass("mobile") : MobileEsp.DetectTierTablet() && $("html").addClass("tablet"), $("html").hasClass("oldie") || $(".browser-prompt").remove(), $("html").hasClass("oldie"))
+}(SH || (SH = {})), MobileEsp.DetectTierIphone() ? $("html").addClass("mobile") : MobileEsp.DetectTierTablet() && $("html").addClass("tablet"), $("html").hasClass("") || $(".browser-prompt").remove(), $("html").hasClass(""))
   throw $(".viewport").hide(), $(".rotation-prompt").remove(), $(".static").show(), $(".video-link").each(function (id, linkElement) {
     $(linkElement).attr("href"), parseInt($(linkElement).attr("data-video-width")), parseInt($(linkElement).attr("data-video-height"));
     $(linkElement).attr("target", "_blank")
