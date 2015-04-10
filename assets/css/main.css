@@ -101,6 +101,10 @@ body{
     opacity: 0;
 }
 
+.mobile #welcome_page img{
+    width: 60%;
+}
+
 #welcome_page a{
     color:#fff;
     text-decoration: none;

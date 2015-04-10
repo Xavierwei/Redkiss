@@ -6261,18 +6261,18 @@ var SH;
               endFrame : 1707,
               initFrameStart: 38,
               initFrameEnd: 53,
-              navFrameStart: this.customFrames.indexOf(1000),
-              navFrameEnd: this.customFrames.indexOf(1000),
-              navFrameStart2: this.customFrames.indexOf(1000),
-              navFrameEnd2: this.customFrames.indexOf(1000)
+              navFrameStart: this.customFrames.indexOf(420),
+              navFrameEnd: this.customFrames.indexOf(530),
+              navFrameStart2: this.customFrames.indexOf(680),
+              navFrameEnd2: this.customFrames.indexOf(830)
           }
 
           // show end frame layout
-          if(num >= (globalData.endFrame-1)) {
+          if(num >= globalData.endFrame && !$('.end_frame').is(':visible')) {
               $('.end_frame').fadeIn()
               //$('#section-nav').fadeOut();
           }
-          else if(num <= (globalData.endFrame-1)) {
+          else if(num <= globalData.endFrame && $('.end_frame').is(':visible')) {
               $('.end_frame').fadeOut();
               //$('#section-nav').fadeIn();
           }
