@@ -37,6 +37,8 @@ summary {
     display: block;
 }
 
+
+section.static { display: none; }
 /*
  * Corrects inline-block display not defined in IE6/7/8/9 & FF3
  */
