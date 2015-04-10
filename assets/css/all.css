@@ -2415,6 +2415,8 @@ html.tablet .static .product.guinea .headline, html.mobile .static .product.guin
            experience. */
     }
 
+    .header a { display: none; }
+
     html.mobile, html.mobile body {
         background: white;
         overflow: auto !important;

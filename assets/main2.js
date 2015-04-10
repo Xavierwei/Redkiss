@@ -202,6 +202,7 @@
         function showYoutube(cb) {
             var youtube = $('.youtube-con');
             $('#jplayer_background').jPlayer('pause');
+            youtube.find('iframe')[0].contentWindow.postMessage('{"event": "command", "func": "playVideo", "args":""}', "*");
             youtube.css({opacity: 0}).show().stop(true, false).animate({
                 opacity: 1
             }, 500, function () {
@@ -212,6 +213,7 @@
         function hideYoutube(cb) {
             var youtube = $('.youtube-con');
             $('#jplayer_background').jPlayer('play');
+            youtube.find('iframe')[0].contentWindow.postMessage('{"event": "command", "func": "pauseVideo", "args":""}', "*");
             youtube.stop(true, false).animate({
                 opacity: 0
             }, 500, function () {
