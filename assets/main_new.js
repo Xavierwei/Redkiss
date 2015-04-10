@@ -5923,6 +5923,9 @@ MobileEsp.InitDeviceScan(), ! function (e) {
   }
 });
 
+//czhang section-nav
+var isNavClicked=false;
+
 var SH;
 ! function (SH) {
   ! function (Util) {
@@ -6290,7 +6293,7 @@ var SH;
           }
 
           //具体帧加载音频
-          if(_.contains([10,87,90,250,310,438,441,525,703,720,728,830,915,1193,1208,1226,1233,1301,1320,1519,1597,1607],num)){
+          if(_.contains([10,87,90,250,310,438,441,525,703,720,728,830,915,1193,1208,1226,1233,1301,1320,1519,1597,1607],num)&&!isNavClicked){
               $('#playlist').jPlayer("setMedia", {
                   mp3: '/audio/'+num+'.mp3'
               }).jPlayer("play");
@@ -8008,3 +8011,5 @@ var SH;
   }(SH.Interface || (SH.Interface = {}));
   SH.Interface
 }(SH || (SH = {}));
+
+

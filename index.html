@@ -64,6 +64,8 @@
 
 <body>
 <div id="jplayer_background"></div>
+<div id="playlist"></div>
+
 <div id="TEST_show_current_frame"></div>
 <div class="nav-bar" style="display: block;">
     <div class=" csstransitions" id="diesel-header">
@@ -552,6 +554,16 @@
   <script type="text/javascript">
     SH.Interface.Social.MEDIA_ROOT = location.href.replace(/\?.*$/, '').split("#")[0];
     SH.Interface.Social.SITE_ROOT = location.href.split("#")[0];
+    $("#playlist").jPlayer({
+        ready: function () {
+            _.each([10,87,90,250,310,438,441,525,703,720,728,830,915,1193,1208,1226,1233,1301,1320,1519,1597,1607],function(num){
+                $('#playlist').jPlayer("setMedia", {
+                    mp3: '/audio/'+num+'.mp3'
+                });
+            })
+        },
+        swfPath: "/assets"
+    });
   </script>
   <!--[if lte IE 8 ]>
 <script type="text/javascript">
@@ -563,6 +575,7 @@
         throw "old browser";
     }
 </script>
+
 <![endif]-->
   <style type="text/css" media="all" id="viewport-override">
   </style>
