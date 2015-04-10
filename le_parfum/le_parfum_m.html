@@ -9,16 +9,18 @@
 	<meta name="keywords"  content="multiscroll,jquery,alvaro,trigo,plugin,divided,splitscreen,screen,panels,layouts,vertical,split,splited" />
 	<meta name="Resource-type" content="Document" />
 
-    <script type="text/javascript">
-        window.console && (window.console = function () {});
-    </script>
+
 	
-	<link rel="stylesheet" type="text/css" href="css/jquery.multiscroll.css" />		
+	<link rel="stylesheet" type="text/css" href="css/jquery.multiscroll.css" />
 	<link rel="stylesheet" type="text/css" href="css/examples.css" />
     <link rel="stylesheet" href="/assets/css/all.css" />
 	<link rel="stylesheet" href="css/largeScreen.css" />
 	<link rel="stylesheet" href="css/nav.css" />
 	<link rel="stylesheet" href="css/loading.css" />
+
+    <link rel="stylesheet" href="/s_mobile/demo.css" />
+    <link rel="stylesheet" href="/s_mobile/jquery.mmenu.all.css" />
+    <link rel="stylesheet" href="/s_mobile/s_mobile.css" />
 
     <style>
 		html,body, div.ms-left, div.ms-right, div.ms-section, div.s_div { width: 100%; height: 100%; }
@@ -50,32 +52,6 @@
 	<script src="js/loading.js"></script>
     <script src="/assets/main2.js"></script>
 
-    <script type="text/javascript">
-        var browser = {
-            versions:function(){
-                var u = navigator.userAgent, app = navigator.appVersion;
-                return {//移动终端浏览器版本信息
-                    trident: u.indexOf("Trident") > -1, //IE内核
-                    presto: u.indexOf("Presto") > -1, //opera内核
-                    webKit: u.indexOf("AppleWebKit") > -1, //苹果、谷歌内核
-                    gecko: u.indexOf("Gecko") > -1 && u.indexOf("KHTML") == -1, //火狐内核
-                    mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-                    android: u.indexOf("Android") > -1 || u.indexOf("Linux") > -1, //android终端或者uc浏览器
-                    iPhone: u.indexOf("iPhone") > -1 , //是否为iPhone或者QQHD浏览器
-                    iPad: u.indexOf("iPad") > -1, //是否iPad
-                    webApp: u.indexOf("Safari") == -1 //是否web应该程序，没有头部与底部
-                };
-            }(),
-            language:(navigator.browserLanguage || navigator.language).toLowerCase()
-        };
-
-
-        //test
-        if(browser.versions.mobile){
-            window.location.href="index_m.html";
-        }
-    </script>
 
 	<script type="text/javascript">
 	 $(document).ready(function() {
@@ -127,14 +103,11 @@
                 var img_rate = parseFloat(w/h);
                 var bg_rate = parseFloat(  winWidth / 2 /winHeight);
 	 			$(".ms-con").height(winHeight);
-				console.log(img_rate + ' ' + bg_rate);
 				//根据宽高比的比较，固定图片的宽高来实现图片铺满屏幕而不变形，多余的部分隐藏
 			    if(bg_rate <= 1) {
 					// 视口高 - 将图片高度放到和视口一致，宽度等比增加，隐藏超出宽度
 					var img_h = winHeight,
 						img_w = (img_h / h ) * w ;
-					console.log('img_h:' + img_h + ' img_w:' + img_w);
-					console.log('视口宽 - 图片小');
 					$('.s_img').css({
 						width: img_w,
 						height: img_h,
@@ -144,7 +117,6 @@
 					// 视口小 - 图片大 -> 将图片高度放到和视口一致，宽度等比增加，隐藏超出宽度
 					var img_w = winWidth /2,
 						img_h = (img_w / w ) * h;
-					console.log('视口小 - 图片大');
 
 					$('.s_img').css({
 						width: img_w,
@@ -171,54 +143,40 @@
 </head>
 <body>
 
+<div id="page">
+    <div class="header">
+        <a href="#menu" style="display:none;"></a>
+    </div>
+    <nav id="menu">
+        <ul>
+            <li>
+                <a href="/">
+                    <img width="100%" height="100%" alt="Diesel" src="/s_mobile/logo.jpg">
+                </a>
+            </li>
+            <li><a href="/le_parfum/le_parfum.html">LE PARFUM</a></li>
+            <li><a href="#" id="file_popup">LE FILM</a></li>
+            <!--
+                <ul>
+                    <li><a href="#about/history">History</a></li>
+                    <li><a href="#about/team">The team</a>
+                        <ul>
+                            <li><a href="#about/team/management">Management</a></li>
+                            <li><a href="#about/team/sales">Sales</a></li>
+                            <li><a href="#about/team/development">Development</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#about/address">Our address</a></li>
+                </ul>
+            -->
+            <li><a target="_blank" href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415">J'ACHÈTE !</a></li>
+            <li><a target="_blank" href="http://loverdose-redkiss.com/pressroom">PRESSROOM</a></li>
+        </ul>
+    </nav>
+</div>
+
 <div id="myContainer" style="display:none;">
 
-	<div class="nav-bar" style="display: block;">
-	<div class=" csstransitions" id="diesel-header">
-	  <div class="dh-logo">
-	    <a onclick="trackWoodland('diesel-header_to_diesel-homepage');" href="/">
-	      <img width="106" height="56" alt="Diesel" src="imgs/diesel-logo.png">
-	    </a>
-	    <div class="dh-toggle-button"></div>
-	  </div>
-	  <div class="dh-body">
-	    <div class="dh-menu">
-	      <div class="dh-menu-body">
-	        <div class="lover-dose-red-kiss-logo">
-	          <a>
-	            <img width="295" height="56" alt="Lover Dose" src="imgs/lover-dose-red-kiss-logo.png">
-	          </a>
-	        </div>
-	        <div class="dh-menu-block dh-block-a">
-	          <div class="dh-menu-item dh-item-multilevel">
-	            <a href="/le_parfum/le_parfum.html" class="s_active"><span class="label">LE PARFUM</span></a>
-	          </div>
-	          <div class="dh-menu-item dh-item-multilevel">
-	            <a href="javascript:;" id="file_popup"><span class="label">LE FILM</span></a>
-	          </div>
-                <div class="dh-menu-item dh-item-multilevel">
-                    <a href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415"><span class="label">J'ACHÈTE !</span></a>
-                </div>
-                <div class="dh-menu-item dh-item-multilevel">
-                    <a href="http://loverdose-redkiss.com/pressroom"><span class="label">PRESSROOM</span></a>
-                </div>
-	        </div>
-	        <div class="dh-menu-block dh-block-b">
-	          <div class="dh-social-container">
-	            <a onclick="trackWoodland('diesel-header_to_facebook');" target="_blank" title="Facebook" href="https://www.facebook.com/Diesel" class="dh-social-item dh-item-facebook">Facebook</a>
-	            <a onclick="trackWoodland('diesel-header_to_twitter');" target="_blank" title="Twitter" href="https://twitter.com/#!/DIESEL" class="dh-social-item dh-item-twitter">Twitter</a>
-	            <a onclick="trackWoodland('diesel-header_to_youtube');" target="_blank" title="YouTube" href="http://www.youtube.com/user/DieselPlanet/Diesel" class="dh-social-item dh-item-youtube">YouTube</a>
-	            <a onclick="trackWoodland('diesel-header_to_instagram');" target="_blank" title="Instagram" href="http://instagram.com/diesel" class="dh-social-item dh-item-instagram">Instagram</a>
-	            <div class="dh-clear"></div>
-	          </div>
-	        </div>
-	        <div class="dh-clear"></div>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-</div>
-	
 	<div class="ms-con clearfix">
 		<div class="ms-left">
 			<div class="ms-section" id="left1">
@@ -347,23 +305,6 @@
     <div class="close_btn"></div>
 </div>
 
-<div class="popup_content">
-    <div class="close_btn"></div>
-    <div class="content_wrap">
-        <div id="ft_content_1" class="content_box">
-            <iframe src="/iframe1.html" frameborder="0" width="100%" height="100%"></iframe>
-        </div>
-        <div id="ft_content_2" class="content_box">
-            <iframe src="/iframe2.html" frameborder="0" width="100%" height="100%"></iframe>
-        </div>
-        <div id="ft_content_3" class="content_box">
-            <iframe src="/iframe3.html" frameborder="0" width="100%" height="100%"></iframe>
-        </div>
-        <div id="ft_content_4" class="content_box">
-            <iframe src="https://secure.easycorner.com/contactUs/diesel/fr/fr/dff" frameborder="0" width="100%" height="100%"></iframe>
-        </div>
-    </div>
-</div>
 
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -373,6 +314,17 @@
 
     ga('create', 'UA-59855817-1', 'auto');
     ga('send', 'pageview');
+</script>
+
+<script src="/s_mobile/jquery.mmenu.min.all.js"></script>
+<script>
+    $(function() {
+        $('nav#menu').mmenu();
+
+        $("body").on('image_loaded', function () {
+            $("#page .header a").css({opacity: 0}).show().animate({opacity: 1}, 500);
+        });
+    });
 </script>
 
 </body>
