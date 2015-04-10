@@ -541,6 +541,18 @@ Date de création : 04/08/2015
 <script type="text/javascript">
     SH.Interface.Social.MEDIA_ROOT = location.href.replace(/\?.*$/, '').split("#")[0];
     SH.Interface.Social.SITE_ROOT = location.href.split("#")[0];
+
+    //背景音乐
+    $("#jplayer_background").jPlayer({
+        ready: function () {
+            $(this).jPlayer("setMedia", {
+                mp3: '/audio/background.mp3'
+            })
+        },
+        swfPath: "/assets",
+        loop:true,
+        volume:0.4
+    });
 </script>
 <!--[if lte IE 8 ]>
 <script type="text/javascript">
