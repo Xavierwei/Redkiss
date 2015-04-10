@@ -6419,8 +6419,8 @@ var SH;
                             srcAspect = w / h;
                         //srcAspect < this.aspect ? (sx = 0, sw = w, sh = sw / this.aspect, sy = (h - sh) / 2) : (sy = 0, sh = h, sw = sh * this.aspect, sx = (w - sw) / 2),
                         srcAspect < this.aspect ? (sx = 0, sw = w, sh = sw / this.aspect, sy = ((h - sh) / 2)) : (sy = 0, sh = h, sw = sh * this.aspect, sx = (w - sw) / 2),
-                            //this.context.drawImage(image, sx, 0, sw, sh, 0, 0, this.canvas.width, this.canvas.height),
-                            this.context.drawImage(image, sx, 50, sw, sh, 0, 0, this.canvas.width, this.canvas.height),
+                            this.context.drawImage(image, sx, 0, sw, sh, 0, 0, this.canvas.width, this.canvas.height),
+                            //this.context.drawImage(image, sx, 50, sw, sh, 0, 0, this.canvas.width, this.canvas.height),
                             this.prevImage = image
                     }
                 }, ImageToCanvas

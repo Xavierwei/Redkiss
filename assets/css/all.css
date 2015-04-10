@@ -2446,7 +2446,7 @@ html.tablet .static .product.guinea .headline, html.mobile .static .product.guin
         width: auto;
         z-index: 1000; }
     html.mobile .rotation-prompt {
-        top: 50%;
+        /*top: 50%;*/
         margin-top:  -38.5px;
     }
     html.mobile .rotation-prompt img {
