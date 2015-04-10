@@ -224,8 +224,6 @@ body{
     position: relative;
     overflow: hidden;
     z-index:111;
-    transition: all 0.5s ease-in-out;
-    opacity: 0;
 }
 
 .video-con #video {
@@ -242,16 +240,14 @@ body{
     height: 100%;
     background: #000;
     z-index: 100;
-    transition: all 0.5s ease-in-out;
-    opacity: 0;
 }
 
 .hideme {
     display: none;
-    opacity: 0;
 }
 
 .youtube-con {
     margin-top: 56px;
     position: relative;
+    z-index: 1111;
 }

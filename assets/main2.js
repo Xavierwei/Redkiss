@@ -197,19 +197,21 @@
         function showYoutube(cb) {
             var youtube = $('.youtube-con');
 
-            youtube.show().css({opacity: 1});
-
-            $('>', youtube).each(function () {
-                $(this).css({opacity: 1});
+            youtube.css({opacity: 0}).show().stop(true, false).animate({
+                opacity: 1
+            }, 500, function () {
+                cb();
             });
         }
 
-        function hideYoutube() {
+        function hideYoutube(cb) {
             var youtube = $('.youtube-con');
-            youtube.hide().css({opacity: 0});
-            $('>', youtube).each(function () {
-                $(this).css({opacity: 0});
-            });
+            youtube.stop(true, false).animate({
+                opacity: 0
+            }, 500, function () {
+                youtube.hide();
+                cb();
+            })
         }
 
         $('#file_popup').click(function () {
@@ -217,12 +219,22 @@
                 youtube = $('.youtube-con');
             // 关闭
             if (el.data('shown')) {
-                hideYoutube();
+                hideYoutube(function () {
+                    el.data('shown', false);
+                });
             }
             // 开启
             else {
-                showYoutube();
+                showYoutube(function () {
+                    el.data('shown', true);
+                });
             }
+        });
+
+        $('.youtube-con .close_btn').click(function () {
+            hideYoutube(function () {
+                el.data('shown', false);
+            });
         });
     });
 
