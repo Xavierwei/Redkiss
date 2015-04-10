@@ -6268,11 +6268,11 @@ var SH;
           }
 
           // show end frame layout
-          if(num >= globalData.endFrame && !$('.end_frame').is(':visible')) {
+          if(num >= (globalData.endFrame-1)) {
               $('.end_frame').fadeIn()
               //$('#section-nav').fadeOut();
           }
-          else if(num <= globalData.endFrame && $('.end_frame').is(':visible')) {
+          else if(num <= (globalData.endFrame-1)) {
               $('.end_frame').fadeOut();
               //$('#section-nav').fadeIn();
           }
