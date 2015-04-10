@@ -6261,18 +6261,18 @@ var SH;
                     endFrame : 756,
                     initFrameStart: 38,
                     initFrameEnd: 53,
-                    navFrameStart: this.customFrames.indexOf(420),
-                    navFrameEnd: this.customFrames.indexOf(530),
-                    navFrameStart2: this.customFrames.indexOf(680),
-                    navFrameEnd2: this.customFrames.indexOf(830)
+                    navFrameStart: this.customFrames.indexOf(1000),
+                    navFrameEnd: this.customFrames.indexOf(1000),
+                    navFrameStart2: this.customFrames.indexOf(1000),
+                    navFrameEnd2: this.customFrames.indexOf(1000)
                 }
 
                 // show end frame layout
-                if(num >= globalData.endFrame && !$('.end_frame').is(':visible')) {
+                if(num >= (globalData.endFrame-1)) {
                     $('.end_frame').fadeIn()
                     //$('#section-nav').fadeOut();
                 }
-                else if(num <= globalData.endFrame && $('.end_frame').is(':visible')) {
+                else if(num <= (globalData.endFrame-1)) {
                     $('.end_frame').fadeOut();
                     //$('#section-nav').fadeIn();
                 }
@@ -7532,7 +7532,7 @@ var SH;
                 var _this = this,
                     configPromise = $.Deferred(),
                     loadConfig = this.loadMember("config_mobile.json"),
-                    loadOverlays = this.loadMember("overlays_welcome.json"),
+                    loadOverlays = this.loadMember("overlays_mobile.json"),
                     loadNavColors = this.loadMember("nav_colors.json");
                 return SH.Util.whenAll([loadConfig, loadOverlays, loadNavColors]).then(function (config, overlays, colors) {
                     config.overlays = overlays, config.navColors = colors, config.path || (config.path = "assets/" + _this.assetVersion), configPromise.resolve(config)

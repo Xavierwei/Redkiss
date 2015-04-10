@@ -101,9 +101,6 @@ body{
     opacity: 0;
 }
 
-.mobile #welcome_page img{
-    width: 60%;
-}
 
 #welcome_page a{
     color:#fff;
@@ -124,6 +121,7 @@ body{
     font-size: 25px;
 }
 
+
 #welcome_page>.left>.container{
     margin-left:10%;
 }
@@ -133,6 +131,13 @@ body{
     margin-left:-30%;
 }
 
+.mobile #welcome_page>.right>.container{
+    font-size: 14px;
+    margin-top:10px;
+    position: relative;
+    right:-5px;
+}
+
 #welcome_page>.right>.container>.first{
      width: 250px;
     height: 40px;
@@ -140,9 +145,28 @@ body{
      background-color: #000000;
  }
 
+.mobile #welcome_page>.right>.container>.first{
+    width: 180px;
+    height: 35px;
+}
+
+.mobile #welcome_page>.right>.container>.first .icon{
+    margin-top:5px;
+}
+
+.mobile #welcome_page>.right>.container>.first a{
+    position: relative;
+    top:-2px;
+}
+
 #welcome_page>.right>.container>.second{
     width: 250px;
     background-color: #000000;
+}
+
+.mobile #welcome_page>.right>.container>.second{
+    width: 180px;
+    height: 30px;
 }
 
 #welcome_page>.left a,#welcome_page>.right a{
@@ -156,14 +180,28 @@ body{
     margin-left:10px;
 }
 
+.mobile #welcome_page>.right>.container>.first a{
+    width: 120px;
+    height: 30px;
+}
+
 #welcome_page>.right>.container>.second{
     margin-top: 20px;
+}
+
+.mobile #welcome_page>.right>.container>.second{
+    height: 30px;
+    padding-top:10px;
 }
 
 #welcome_page>.right>.container>.second a{
     margin-left:40px;
     position: relative;
     top:-5px;
+}
+
+.mobile #welcome_page>.right>.container>.second a{
+    margin-left:35px;
 }
 
 #welcome_page_bottom{
@@ -180,6 +218,16 @@ body{
     -khtml-opacity: 0;
     opacity: 0;
 }
+
+.mobile #welcome_page img{
+    width: 60%;
+}
+
+.mobile #welcome_page_bottom{
+    font-size: 14px;
+    bottom:10px;
+}
+
 
 .mobile .end_frame .end_list_wrap{
     width: auto;
@@ -223,6 +271,11 @@ body{
     top:0;
 }
 
+.mobile .icon{
+    width: 25px;
+    height: 20px;
+    background-size: 25px 20px;
+}
 
 .video-con {
     position: relative;
