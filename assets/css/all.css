@@ -2248,6 +2248,9 @@ body.oldie #full-content {
         width: auto;
         height: 100%;
         z-index: 1000; }
+
+    .header a { display: none; }
+
     html.tablet .rotation-prompt {
         height: 100%;
         margin-top: 47.5%;
