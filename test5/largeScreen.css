@@ -4,7 +4,6 @@
     src: url("fonts/FrankGotLTBooCmp.eot");
     src: url('fonts/FrankGotLTBooCmp.eot') format('embedded-opentype'),
          url('fonts/FrankGotLTBooCmp.woff2') format('woff2'),
-         url('fonts/FrankGotLTBooCmp.woff') format('woff'),
          url('fonts/FrankGotLTBooCmp.ttf') format('truetype'),
          url('fonts/FrankGotLTBooCmp.svg#FrankGotLTBooCmp') format('svg');
 }
@@ -26,15 +25,15 @@ a { text-decoration: none; }
 body {
 	width: 100%; height: 100%;
 	color: #fff;
-	font-family: "FranklinGothicLT-DemiCmpr", "frankgoth_xcn_btregular" , Helvetica, Arial, sans-serif; }
-}		
+	font-family: "FranklinGothicLT-DemiCmpr", "frankgoth_xcn_btregular" , Helvetica, Arial, sans-serif;
+}
 .clear { clear: both; }
 .fl { float: left; }
 
 .content { position: relative; }
-.content1 { background:#57000e url("bg1.jpg") no-repeat;}
-.content2 { background:#57000e url("bg2.jpg") no-repeat;}
-.content3 { background:#57000e url("bg3.jpg") no-repeat;}
+.content1 { background:#57000e url("bg1_01.jpg") no-repeat;}
+.content2 { background:#57000e url("bg1_02.jpg") no-repeat;}
+.content3 { background:#57000e url("bg1_03.jpg") no-repeat;}
 
 .su_constellation { position: relative; letter-spacing: 5px; font-size: 24px; 
     background-attachment: fixed; }
