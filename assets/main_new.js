@@ -6263,6 +6263,7 @@ var SH;
               navFrameStart2: this.customFrames.indexOf(680),
               navFrameEnd2: this.customFrames.indexOf(830)
           }
+
           // show end frame layout
           if(num >= globalData.endFrame && !$('.end_frame').is(':visible')) {
               $('.end_frame').fadeIn()
@@ -6286,6 +6287,13 @@ var SH;
               var new_num=num;
               $('#welcome_page').css("opacity",1.0/8*(60-new_num));
               $('#welcome_page_bottom').css("opacity",1.0/8*(60-new_num));
+          }
+
+          //具体帧加载音频
+          if(_.contains([10,87,90,250,310,438,441,525,703,720,728,830,915,1193,1208,1226,1233,1301,1320,1519,1597,1607],num)){
+              $('#playlist').jPlayer("setMedia", {
+                  mp3: '/audio/'+num+'.mp3'
+              }).jPlayer("play");
           }
 
 
@@ -7341,7 +7349,16 @@ var SH;
           })
         }, PreloadAnimation.prototype.loadElements = function () {
           //                    debugger;
-          return SH.Util.whenAll(_.map(["assets/img/trans-grad.png", "assets/img/trans-grad-black.png", "assets/img/trans-grad-blue.png", "assets/img/trans-grad-pink.png", "assets/img/trans-grad-purple.png", "assets/img/hotspot.png", "assets/img/hotspot-anim.png", "assets/img/read-story.png", "assets/img/read-story-dark.png", "assets/img/appstore/goldie.png", "assets/img/appstore/umbrella.png", "assets/img/appstore/sub.png", "assets/img/appstore/photo.png", "assets/img/appstore/plantimal.png", "assets/img/appstore/showeroke.png", "assets/img/appstore/goldie_over.png", "assets/img/appstore/umbrella_over.png", "assets/img/appstore/sub_over.png", "assets/img/appstore/photo_over.png", "assets/img/appstore/plantimal_over.png", "assets/img/appstore/showeroke_over.png"], function (u) {
+          return SH.Util.whenAll(_.map(["assets/img/trans-grad.png",
+              "assets/img/trans-grad-black.png",
+              "assets/img/trans-grad-blue.png",
+              "assets/img/trans-grad-pink.png",
+              "assets/img/trans-grad-purple.png",
+              "assets/img/hotspot.png",
+              "assets/img/hotspot-anim.png",
+              "assets/img/read-story.png",
+              "assets/img/read-story-dark.png",
+              "assets/img/appstore/goldie.png", "assets/img/appstore/umbrella.png", "assets/img/appstore/sub.png", "assets/img/appstore/photo.png", "assets/img/appstore/plantimal.png", "assets/img/appstore/showeroke.png", "assets/img/appstore/goldie_over.png", "assets/img/appstore/umbrella_over.png", "assets/img/appstore/sub_over.png", "assets/img/appstore/photo_over.png", "assets/img/appstore/plantimal_over.png", "assets/img/appstore/showeroke_over.png"], function (u) {
             var i = new Image,
               d = $.Deferred();
             return i.onload = function () {
@@ -7608,7 +7625,9 @@ var SH;
           return this.preloadAnimation.advanceTo(percent), 1 == percent ? this.statePreloadFinal() : void 0
         }, App.prototype.statePreloadWait = function () {
           this.playhead.videoController.source.load(this.loader, this.startFrame)
-        }, App.prototype.statePreloadFinal = function () {}, App.prototype.stateAcceptingInput = function () {
+        }, App.prototype.statePreloadFinal = function () {},
+
+          App.prototype.stateAcceptingInput = function () {
           var _this = this;
           this.playhead.videoController.show(),
           this.playhead.events.on("progress", function (ev, p, f, l) {
@@ -7621,7 +7640,11 @@ var SH;
             }, 1e3, function () {
               $("#preloader").attr("class", "preloader")
               }), _this.stream.acceptingInput = true
-          }), this.playhead.seekTo(this.startFrame), this.playhead.introController.seekTo(this.isTinyScreen ? this.tinyScreenOffset : 0, !0), this.scrollbar.setProgress(this.startFrame / this.playhead.length), this.nav.setProgress(this.startFrame)) : (this.stream.acceptingInput = true, this.playhead.seekTo(this.isTinyScreen ? this.tinyScreenOffset : 0), this.scrollbar.setProgress(0), this.nav.setProgress(0)),
+          }), this.playhead.seekTo(this.startFrame),
+              this.playhead.introController.seekTo(this.isTinyScreen ? this.tinyScreenOffset : 0, !0),
+              this.scrollbar.setProgress(this.startFrame / this.playhead.length),
+              this.nav.setProgress(this.startFrame)) : (this.stream.acceptingInput = true, this.playhead.seekTo(this.isTinyScreen ? this.tinyScreenOffset : 0),
+              this.scrollbar.setProgress(0), this.nav.setProgress(0)),
           $("body").on("click", "button.scroll-down", function (e) {
             e.preventDefault(),
             $(e.currentTarget).parents("nav").length || $(e.currentTarget).transition({
@@ -7632,6 +7655,8 @@ var SH;
             opacity: 1,
             marginRight: 0
           }), $('#loader').remove(), $('#preloader').remove(),
+              //czhang 开发播放背景音乐
+              $("#jplayer_background").jPlayer("play");
           redkiss.playhead.seekTo(0),redkiss.playhead.start(),redkiss.playhead.playTo(52);
           $('.btn_scrolldown').on('click', function(){
               redkiss.playhead.seekTo(52);

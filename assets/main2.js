@@ -206,7 +206,7 @@
         });
     });
 
-$(function(){
+
     //背景音乐
     var audioPath="/audio/";
     var backgroudAudio="background.mp3";
@@ -215,11 +215,11 @@ $(function(){
         ready: function () {
             $(this).jPlayer("setMedia", {
                 mp3: audioPath+backgroudAudio
-            }).jPlayer("play");
+            })
         },
         swfPath: "/assets",
         loop:true
     });
-});
+
 
 }(jQuery));
