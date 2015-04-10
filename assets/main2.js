@@ -166,6 +166,7 @@
             height: screen.height
         });
 
+
         (function (item) {
             if($(item).size() && $(item).attr('src').match(/(https?:)?\/\/www\.youtube\.com/)) {
                 var w=$(item).attr('width');
@@ -195,6 +196,8 @@
 
             $('.youtube-con').height($(window).height());
         }).trigger('resize');
+
+
     });
 
     $(function () {
@@ -225,6 +228,11 @@
         $('#file_popup').click(function () {
             var el = $(this),
                 youtube = $('.youtube-con');
+
+            if (youtube.parent().hasClass('mm-page')) {
+                console.log('hello');
+                youtube.prependTo('body');
+            }
             // 关闭
             if (el.data('shown')) {
                 hideYoutube(function () {
