@@ -326,7 +326,7 @@ img {
 }
 
 menu,ol,ul { padding: 0 0 0 40px; }
-footer { position: fixed; z-index: 21; bottom: 0; width: 100%; height: 76px;
+footer { position: fixed; z-index: 1111111; bottom: 0; width: 100%; height: 76px;
     background: #000 url('../imgs/footer.png') no-repeat center 38px; text-align: center;
     display: block; color: #fff; 
     font-family: "Franklin Gothic LT BOOK",sst_prolight,"Helvetica Neue",Helvetica,Arial,sans-serif; 
