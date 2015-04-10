@@ -14,6 +14,7 @@
     <script src="/assets/main2.js"></script>
 
 
+    <link rel="stylesheet" href="/le_parfum/css/largeScreen.css" />
     <link rel="stylesheet" href="/s_mobile/demo.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/s_mobile/jquery.mmenu.all.css" />
@@ -78,7 +79,8 @@
                     break;
             }
         }
-        if (doOnOrientationChange() == 2){
+
+        if (doOnOrientationChange() == 1) {
             $(function () {
                 $('.static').css({
                     position: 'fixed',
@@ -95,7 +97,11 @@
 
 </head>
 <body>
-
+<style>
+    a {
+        font-family: "FranklinGothicLT-DemiCmpr", "frankgoth_xcn_btregular" , Helvetica, Arial, sans-serif;
+    }
+</style>
 <div id="page">
     <div class="header">
         <a href="#menu"></a>
