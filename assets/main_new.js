@@ -7462,6 +7462,7 @@ var SH;
         this.isRunning || (this.lastDecay = null, this.lastPosition = null, this.velocity || (this.velocity = Playhead.minVelocity), this.step())
       },
       Playhead.prototype.stop = function(){
+          //isNavClicked=false;
           return this.events.triggerHandler("stop", this.position);
       }, 
       Playhead.prototype.step = function (stopFrame) {
@@ -7634,6 +7635,7 @@ var SH;
           var _this = this;
           this.playhead.videoController.show(),
           this.playhead.events.on("progress", function (ev, p, f, l) {
+              //isNavClicked=true;
             _this.nav.setProgress(f),
             _this.overlays.setProgress(f),
             _this.scrollbar.setProgress(f / l)

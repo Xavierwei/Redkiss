@@ -241,19 +241,5 @@
     });
 
 
-    //背景音乐
-    var audioPath="/audio/";
-    var backgroudAudio="background.mp3";
-    var frameAudioArray=[10,87,90,250,310,438,441,525,703,720,728,830,915,1193,1208,1226,1233,1301,1320,1519,1597,1607];
-    $("#jplayer_background").jPlayer({
-        ready: function () {
-            $(this).jPlayer("setMedia", {
-                mp3: audioPath+backgroudAudio
-            })
-        },
-        swfPath: "/assets",
-        loop:true
-    });
-
 
 }(jQuery));
