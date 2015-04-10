@@ -236,8 +236,16 @@
 
         $('.youtube-con .close_btn').click(function () {
             hideYoutube(function () {
-                el.data('shown', false);
+                $('#file_popup').data('shown', false);
             });
+        });
+
+        $(document).keyup(function (event) {
+            if (event.keyCode == 27) {
+                hideYoutube(function() {
+                    $('#file_popup').data('shown', false);
+                });
+            }
         });
     });
 
