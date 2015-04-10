@@ -4505,11 +4505,11 @@ var MobileEsp = {
   mobi: "mobi",
   maemo: "maemo",
   linux: "linux",
-  mylocom2: "sony/com",
+  mylocom2: "",
   manuSonyEricsson: "sonyericsson",
   manuericsson: "ericsson",
   manuSamsung1: "sec-sgh",
-  manuSony: "sony",
+  manuSony: "",
   manuHtc: "htc",
   svcDocomo: "docomo",
   svcKddi: "kddi",
@@ -7326,7 +7326,7 @@ var SH;
             [.6, "#intro-text-5", fc],
             [.8, "#intro-p-6-7", fc],
             [.9, ".be-moved", fc],
-            [.95, ".sony", fade],
+            [.95, ".redkiss", fade],
             [1, "#intro-scroll-button button", comp(fade, {
               bottom: 0
             })]
@@ -7851,7 +7851,7 @@ var SH;
       function share(opts) {
         return fb.ready ? void FB.ui({
           method: "feed",
-          name: opts.title || "When engineers meet artists – Sony",
+          name: opts.title,
           link: opts.link || "",
           description: opts.description,
           picture: opts.picture || "",
@@ -7945,67 +7945,8 @@ var SH;
           }), $(key).find(".poster-content").append(node.show())
         })
       }
-      Social.SITE_ROOT = "http://www.sony.com/bemoved/", Social.MEDIA_ROOT = "./";
+      Social.SITE_ROOT = "", Social.MEDIA_ROOT = "./";
       var shareData = {
-        "#videoSharePanel": {
-          link: "",
-          picture: "assets/img/fb/FB_video.jpg",
-          title: "We are engineers, but we are also artists.",
-          description: "An artist can challenge an engineer with the impossible. An engineer can make the impossible possible. We measure our success with the flutter of a heart or a bead of cold sweat. After all, it’s not about what we make; it’s about what we make you feel.",
-          caption: "SONY - BE MOVED"
-        },
-        "#S01_POSTER": {
-          link: "#SonyQX",
-          picture: "assets/img/fb/FB_qx100.jpg"
-        },
-        "#S02_POSTER": {
-          link: "#xperia",
-          picture: "assets/img/fb/FB_xperiaz1s.jpg",
-          title: "Meet the smartphone with PlayStation®4 Remote Play.",
-          caption: "The new Sony Xperia Z3v.",
-          description: "Ever wondered what it’d be like to kill zombies in your backyard? Remote Play connectivity means that our new Xperia Z3v smartphone can connect to your PlayStation®4, allowing you to access the games you love in places other than your living room.",
-          twitter: "Meet the new Xperia Z3v smartphone with PlayStation®4 Remote Play."
-        },
-        "#S03_POSTER": {
-          link: "#walkman",
-          picture: "assets/img/fb/FB_walkmanw.jpg"
-        },
-        "#S04_POSTER": {
-          link: "#SonyAudio",
-          picture: "assets/img/fb/FB_SSAR1speakers.jpg"
-        },
-        "#S05_POSTER": {
-          link: "#Sony4K",
-          picture: "assets/img/fb/FB_Bravia4k.jpg",
-          title: "",
-          caption: "",
-          description: "",
-          twitter: "The new 4K Ultra HD TV, from the people who invented 4K Ultra HD TVs."
-        },
-        "#S06_POSTER": {
-          link: "#hmdt3",
-          picture: "assets/img/fb/FB_HMZT3.jpg"
-        },
-        "#S07_POSTER": {
-          link: "#SonyRX1",
-          picture: "assets/img/fb/FB_RX1.jpg"
-        },
-        "#S08_POSTER": {
-          link: "#ps4",
-          picture: "assets/img/fb/FB_PS4.jpg"
-        },
-        "#S09_POSTER": {
-          link: "#guineapig",
-          picture: "assets/img/fb/FB_guineapig.jpg"
-        },
-        "#S10_POSTER": {
-          link: "#soundbar",
-          picture: "assets/img/fb/FB_Soundbar.jpg",
-          title: "Entertainment experiences sound incredible in 7.1-channel surround sound.",
-          caption: "The Sony ST Series Soundbar.",
-          description: "Designed in conjunction with award-winning sound engineers. Because when you’re trying to make movies sound amazing, it makes sense to work with the people who make movies sound amazing.",
-          twitter: "Experience cinema-quality sound at home with the new ST Series Soundbar from Sony."
-        }
       };
       $(createShares)
     }(Interface.Social || (Interface.Social = {}));
