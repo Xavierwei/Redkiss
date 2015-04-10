@@ -369,5 +369,5 @@ display: block; width:66px; height:38px; font-size:0;}
     height: 100%;
 }
 
-.youtube-con .close_btn {position: absolute;width:20px;height:20px;background:url('../img/close_white.png') no-repeat center;cursor: pointer;right:5px;top:5px;  z-index: 101;cursor: pointer;transition: all 0.5s ease-in;  z-index: 111111111;}
+.youtube-con .close_btn {position: absolute;width:20px;height:20px;background:url('/assets/img/close_white.png') no-repeat center;cursor: pointer;right:5px;top:5px;  z-index: 101;cursor: pointer;transition: all 0.5s ease-in;  z-index: 111111111;}
 .youtube-con .close_btn:hover {-webkit-transform: rotate(180reg); -ms-transform: rotate(180reg);transform:rotate(180deg); cursor: pointer;}
