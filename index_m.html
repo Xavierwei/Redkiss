@@ -58,7 +58,7 @@ Date de création : 04/08/2015
 
 <div id="page">
     <div class="header">
-        <a href="#menu"></a>
+        <a href="#menu" style="display:none;"></a>
     </div>
     <nav id="menu">
         <ul>
@@ -611,6 +611,10 @@ Date de création : 04/08/2015
 <script>
     $(function() {
         $('nav#menu').mmenu();
+
+        $("body").on('image_loaded', function () {
+            $("#page .header a").css({opacity: 0}).show().animate({opacity: 1}, 500);
+        });
     });
 </script>
 </body>

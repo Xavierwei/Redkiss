@@ -2237,6 +2237,9 @@ body.oldie #full-content {
         display: none; }
     html.tablet .static .click_txt {
         display: none; }
+
+        .header a { display: none; }
+
     html.tablet .rotation-prompt, html.tablet .browser-prompt {
         display: block !important;
         color: black !important;

@@ -5985,7 +5985,6 @@ var SH;
           this.target ? (p = Math.round(100 * (this.current / this.target)), p = String(p) + "%") : p = "Loading…",
           $(this.el).text(p),
             $('#preloader .inner').width((1 - (this.current / this.target)) * $(window).width());
-
         },
         Loader
     }();
@@ -6222,6 +6221,7 @@ var SH;
           return SH.Util.whenAll(firstPhasePreloads).then(function () {
 
             console.log('whenAll(firstPhasePreloads): ',firstPhasePreloads.length);
+
             // push进 customSequence:
             _this.appendToCustomSequence(0,65);
             // debugger;

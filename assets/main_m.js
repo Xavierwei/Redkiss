@@ -6222,6 +6222,8 @@ var SH;
                     return SH.Util.whenAll(firstPhasePreloads).then(function () {
 
                         console.log('whenAll(firstPhasePreloads): ',firstPhasePreloads.length);
+
+                        $('body').trigger('image_loaded');
                         // push进 customSequence:
                         _this.appendToCustomSequence(0,65);
                         // debugger;
