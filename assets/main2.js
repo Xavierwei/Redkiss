@@ -164,7 +164,7 @@
         });
 
         (function (item) {
-            if($(item).attr('src').match(/(https?:)?\/\/www\.youtube\.com/)) {
+            if($(item).size() && $(item).attr('src').match(/(https?:)?\/\/www\.youtube\.com/)) {
                 var w=$(item).attr('width');
                 var h=$(item).attr('height');
                 var ar = h/w*100;
@@ -189,6 +189,8 @@
             $('.video-con').css({
                 'padding-top': paddingTop
             });
+
+            $('.youtube-con').height($(window).height());
         }).trigger('resize');
     });
 
