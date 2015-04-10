@@ -4505,11 +4505,11 @@ var MobileEsp = {
     mobi: "mobi",
     maemo: "maemo",
     linux: "linux",
-    mylocom2: "sony/com",
+    mylocom2: "",
     manuSonyEricsson: "sonyericsson",
     manuericsson: "ericsson",
     manuSamsung1: "sec-sgh",
-    manuSony: "sony",
+    manuSony: "",
     manuHtc: "htc",
     svcDocomo: "docomo",
     svcKddi: "kddi",
@@ -5923,6 +5923,9 @@ MobileEsp.InitDeviceScan(), ! function (e) {
     }
 });
 
+//czhang section-nav
+var isNavClicked=false;
+
 var SH;
 ! function (SH) {
     ! function (Util) {
@@ -6073,13 +6076,13 @@ var SH;
                 console.log(this.customFrames);
 
                 this.urlFunc = function (n, prefix) {
-                    var fileDir = "PIC/small/";
-                    return SH.Config.isMobile ? fileDir = "/small_256/" : SH.Config.isTablet && (fileDir = "/small_512/"), config.path + "/small/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
+                    var fileDir = "PIC/mobile/small/";
+                    return SH.Config.isMobile ? fileDir = "/small_256/" : SH.Config.isTablet && (fileDir = "/small_512/"), config.path + "/mobile/small/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
                 },
                     this.largeUrlFunc = function (n, prefix) {
                         //                    var fileDir = "PICS/large/";
-                        var fileDir = "PICS/big/";
-                        return SH.Config.isMobile ? fileDir = "/large_960/" : SH.Config.isTablet && (fileDir = "/large_960/"), config.path + "/big/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
+                        var fileDir = "PICS/mobile/big/";
+                        return SH.Config.isMobile ? fileDir = "/large_960/" : SH.Config.isTablet && (fileDir = "/large_960/"), config.path + "/mobile/big/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
                     }, this.el = document.createElement("div"), this.currentFrame = null, this.loadGauge = new SH.Interface.FrameLoadGauge($("#frameLoads"), this.length)
             }
             return ImageFrameSource.prototype.loadFrame = function (n, immediately) {
@@ -6255,7 +6258,7 @@ var SH;
                 this.currentFrameNumber = num;
                 //zzz
                 var globalData = {
-                    endFrame : 1707,
+                    endFrame : 756,
                     initFrameStart: 38,
                     initFrameEnd: 53,
                     navFrameStart: this.customFrames.indexOf(420),
@@ -6263,12 +6266,13 @@ var SH;
                     navFrameStart2: this.customFrames.indexOf(680),
                     navFrameEnd2: this.customFrames.indexOf(830)
                 }
+
                 // show end frame layout
-                if(num >= (globalData.endFrame-1)) {
+                if(num >= globalData.endFrame && !$('.end_frame').is(':visible')) {
                     $('.end_frame').fadeIn()
                     //$('#section-nav').fadeOut();
                 }
-                else if(num <= (globalData.endFrame-1)) {
+                else if(num <= globalData.endFrame && $('.end_frame').is(':visible')) {
                     $('.end_frame').fadeOut();
                     //$('#section-nav').fadeIn();
                 }
@@ -6286,6 +6290,13 @@ var SH;
                     var new_num=num;
                     $('#welcome_page').css("opacity",1.0/8*(60-new_num));
                     $('#welcome_page_bottom').css("opacity",1.0/8*(60-new_num));
+                }
+
+                //具体帧加载音频
+                if(_.contains([10,87,90,250,310,438,441,525,703,720,728,830,915,1193,1208,1226,1233,1301,1320,1519,1597,1607],num)&&!isNavClicked){
+                    $('#playlist').jPlayer("setMedia", {
+                        mp3: '/audio/'+num+'.mp3'
+                    }).jPlayer("play");
                 }
 
 
@@ -6420,7 +6431,6 @@ var SH;
                         //srcAspect < this.aspect ? (sx = 0, sw = w, sh = sw / this.aspect, sy = (h - sh) / 2) : (sy = 0, sh = h, sw = sh * this.aspect, sx = (w - sw) / 2),
                         srcAspect < this.aspect ? (sx = 0, sw = w, sh = sw / this.aspect, sy = ((h - sh) / 2)) : (sy = 0, sh = h, sw = sh * this.aspect, sx = (w - sw) / 2),
                             this.context.drawImage(image, sx, sy, sw, sh, 0, 0, this.canvas.width, this.canvas.height),
-                            //this.context.drawImage(image, sx, 50, sw, sh, 0, 0, this.canvas.width, this.canvas.height),
                             this.prevImage = image
                     }
                 }, ImageToCanvas
@@ -7316,7 +7326,7 @@ var SH;
                         [.6, "#intro-text-5", fc],
                         [.8, "#intro-p-6-7", fc],
                         [.9, ".be-moved", fc],
-                        [.95, ".sony", fade],
+                        [.95, ".redkiss", fade],
                         [1, "#intro-scroll-button button", comp(fade, {
                             bottom: 0
                         })]
@@ -7342,7 +7352,16 @@ var SH;
                     })
                 }, PreloadAnimation.prototype.loadElements = function () {
                     //                    debugger;
-                    return SH.Util.whenAll(_.map(["assets/img/trans-grad.png", "assets/img/trans-grad-black.png", "assets/img/trans-grad-blue.png", "assets/img/trans-grad-pink.png", "assets/img/trans-grad-purple.png", "assets/img/hotspot.png", "assets/img/hotspot-anim.png", "assets/img/read-story.png", "assets/img/read-story-dark.png", "assets/img/appstore/goldie.png", "assets/img/appstore/umbrella.png", "assets/img/appstore/sub.png", "assets/img/appstore/photo.png", "assets/img/appstore/plantimal.png", "assets/img/appstore/showeroke.png", "assets/img/appstore/goldie_over.png", "assets/img/appstore/umbrella_over.png", "assets/img/appstore/sub_over.png", "assets/img/appstore/photo_over.png", "assets/img/appstore/plantimal_over.png", "assets/img/appstore/showeroke_over.png"], function (u) {
+                    return SH.Util.whenAll(_.map(["assets/img/trans-grad.png",
+                        "assets/img/trans-grad-black.png",
+                        "assets/img/trans-grad-blue.png",
+                        "assets/img/trans-grad-pink.png",
+                        "assets/img/trans-grad-purple.png",
+                        "assets/img/hotspot.png",
+                        "assets/img/hotspot-anim.png",
+                        "assets/img/read-story.png",
+                        "assets/img/read-story-dark.png",
+                        "assets/img/appstore/goldie.png", "assets/img/appstore/umbrella.png", "assets/img/appstore/sub.png", "assets/img/appstore/photo.png", "assets/img/appstore/plantimal.png", "assets/img/appstore/showeroke.png", "assets/img/appstore/goldie_over.png", "assets/img/appstore/umbrella_over.png", "assets/img/appstore/sub_over.png", "assets/img/appstore/photo_over.png", "assets/img/appstore/plantimal_over.png", "assets/img/appstore/showeroke_over.png"], function (u) {
                         var i = new Image,
                             d = $.Deferred();
                         return i.onload = function () {
@@ -7443,6 +7462,7 @@ var SH;
                 this.isRunning || (this.lastDecay = null, this.lastPosition = null, this.velocity || (this.velocity = Playhead.minVelocity), this.step())
             },
                 Playhead.prototype.stop = function(){
+                    //isNavClicked=false;
                     return this.events.triggerHandler("stop", this.position);
                 },
                 Playhead.prototype.step = function (stopFrame) {
@@ -7511,7 +7531,7 @@ var SH;
             return ConfigLoader.prototype.loadConfig = function () {
                 var _this = this,
                     configPromise = $.Deferred(),
-                    loadConfig = this.loadMember("config_new.json"),
+                    loadConfig = this.loadMember("config_mobile.json"),
                     loadOverlays = this.loadMember("overlays_welcome.json"),
                     loadNavColors = this.loadMember("nav_colors.json");
                 return SH.Util.whenAll([loadConfig, loadOverlays, loadNavColors]).then(function (config, overlays, colors) {
@@ -7609,37 +7629,46 @@ var SH;
                 return this.preloadAnimation.advanceTo(percent), 1 == percent ? this.statePreloadFinal() : void 0
             }, App.prototype.statePreloadWait = function () {
                 this.playhead.videoController.source.load(this.loader, this.startFrame)
-            }, App.prototype.statePreloadFinal = function () {}, App.prototype.stateAcceptingInput = function () {
-                var _this = this;
-                this.playhead.videoController.show(),
-                    this.playhead.events.on("progress", function (ev, p, f, l) {
-                        _this.nav.setProgress(f),
-                            _this.overlays.setProgress(f),
-                            _this.scrollbar.setProgress(f / l)
-                    }), this.hash ? ($(this.stream).one("muted", function () {
-                    $("#preloader").transition({
-                        top: "-1000px"
-                    }, 1e3, function () {
-                        $("#preloader").attr("class", "preloader")
-                    }), _this.stream.acceptingInput = true
-                }), this.playhead.seekTo(this.startFrame), this.playhead.introController.seekTo(this.isTinyScreen ? this.tinyScreenOffset : 0, !0), this.scrollbar.setProgress(this.startFrame / this.playhead.length), this.nav.setProgress(this.startFrame)) : (this.stream.acceptingInput = true, this.playhead.seekTo(this.isTinyScreen ? this.tinyScreenOffset : 0), this.scrollbar.setProgress(0), this.nav.setProgress(0)),
-                    $("body").on("click", "button.scroll-down", function (e) {
-                        e.preventDefault(),
-                        $(e.currentTarget).parents("nav").length || $(e.currentTarget).transition({
-                            opacity: 0
-                        }),
-                            _this.playhead.jumpForward()
-                    }), $(".scrollbar").show().transition({
-                    opacity: 1,
-                    marginRight: 0
-                }), $('#loader').remove(), $('#preloader').remove(),
+            }, App.prototype.statePreloadFinal = function () {},
+
+                App.prototype.stateAcceptingInput = function () {
+                    var _this = this;
+                    this.playhead.videoController.show(),
+                        this.playhead.events.on("progress", function (ev, p, f, l) {
+                            //isNavClicked=true;
+                            _this.nav.setProgress(f),
+                                _this.overlays.setProgress(f),
+                                _this.scrollbar.setProgress(f / l)
+                        }), this.hash ? ($(this.stream).one("muted", function () {
+                        $("#preloader").transition({
+                            top: "-1000px"
+                        }, 1e3, function () {
+                            $("#preloader").attr("class", "preloader")
+                        }), _this.stream.acceptingInput = true
+                    }), this.playhead.seekTo(this.startFrame),
+                        this.playhead.introController.seekTo(this.isTinyScreen ? this.tinyScreenOffset : 0, !0),
+                        this.scrollbar.setProgress(this.startFrame / this.playhead.length),
+                        this.nav.setProgress(this.startFrame)) : (this.stream.acceptingInput = true, this.playhead.seekTo(this.isTinyScreen ? this.tinyScreenOffset : 0),
+                        this.scrollbar.setProgress(0), this.nav.setProgress(0)),
+                        $("body").on("click", "button.scroll-down", function (e) {
+                            e.preventDefault(),
+                            $(e.currentTarget).parents("nav").length || $(e.currentTarget).transition({
+                                opacity: 0
+                            }),
+                                _this.playhead.jumpForward()
+                        }), $(".scrollbar").show().transition({
+                        opacity: 1,
+                        marginRight: 0
+                    }), $('#loader').remove(), $('#preloader').remove(),
+                        //czhang 开发播放背景音乐
+                        $("#jplayer_background").jPlayer("play");
                     redkiss.playhead.seekTo(0),redkiss.playhead.start(),redkiss.playhead.playTo(52);
-                $('.btn_scrolldown').on('click', function(){
-                    redkiss.playhead.seekTo(52);
-                    redkiss.playhead.start()
-                    redkiss.playhead.playTo(185);
-                });
-            }, App
+                    $('.btn_scrolldown').on('click', function(){
+                        redkiss.playhead.seekTo(52);
+                        redkiss.playhead.start()
+                        redkiss.playhead.playTo(185);
+                    });
+                }, App
         }();
         Core.App = App
     }(SH.Core || (SH.Core = {}));
@@ -7822,7 +7851,7 @@ var SH;
             function share(opts) {
                 return fb.ready ? void FB.ui({
                     method: "feed",
-                    name: opts.title || "When engineers meet artists – Sony",
+                    name: opts.title,
                     link: opts.link || "",
                     description: opts.description,
                     picture: opts.picture || "",
@@ -7916,67 +7945,8 @@ var SH;
                     }), $(key).find(".poster-content").append(node.show())
                 })
             }
-            Social.SITE_ROOT = "http://www.sony.com/bemoved/", Social.MEDIA_ROOT = "./";
+            Social.SITE_ROOT = "", Social.MEDIA_ROOT = "./";
             var shareData = {
-                "#videoSharePanel": {
-                    link: "",
-                    picture: "assets/img/fb/FB_video.jpg",
-                    title: "We are engineers, but we are also artists.",
-                    description: "An artist can challenge an engineer with the impossible. An engineer can make the impossible possible. We measure our success with the flutter of a heart or a bead of cold sweat. After all, it’s not about what we make; it’s about what we make you feel.",
-                    caption: "SONY - BE MOVED"
-                },
-                "#S01_POSTER": {
-                    link: "#SonyQX",
-                    picture: "assets/img/fb/FB_qx100.jpg"
-                },
-                "#S02_POSTER": {
-                    link: "#xperia",
-                    picture: "assets/img/fb/FB_xperiaz1s.jpg",
-                    title: "Meet the smartphone with PlayStation®4 Remote Play.",
-                    caption: "The new Sony Xperia Z3v.",
-                    description: "Ever wondered what it’d be like to kill zombies in your backyard? Remote Play connectivity means that our new Xperia Z3v smartphone can connect to your PlayStation®4, allowing you to access the games you love in places other than your living room.",
-                    twitter: "Meet the new Xperia Z3v smartphone with PlayStation®4 Remote Play."
-                },
-                "#S03_POSTER": {
-                    link: "#walkman",
-                    picture: "assets/img/fb/FB_walkmanw.jpg"
-                },
-                "#S04_POSTER": {
-                    link: "#SonyAudio",
-                    picture: "assets/img/fb/FB_SSAR1speakers.jpg"
-                },
-                "#S05_POSTER": {
-                    link: "#Sony4K",
-                    picture: "assets/img/fb/FB_Bravia4k.jpg",
-                    title: "",
-                    caption: "",
-                    description: "",
-                    twitter: "The new 4K Ultra HD TV, from the people who invented 4K Ultra HD TVs."
-                },
-                "#S06_POSTER": {
-                    link: "#hmdt3",
-                    picture: "assets/img/fb/FB_HMZT3.jpg"
-                },
-                "#S07_POSTER": {
-                    link: "#SonyRX1",
-                    picture: "assets/img/fb/FB_RX1.jpg"
-                },
-                "#S08_POSTER": {
-                    link: "#ps4",
-                    picture: "assets/img/fb/FB_PS4.jpg"
-                },
-                "#S09_POSTER": {
-                    link: "#guineapig",
-                    picture: "assets/img/fb/FB_guineapig.jpg"
-                },
-                "#S10_POSTER": {
-                    link: "#soundbar",
-                    picture: "assets/img/fb/FB_Soundbar.jpg",
-                    title: "Entertainment experiences sound incredible in 7.1-channel surround sound.",
-                    caption: "The Sony ST Series Soundbar.",
-                    description: "Designed in conjunction with award-winning sound engineers. Because when you’re trying to make movies sound amazing, it makes sense to work with the people who make movies sound amazing.",
-                    twitter: "Experience cinema-quality sound at home with the new ST Series Soundbar from Sony."
-                }
             };
             $(createShares)
         }(Interface.Social || (Interface.Social = {}));
@@ -7984,3 +7954,5 @@ var SH;
     }(SH.Interface || (SH.Interface = {}));
     SH.Interface
 }(SH || (SH = {}));
+
+

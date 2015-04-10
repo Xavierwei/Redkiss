@@ -6076,13 +6076,13 @@ var SH;
         console.log(this.customFrames);
 
         this.urlFunc = function (n, prefix) {
-          var fileDir = "PIC/small/";
-          return SH.Config.isMobile ? fileDir = "/small_256/" : SH.Config.isTablet && (fileDir = "/small_512/"), config.path + "/small/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
+          var fileDir = "PIC/pc/small/";
+          return SH.Config.isMobile ? fileDir = "/small_256/" : SH.Config.isTablet && (fileDir = "/small_512/"), config.path + "/pc/small/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
         },
         this.largeUrlFunc = function (n, prefix) {
           //                    var fileDir = "PICS/large/";
-          var fileDir = "PICS/big/";
-          return SH.Config.isMobile ? fileDir = "/large_960/" : SH.Config.isTablet && (fileDir = "/large_960/"), config.path + "/big/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
+          var fileDir = "PICS/pc/big/";
+          return SH.Config.isMobile ? fileDir = "/large_960/" : SH.Config.isTablet && (fileDir = "/large_960/"), config.path + "/pc/big/" + config.prefix + SH.Util.zeroPad(n, config.frameNumberTemplate || "" + n) + "." + config.extension
         }, this.el = document.createElement("div"), this.currentFrame = null, this.loadGauge = new SH.Interface.FrameLoadGauge($("#frameLoads"), this.length)
       }
       return ImageFrameSource.prototype.loadFrame = function (n, immediately) {
@@ -6261,10 +6261,10 @@ var SH;
               endFrame : 1707,
               initFrameStart: 38,
               initFrameEnd: 53,
-              navFrameStart: this.customFrames.indexOf(420),
-              navFrameEnd: this.customFrames.indexOf(530),
-              navFrameStart2: this.customFrames.indexOf(680),
-              navFrameEnd2: this.customFrames.indexOf(830)
+              navFrameStart: this.customFrames.indexOf(1000),
+              navFrameEnd: this.customFrames.indexOf(1000),
+              navFrameStart2: this.customFrames.indexOf(1000),
+              navFrameEnd2: this.customFrames.indexOf(1000)
           }
 
           // show end frame layout
