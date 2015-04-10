@@ -10,7 +10,6 @@
 	<meta name="Resource-type" content="Document" />
 
     <script type="text/javascript">
-        window.console && (window.console = function () {});
     </script>
 	
 	<link rel="stylesheet" type="text/css" href="css/jquery.multiscroll.css" />		
@@ -100,14 +99,14 @@
                 var img_rate = parseFloat(w/h);
                 var bg_rate = parseFloat(  winWidth / 2 /winHeight);
 	 			$(".ms-con").height(winHeight);
-				console.log(img_rate + ' ' + bg_rate);
+				//console.log(img_rate + ' ' + bg_rate);
 				//根据宽高比的比较，固定图片的宽高来实现图片铺满屏幕而不变形，多余的部分隐藏
 			    if(bg_rate <= 1) {
 					// 视口高 - 将图片高度放到和视口一致，宽度等比增加，隐藏超出宽度
 					var img_h = winHeight,
 						img_w = (img_h / h ) * w ;
-					console.log('img_h:' + img_h + ' img_w:' + img_w);
-					console.log('视口宽 - 图片小');
+					//console.log('img_h:' + img_h + ' img_w:' + img_w);
+					//console.log('视口宽 - 图片小');
 					$('.s_img').css({
 						width: img_w,
 						height: img_h,
@@ -117,7 +116,7 @@
 					// 视口小 - 图片大 -> 将图片高度放到和视口一致，宽度等比增加，隐藏超出宽度
 					var img_w = winWidth /2,
 						img_h = (img_w / w ) * h;
-					console.log('视口小 - 图片大');
+					//console.log('视口小 - 图片大');
 
 					$('.s_img').css({
 						width: img_w,
