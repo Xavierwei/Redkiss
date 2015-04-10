@@ -1,84 +1,51 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!doctype html>
+<html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
-	<title>DIESEL | LOVERDOSE REDKISS</title>
-	<meta name="author" content="Alvaro Trigo Lopez" />
-	<meta name="description" content="multiscroll plugin by Alvaro Trigo. Create divided multi-scrolling pages with two splited vertical layouts or panels." />
-	<meta name="keywords"  content="multiscroll,jquery,alvaro,trigo,plugin,divided,splitscreen,screen,panels,layouts,vertical,split,splited" />
-	<meta name="Resource-type" content="Document" />
+    <meta charset='utf-8' name="viewport" content="width=device-width, initial-scale=1" >
+    <title>DIESEL | LOVERDOSE REDKISS</title>
 
-
-	
-	<link rel="stylesheet" type="text/css" href="css/jquery.multiscroll.css" />
-    <link rel="stylesheet" href="/assets/css/all.css" />
-	<link rel="stylesheet" href="css/largeScreen.css" />
-	<link rel="stylesheet" href="css/nav.css" />
-	<link rel="stylesheet" href="css/loading.css" />
-
-    <link rel="stylesheet" href="/s_mobile/demo.css" />
-    <link rel="stylesheet" href="/s_mobile/jquery.mmenu.all.css" />
-    <link rel="stylesheet" href="/s_mobile/s_mobile.css" />
-
-    <style>
-		html,body, div.ms-left, div.ms-right, div.ms-section, div.s_div { width: 100%; height: 100%; }
-		.ms-con { position: relative; background: url("imgs/bgs.jpg") !important; background-repeat: no-repeat !important; background-size: cover !important; }
-		.s_div { width: 100%; height: 100%; position: absolute; left: 0;
-		 top: 0; }
-		 .s_div img { width: 100%; height: 100%; }
-
-
-		.clearfix:after {
-		     visibility: hidden;
-		     display: block;
-		     font-size: 0;
-		     content: " ";
-		     clear: both;
-		     height: 0;
-		     }
-		.clearfix { display: inline-block; }
-		/* start commented backslash hack \*/
-		* html .clearfix { height: 1%; }
-		.clearfix { display: block; }
-		/* close commented backslash hack */
-
-
-        #myContainer {
-            position: relative;
-        }
-	</style>
-
-	<script src="js/jquery.1.11.2.js"></script>
-	<script src="js/jquery.easings.min.js"></script>
-	<script src="js/jquery.multiscroll.js"></script>
+    <script src="js/jquery.1.11.2.js"></script>
+    <script src="js/jquery.easings.min.js"></script>
+    <script src="js/jquery.multiscroll.js"></script>
     <script type="text/javascript" src="/assets/jquery.jplayer.min.js"></script>
-	<script src="js/loading.js"></script>
+    <script src="js/loading.js"></script>
     <script src="/assets/main2.js"></script>
 
 
-	<script type="text/javascript">
-	 $(document).ready(function() {
-            $('#myContainer').multiscroll({
-            	//sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],
-            	anchors: ['first', 'second', 'third'],
-            	menu: '#menu',
-            	navigation: true,
-            	navigationTooltips: ['One', 'Two', 'Three'],
-            	loopBottom: true,
-            	loopTop: true
-            });
+    <link rel="stylesheet" href="/s_mobile/demo.css" />
+    <link rel="stylesheet" href="/s_mobile/jquery.mmenu.all.css" />
+    <link rel="stylesheet" href="/le_parfum/css/loading.css" />
+    <link rel="stylesheet" href="/s_mobile/s_mobile.css" />
 
-        });
+    <style>
+        .ssimg {
+            width:100%;
+        }
+        .ssimg img {
+            width: 100%;
+        }
+        body {
+            height: inherit;
+        }
+        .youtube-con .close_btn {position: absolute;width:20px;height:20px;background:url('../assets/img/close_white.png') no-repeat center;cursor: pointer;right:5px;top:5px;  z-index: 101;cursor: pointer;transition: all 0.5s ease-in;  z-index: 111111111;}
+        .youtube-con .close_btn:hover {-webkit-transform: rotate(180reg); -ms-transform: rotate(180reg);transform:rotate(180deg); cursor: pointer;}
 
-	 $('img').loadingAnimate({
+        .s_all {
+            background: url("imgs/bgs.jpg") !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+    </style>
+
+    <script>
+
+        $('img').loadingAnimate({
             templateSelector: '#loading_html',
             percentSelector: '#loader',
             delay: 100,
             beforeLoad: function () {
                 var mask = $('<div id="mask-dddd"></div>').append(this.templateEl.html());
                 $('body').prepend(mask);
-                $('.end_list_wrap').css('display','none');
             },
             itemPerLoad: function (index, total) {
                 this.percent(Math.round(index/total  * 100)  + '%');
@@ -87,92 +54,24 @@
                 });
             },
             loadFinished: function () {
-                $("#myContainer").css("display", "block");
                 $('#mask-dddd #preloader').stop().animate({
                     opacity: 0
                 }, 300, function () {
                     $('body #mask-dddd').remove();
-                    $('.end_list_wrap').css('display','block');
                 });
             }
         });
-
-
-	 	$(function (){
-	 		function resize(){
-			//获取浏览器的宽高，包括适配ie浏览器
-			var winWidth = (window.innerWidth)?window.innerWidth:((document.body) && (document.body.clientWidth))?document.body.clientWidth:0;
-			var winHeight = (window.innerHeight)?window.innerHeight:((document.body) && (document.body.clientHeight))?document.body.clientHeight:0; 　
-				var w = 832,
-					h = 1230;
-                var img_rate = parseFloat(w/h);
-                var bg_rate = parseFloat(  winWidth / 2 /winHeight);
-	 			$(".ms-con").height(winHeight);
-				//根据宽高比的比较，固定图片的宽高来实现图片铺满屏幕而不变形，多余的部分隐藏
-			    if(bg_rate <= 1) {
-					// 视口高 - 将图片高度放到和视口一致，宽度等比增加，隐藏超出宽度
-					var img_h = winHeight,
-						img_w = (img_h / h ) * w ;
-					$('.s_img').css({
-						width: img_w,
-						height: img_h,
-						"margin-top": - Math.abs((img_h - winHeight) / 2)
-					});
-                }else{
-					// 视口小 - 图片大 -> 将图片高度放到和视口一致，宽度等比增加，隐藏超出宽度
-					var img_w = winWidth /2,
-						img_h = (img_w / w ) * h;
-
-					$('.s_img').css({
-						width: img_w,
-						height: img_h
-						//"margin-left": - Math.abs((img_w - winWidth) / 2)
-					});
-                }
-				if (img_w - winWidth / 2 > 0) {
-					$('.ms-left .s_img').css({
-						'margin-left': -(img_w - winWidth / 2 )
-					});
-				} 
-			}
-			
-		 	window.onresize = function (){
-	 			resize();
-	 		};
-	 		window.onload = function (){
-	 			resize();
-	 		};
-
-	 	});
     </script>
+    <!--[if lt IE 9]>
+    　　　　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    　　<![endif]-->
+
 </head>
 <body>
-<div class="youtube-con  hideme">
-    <div class="video-bg"></div>
-    <div class="video-con">
-        <iframe id="video" src="http://www.youtube.com/embed/RIAafq4bg_Q?enablejsapi=1" frameborder="0" ></iframe>
-    </div>
-    <div class="close_btn"></div>
-</div>
-<img src="http://rs.gwallet.com/r1/pixel/x24855r" width="1" height="1" border="0" alt="" style="display: none;"/>
-<!-- Début du tag DoubleClick Floodlight : Veillez à ne pas supprimer
-Nom d'activité de ce tag : landingpage_diesel_redkiss
-URL de la page Web où doit être placé le tag : http://www.loverdose-redkiss.com/
-Ce tag doit être placé entre les tags <body> et </body>, le plus près possible du tag d'ouverture.
-Date de création : 04/08/2015
--->
-<script type="text/javascript">
-    var axel = Math.random() + "";
-    var a = axel * 10000000000000;
-    document.write('<img src="http://ad.doubleclick.net/ddm/activity/src=4232949;type=fr_fr0;cat=landi0;ord=1;num=' + a + '?" width="1" height="1" alt="" style="display: none;"/>');
-</script>
-<noscript>
-    <img src="http://ad.doubleclick.net/ddm/activity/src=4232949;type=fr_fr0;cat=landi0;ord=1;num=1?" width="1" height="1" alt="" style="display: none;"/>
-</noscript>
-<!-- Fin du tag DoubleClick Floodlight : Veuillez ne pas supprimer -->
+
 <div id="page">
     <div class="header">
-        <a href="#menu" ></a>
+        <a href="#menu"></a>
     </div>
     <nav id="menu">
         <ul>
@@ -203,128 +102,50 @@ Date de création : 04/08/2015
 </div>
 
 
-<div id="myContainer" style="display:none;">
+<div class="s_all">
 
-	<div class="ms-con clearfix">
-		<div class="ms-left">
-			<div class="ms-section" id="left1">
-				<div class="s_div s_div1">
-					<img class="s_img" src="imgs/image1_01.png" />
-				</div>
-			</div>
-			<div class="ms-section" id="left2">
-				<div class="s_div s_div3">
-					<img class="s_img" src="imgs/image2_01.png" />
-				</div>
-			</div>
-			<div class="ms-section" id="left3">
-				<div class="s_div s_div5">
-					<img class="s_img" src="imgs/image3_01.png" />
-				</div>
-			</div>
-		</div>
-		
-		<div class="ms-right">
-			<div class="ms-section" id="right1">
-				<div class="s_div s_div2">
-					<img class="s_img" src="imgs/image1_02.png" />
-				</div>
+    <div class="ssimg content1">
+        <img src="/assets/img/aaa.png" alt=""/>
+    </div>
 
-				<div class="end_list_wrap">
-			          <div class="end_list end_sns_links">
-			              <ul>
-			                  <li class="before"></li>
-			                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
-			                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
-			                  <li class="after"></li>
-			              </ul>
-			          </div>
-		        </div>
+    <div class="ssimg content2">
+        <img src="/assets/img/bbb.png" alt=""/>
+    </div>
 
-			</div>
-			<div class="ms-section" id="right2">
-				<div class="s_div s_div4">
-					<img class="s_img" src="imgs/image2_02.png" />
-				</div>
-
-				<div class="end_list_wrap">
-			          <div class="end_list end_sns_links">
-			              <ul>
-			                  <li class="before"></li>
-			                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
-			                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
-			                  <li class="after"></li>
-			              </ul>
-			          </div>
-		        </div>
-
-			</div>
-			<div class="ms-section" id="right3">
-				<div class="s_div s_div6">
-					<img class="s_img" src="imgs/image3_02.png" />
-				</div>
-
-				<div class="end_list_wrap">
-			          <div class="end_list end_sns_links">
-			              <ul>
-			                  <li class="before"></li>
-			                  <li class="end_sns_link"><a href="#">J’achète !</a></li>
-			                  <li class="shoppingLi"><a class="shoppingImg" href="javascript:;"></a></li>
-			                  <li class="after"></li>
-			              </ul>
-			          </div>
-		        </div>
-
-			</div>
-		</div>
-
-		<div class="clear"></div>
-	</div>
-
-
-	<footer>
-        <ul class="footer_link">
-          <li><a target="_blank" href="http://www.diesel.com/fragrances/loverdose/">découvrez l’univers l’overdose</a></li>| 
-          <li><a data-link="1" href="javascript:void(0)" class="inner">Mentions légales</a></li>|
-          <li><a data-link="3" href="javascript:void(0)" class="inner">Cookies - statistiques</a></li>|
-          <li><a data-link="2" href="javascript:void(0)" class="inner">DONNÉES PERSONNELLES</a></li>|
-          <li><a data-link="4" href="javascript:void(0)" class="inner">Contact</a></li>
-        </ul>
-    </footer>
-
-
+    <div class="ssimg content3">
+        <img src="/assets/img/ccc.png" alt=""/>
+    </div>
 
 </div>
 
-<script type="text/tpl" id="loading_html">
-    <div id="preloader" class="preloader pre-animation-state" style="display: block; top: 0%;">
-        <div class="inner" style="">
-            <h1 class="artists-engineers" style="opacity: 1;"></h1>
-            <p id="intro-text-3">
-            </p>
-
-            <p id="intro-text-4"></p>
-            <p id="intro-text-5"></p>
-
-            <p id="intro-p-6-7">
-                <span id="intro-text-6"></span>
-                <span id="intro-text-7"></span>
-            </p>
-
-            <h1 class="be-moved"></h1>
-
-
-            <p id="intro-scroll-button">
-                <button class="scroll-down">
-                    <h1 class="redkiss"></h1>
-                    <span class="scroll-message">PLEASE SCROLL DOWN</span>
-                </button>
-            </p>
-        </div>
+<div class="youtube-con  hideme">
+    <div class="video-bg"></div>
+    <div class="video-con">
+        <iframe id="video" src="http://www.youtube.com/embed/RIAafq4bg_Q?enablejsapi=1" frameborder="0" ></iframe>
     </div>
-    <div class="loader" id="loader" style="display: block; font-size: 14px; position: fixed; z-index: 99;">20%</div>
-</script>
+    <div class="close_btn"></div>
+</div>
 
+<![endif]-->
+<style type="text/css" media="all" id="viewport-override">
+</style>
+<style type="text/css" media="all" id="my-override">
+</style>
+<noscript>
+    <style type="text/css">
+        #full-content {
+            display: none;
+        }
+        body,
+        html {
+            overflow: auto;
+            height: auto;
+        }
+        .static {
+            display: block;
+        }
+    </style>
+</noscript>
 
 
 
