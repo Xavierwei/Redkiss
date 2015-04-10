@@ -600,6 +600,9 @@ sup {
     left: 0;
     top: 0; }
 
+.mobile .viewport-inner canvas {
+    position: inherit;  }
+
 article {
     display: none;
     position: absolute;
@@ -2238,7 +2241,7 @@ body.oldie #full-content {
     html.tablet .static .click_txt {
         display: none; }
 
-        .header a { display: none; }
+        /*.header a { display: none; }*/
 
     html.tablet .rotation-prompt, html.tablet .browser-prompt {
         display: block !important;
@@ -2418,7 +2421,7 @@ html.tablet .static .product.guinea .headline, html.mobile .static .product.guin
            experience. */
     }
 
-    .header a { display: none; }
+    /*.header a { display: none; }*/
 
     html.mobile, html.mobile body {
         background: white;
