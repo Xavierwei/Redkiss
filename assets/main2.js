@@ -166,12 +166,28 @@
             height: screen.height
         });
 
+        function doOnOrientationChange()
+        {
+            switch(window.orientation)
+            {
+                case -90:
+                case 90:
+                    return 1; // 横屏
+                    break;
+                default:
+                    return 2; // 竖屏
+                    break;
+            }
+        }
 
         (function (item) {
             if($(item).size() && $(item).attr('src').match(/(https?:)?\/\/www\.youtube\.com/)) {
                 var w=$(item).attr('width');
                 var h=$(item).attr('height');
                 var ar = h/w*100;
+                if (doOnOrientationChange() == 1) {
+                    var ar = w/h * 100;
+                }
                 ar=ar.toFixed(2);
                 //Style iframe
                 $(item).css('position','absolute');
