@@ -238,6 +238,12 @@ body{
     background-color: #000;
 }
 
+.mobile_end_list_wrap .icon{
+    width: 25px;
+    height: 20px;
+    background-size: 25px 20px;
+}
+
 .mobile_end_list_wrap .icon-facebook{
     margin-left:20px;
 }
@@ -249,16 +255,25 @@ body{
 .mobile_end_list_wrap .second a{
     margin-left: 25px;
     position: relative;
-    top: -5px;
+    top:-2px;
     display: inline-block;
     font-size: 20px;
     text-transform: uppercase;
     text-decoration: none;
 }
 
-.mobile_end_list_wrap .icon-arrow{
+.mobile_end_list_wrap .first .icon-arrow{
     position: relative;
     top:5px;
+}
+
+.mobile_end_list_wrap .first a{
+    position: relative;
+    top:2px;
+}
+
+.mobile_end_list_wrap .second .icon{
+    margin-top: 5px;
 }
 
 .end_frame_mobile{
@@ -306,4 +321,8 @@ body{
 .youtube-con {
     position: relative;
     z-index: 1111;
+}
+
+.mobile_end_list_wrap > .first {
+
 }
