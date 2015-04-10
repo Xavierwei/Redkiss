@@ -12,7 +12,6 @@
 
 	
 	<link rel="stylesheet" type="text/css" href="css/jquery.multiscroll.css" />
-	<link rel="stylesheet" type="text/css" href="css/examples.css" />
     <link rel="stylesheet" href="/assets/css/all.css" />
 	<link rel="stylesheet" href="css/largeScreen.css" />
 	<link rel="stylesheet" href="css/nav.css" />
@@ -43,6 +42,11 @@
 		* html .clearfix { height: 1%; }
 		.clearfix { display: block; }
 		/* close commented backslash hack */
+
+
+        #myContainer {
+            position: relative;
+        }
 	</style>
 
 	<script src="js/jquery.1.11.2.js"></script>
@@ -64,6 +68,7 @@
             	loopBottom: true,
             	loopTop: true
             });
+
         });
 
 	 $('img').loadingAnimate({
@@ -145,7 +150,7 @@
 
 <div id="page">
     <div class="header">
-        <a href="#menu" style="display:none;"></a>
+        <a href="#menu" ></a>
     </div>
     <nav id="menu">
         <ul>
@@ -174,6 +179,7 @@
         </ul>
     </nav>
 </div>
+
 
 <div id="myContainer" style="display:none;">
 
@@ -320,12 +326,7 @@
 <script>
     $(function() {
         $('nav#menu').mmenu();
-
-        $("body").on('image_loaded', function () {
-            $("#page .header a").css({opacity: 0}).show().animate({opacity: 1}, 500);
-        });
     });
 </script>
-
 </body>
 </html>
