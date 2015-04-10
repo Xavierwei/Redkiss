@@ -9,10 +9,13 @@
     <script src="js/jquery.multiscroll.js"></script>
     <script type="text/javascript" src="/assets/jquery.jplayer.min.js"></script>
     <script src="js/loading.js"></script>
+    <script src="/assets/modernizr.js"></script>
+    <script src="/le_parfum/js/loading.js"></script>
     <script src="/assets/main2.js"></script>
 
 
     <link rel="stylesheet" href="/s_mobile/demo.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/s_mobile/jquery.mmenu.all.css" />
     <link rel="stylesheet" href="/le_parfum/css/loading.css" />
     <link rel="stylesheet" href="/s_mobile/s_mobile.css" />
@@ -61,6 +64,30 @@
                 });
             }
         });
+
+        function doOnOrientationChange()
+        {
+            switch(window.orientation)
+            {
+                case -90:
+                case 90:
+                    return 1; // 横屏
+                    break;
+                default:
+                    return 2; // 竖屏
+                    break;
+            }
+        }
+        if (doOnOrientationChange() == 2){
+            $(function () {
+                $('.static').css({
+                    position: 'fixed',
+                    top: '0',
+                    'z-index': 111111
+                }).show();
+            });
+        }
+
     </script>
     <!--[if lt IE 9]>
     　　　　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -125,6 +152,44 @@
     </div>
     <div class="close_btn"></div>
 </div>
+
+<script type="text/tpl" id="loading_html">
+    <div id="preloader" class="preloader pre-animation-state" style="display: block; top: 0%;">
+        <div class="inner" style="">
+            <h1 class="artists-engineers" style="opacity: 1;"></h1>
+            <p id="intro-text-3">
+            </p>
+
+            <p id="intro-text-4"></p>
+            <p id="intro-text-5"></p>
+
+            <p id="intro-p-6-7">
+                <span id="intro-text-6"></span>
+                <span id="intro-text-7"></span>
+            </p>
+
+            <h1 class="be-moved"></h1>
+
+
+            <p id="intro-scroll-button">
+                <button class="scroll-down">
+                    <h1 class="redkiss"></h1>
+                    <span class="scroll-message">PLEASE SCROLL DOWN</span>
+                </button>
+            </p>
+        </div>
+    </div>
+    <div class="loader" id="loader" style="display: block; font-size: 14px; position: fixed; z-index: 99;color:#fff;">20%</div>
+</script>
+
+<section class="static" style="display: none;">
+    <div class="rotation-prompt">
+        <img src="/assets/img/orientation.jpg" width="100%" height="100%">
+        <p></p>
+    </div>
+
+
+</section>
 
 <![endif]-->
 <style type="text/css" media="all" id="viewport-override">
