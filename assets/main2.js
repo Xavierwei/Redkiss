@@ -156,4 +156,54 @@
         });
     });
 
+    // Youtube 视频播放 / 缩放
+    $(function () {
+        $("#video").attr({
+            width: screen.width,
+            height: screen.height
+        });
+
+        (function (item) {
+            if($(item).attr('src').match(/(https?:)?\/\/www\.youtube\.com/)) {
+                var w=$(item).attr('width');
+                var h=$(item).attr('height');
+                var ar = h/w*100;
+                ar=ar.toFixed(2);
+                //Style iframe
+                $(item).css('position','absolute');
+                $(item).css('top','0');
+                $(item).css('left','0');
+                $(item).css('width','100%');
+                $(item).css('height','100%');
+                $(item).css('max-width',w+'px');
+                $(item).css('max-height', h+'px');
+                $(item).wrap('<div style="max-width:'+w+'px;margin:0 auto; padding:0px;" />');
+                $(item).wrap('<div style="position: relative;padding-bottom: '+ar+'%; height: 0; overflow: hidden;" />');
+            }
+        })($("#video"));
+
+        $(window).resize(function () {
+            var paddingTop = ($(window).height() - $('#video').height()) / 2;
+            $('.video-con').css({
+                'padding-top': paddingTop
+            });
+        }).trigger('resize');
+    });
+
+    $(function () {
+        $('#file_popup').click(function () {
+            var el = $(this);
+            // 关闭
+            if (el.data('shown')) {
+
+            }
+            // 开启
+            else {
+                var youtube = $('.youtube-con');
+
+                youtube.show();
+            }
+        });
+    });
+
 }(jQuery));
