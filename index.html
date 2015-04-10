@@ -9,7 +9,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9,chrome=1" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="Description" content="" />
@@ -64,8 +64,6 @@
 
 <body>
 <div id="jplayer_background"></div>
-<div id="playlist"></div>
-
 <div id="TEST_show_current_frame"></div>
 <div class="nav-bar" style="display: block;">
     <div class=" csstransitions" id="diesel-header">
@@ -265,7 +263,7 @@
     découvrez l’expérience redkiss
 </div>
 
-  <section class="static">
+  <section class="static" style="display: none;">
       <div class="rotation-prompt">
           <img src="" width=77 height=77>
           <p></p>
@@ -528,7 +526,7 @@
   <div class="btn_scrolldown"><img width="30" src="assets/img/scroll-arrow.gif" /></div>
   <div class="btn_scrolldown2"><img width="30" src="assets/img/scroll-arrow.gif" /></div>
 
-  <div class="popup_content">
+  <!-- <div class="popup_content">
     <div class="close_btn"></div>
     <div class="content_wrap">
       <div id="ft_content_1" class="content_box">
@@ -544,8 +542,7 @@
         <iframe src="https://secure.easycorner.com/contactUs/diesel/fr/fr/dff" frameborder="0" width="100%" height="100%"></iframe>
       </div>
     </div>
-  </div>
-
+  </div> -->
   <!-- <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script> -->
   <!--<script type="text/javascript" src="assets/jquery.js"></script>-->
   <script type="text/javascript" src="assets/underscore.js"></script>
@@ -555,13 +552,7 @@
   <script type="text/javascript">
     SH.Interface.Social.MEDIA_ROOT = location.href.replace(/\?.*$/, '').split("#")[0];
     SH.Interface.Social.SITE_ROOT = location.href.split("#")[0];
-
-    $("#playlist").jPlayer({
-        swfPath: "/assets",
-        loop:false
-    });
   </script>
-
   <!--[if lte IE 8 ]>
 <script type="text/javascript">
 
@@ -593,11 +584,12 @@
     </style>
   </noscript>
 
-<div class="youtube-con  hideme">
+<div class="youtube-con hideme">
     <div class="video-bg"></div>
     <div class="video-con">
         <iframe id="video" src="http://www.youtube.com/embed/RIAafq4bg_Q" frameborder="0" ></iframe>
     </div>
+    <div class="close_btn"></div>
 </div>
 
 </body>

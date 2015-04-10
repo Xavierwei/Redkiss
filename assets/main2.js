@@ -164,7 +164,7 @@
         });
 
         (function (item) {
-            if($(item).attr('src').match(/(https?:)?\/\/www\.youtube\.com/)) {
+            if($(item).size() && $(item).attr('src').match(/(https?:)?\/\/www\.youtube\.com/)) {
                 var w=$(item).attr('width');
                 var h=$(item).attr('height');
                 var ar = h/w*100;
@@ -183,26 +183,60 @@
         })($("#video"));
 
         $(window).resize(function () {
-            var paddingTop = ($(window).height() - $('#video').height()) / 2;
+            // 计算高度
+            var height = $('#video').attr('height') * ($(window).width() / $('#video').attr('width'));
+            var paddingTop = ($(window).height() - 56 - height) / 2;
             $('.video-con').css({
                 'padding-top': paddingTop
             });
+
+            $('.youtube-con').height($(window).height());
         }).trigger('resize');
     });
 
     $(function () {
+
+        function showYoutube(cb) {
+            var youtube = $('.youtube-con');
+
+            youtube.css({opacity: 0}).show().stop(true, false).animate({
+                opacity: 1
+            }, 500, function () {
+                cb();
+            });
+        }
+
+        function hideYoutube(cb) {
+            var youtube = $('.youtube-con');
+            youtube.stop(true, false).animate({
+                opacity: 0
+            }, 500, function () {
+                youtube.hide();
+                cb();
+            })
+        }
+
         $('#file_popup').click(function () {
-            var el = $(this);
+            var el = $(this),
+                youtube = $('.youtube-con');
             // 关闭
             if (el.data('shown')) {
-
+                hideYoutube(function () {
+                    el.data('shown', false);
+                });
             }
             // 开启
             else {
-                var youtube = $('.youtube-con');
-
-                youtube.show();
+                showYoutube(function () {
+                    el.data('shown', true);
+                });
             }
+        });
+
+        $('.youtube-con .close_btn').click(function () {
+            hideYoutube(function () {
+                el.data('shown', false);
+            });
         });
     });
 

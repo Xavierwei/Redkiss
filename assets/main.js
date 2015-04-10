@@ -7709,14 +7709,14 @@ if (function (SH) {
     Interface.StaticFallback = StaticFallback
   }(SH.Interface || (SH.Interface = {}));
   SH.Interface
-}(SH || (SH = {})), MobileEsp.DetectTierIphone() ? $("html").addClass("mobile") : MobileEsp.DetectTierTablet() && $("html").addClass("tablet"), $("html").hasClass("oldie") || $(".browser-prompt").remove(), $("html").hasClass("oldie"))
-  throw $(".viewport").hide(), $(".rotation-prompt").remove(), $(".static").show(), $(".video-link").each(function (id, linkElement) {
+}(SH || (SH = {})), MobileEsp.DetectTierIphone() ? $("html").addClass("mobile") : MobileEsp.DetectTierTablet() && $("html").addClass("tablet"), $("html").hasClass("") || $(".browser-prompt").remove(), $("html").hasClass(""))
+  throw $(".viewport").hide(), $(".rotation-prompt").remove(), $(".static").hide(), $(".video-link").each(function (id, linkElement) {
     $(linkElement).attr("href"), parseInt($(linkElement).attr("data-video-width")), parseInt($(linkElement).attr("data-video-height"));
     $(linkElement).attr("target", "_blank")
   }), "old browser";
 var isMobileEnabled = !0;
 if ($("html").hasClass("mobile") && !isMobileEnabled)
-  throw $(".viewport").hide(), $(".rotation-prompt").remove(), $(".static").show(), "mobile disabled";
+  throw $(".viewport").hide(), $(".rotation-prompt").remove(), $(".static").hide(), "mobile disabled";
 var SH;
 ! function (SH) {
   ! function (Config) {
