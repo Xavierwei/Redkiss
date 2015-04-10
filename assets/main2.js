@@ -185,7 +185,7 @@
         $(window).resize(function () {
             // 计算高度
             var height = $('#video').attr('height') * ($(window).width() / $('#video').attr('width'));
-            var paddingTop = ($(window).height() - 56 - height) / 2;
+            var paddingTop = ($(window).height() - height) / 2;
             $('.video-con').css({
                 'padding-top': paddingTop
             });
