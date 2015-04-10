@@ -326,3 +326,9 @@ body{
 .mobile_end_list_wrap > .first {
 
 }
+
+.mobile .btn_scrolldown img{
+    width: 20px;
+    position: relative;
+    top:-15px;
+}

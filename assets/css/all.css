@@ -2248,9 +2248,6 @@ body.oldie #full-content {
         width: auto;
         height: 100%;
         z-index: 1000; }
-
-    .header a { display: none; }
-
     html.tablet .rotation-prompt {
         height: 100%;
         margin-top: 47.5%;
@@ -2630,7 +2627,7 @@ p.social {
     height: auto;
     line-height: 11px;
     font-size: 11px;
-    color: #000;
+    color: red;
     z-index: 1000;
     font-family: "American Typewriter";
 }
