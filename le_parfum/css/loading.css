@@ -22,6 +22,8 @@
 
 .preloader {
     background: url("../imgs/loading-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     position: fixed;
     display: none;
     z-index: 3;

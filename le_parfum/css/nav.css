@@ -36,7 +36,7 @@ img {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 21;
+    z-index: 11111;
     width: 100%;
     font-family: "Franklin Gothic LT BOOK", sst_prolight, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: normal;
@@ -337,7 +337,7 @@ footer li a {color:#fff;text-decoration: none;}
 footer li a:hover {color:#ccc;}
 
 .end_list_wrap { width:400px; height:auto; position: absolute; z-index: 29; 
-    right: 11%; bottom: 8%; color: #fff; 
+    right: 11%; bottom: 76px; color: #fff;
     font-family: "Franklin Gothic LT BOOK",sst_prolight,"Helvetica Neue",Helvetica,Arial,sans-serif; 
     font-style: normal; font-weight: normal; line-height: 1.35; }
 .end_sns { margin-top: 15px; }
