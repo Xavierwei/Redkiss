@@ -272,7 +272,7 @@ body{
 }
 
 .end_frame_mobile{
-    background-size: auto 100%;
+    background-size: cover;
     background-image: url('../../PICS/end_mobile.jpg');
     background-repeat: no-repeat;
 }

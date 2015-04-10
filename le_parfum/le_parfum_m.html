@@ -34,7 +34,7 @@
         .youtube-con .close_btn {position: absolute;width:20px;height:20px;background:url('../assets/img/close_white.png') no-repeat center;cursor: pointer;right:5px;top:5px;  z-index: 101;cursor: pointer;transition: all 0.5s ease-in;  z-index: 111111111;}
         .youtube-con .close_btn:hover {-webkit-transform: rotate(180reg); -ms-transform: rotate(180reg);transform:rotate(180deg); cursor: pointer;}
 
-        .s_all {
+        .mm-page {
             background: url("imgs/bgs.jpg") !important;
             background-repeat: no-repeat !important;
             background-size: cover !important;
@@ -141,20 +141,49 @@
 </div>
 
 
+    <div class="ssimg cont1">
+        <img src="/assets/img/aaa.png" alt="" usemap="aaamap1"/>
+
+    </div>
+
+    <div class="ssimg cont2">
+        <img src="/assets/img/bbb.png" alt="" usemap="aaamap2"/>
+    </div>
+
+    <div class="ssimg cont3">
+        <img src="/assets/img/ccc.png" alt="" usemap="aaamap3"/>
+    </div>
+
+    <map name="aaamap1">
+        <area shape="rect" coords="" href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415" alt=""/>
+    </map>
+<map name="aaamap2">
+    <area shape="rect" coords="" href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415" alt=""/>
+</map>
+<map name="aaamap3">
+    <area shape="rect" coords="" href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415" alt=""/>
+</map>
+
 <div class="s_all">
+    <script>
+        $(window).load(function () {
+            $(window).resize(function () {
+                $('.ssimg img').each(function (index) {
 
-    <div class="ssimg content1">
-        <img src="/assets/img/aaa.png" alt=""/>
-    </div>
+                    var img = $(this),
+                            x  = img.width() * (1270 / 1667) ,
+                            y = img.height() * (875 / 976 ) - 10;
+                    var name = 'aaamap' + index,
+                            tox = x + 365,
+                            toy = y + 67;
+                    $('map[name="'+name+'"] > area').attr('coords', x + ', ' + y + ' , ' + (tox) + ', ' + (toy));
+                    console.log(x + ', ' + y + ' , ' + (tox) + ', ' + (toy));
+                });
 
-    <div class="ssimg content2">
-        <img src="/assets/img/bbb.png" alt=""/>
-    </div>
+            }).trigger('resize');
+        });
 
-    <div class="ssimg content3">
-        <img src="/assets/img/ccc.png" alt=""/>
-    </div>
-
+    </script>
 </div>
 
 <div class="youtube-con  hideme">
