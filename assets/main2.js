@@ -190,8 +190,8 @@
         }
         else {
             $("#video").attr({
-                width: $(screen).width(),
-                height: $(screen).height()
+                width: screen.width,
+                height: screen.height
             });
         }
 
@@ -277,7 +277,6 @@
                 youtube = $('.youtube-con');
 
             if (youtube.parent().hasClass('mm-page')) {
-                console.log('hello');
                 youtube.prependTo('body');
             }
             // 关闭
