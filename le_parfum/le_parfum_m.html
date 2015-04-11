@@ -81,7 +81,7 @@
         }
 
         setInterval(function (){
-            if (doOnOrientationChange() == 2) {
+            if (doOnOrientationChange() == 1) {
                 $(function () {
                     $('.static').css({
                         position: 'fixed',
@@ -177,7 +177,6 @@
                             tox = x + 365,
                             toy = y + 67;
                     $('map[name="'+name+'"] > area').attr('coords', x + ', ' + y + ' , ' + (tox) + ', ' + (toy));
-                    console.log(x + ', ' + y + ' , ' + (tox) + ', ' + (toy));
                 });
 
             }).trigger('resize');

@@ -161,9 +161,10 @@
 
     // Youtube 视频播放 / 缩放
     $(function () {
+
         $("#video").attr({
-            width: screen.width,
-            height: screen.height
+            width: 1920,
+            height: 1080
         });
 
         function doOnOrientationChange()
