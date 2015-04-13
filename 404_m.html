@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="/test5/nav.css">
+    <link type="text/css" rel="stylesheet" href="404/404.css">
+</head>
+<body>
+<img class="bg" src="404/bg_m.jpg">
+<div class="container">
+    <img class="img-404" src="404/404.png">
+    <div class="description">LA PAGE QUE VOUS CHERCHEZ n’existe pas</div>
+    <div class="to-home"><i class="icon icon-arrow"></i><a href="/">retour au site</a><i class="icon icon-arrow"></i></div>
+</div>
+<script type="text/javascript" src="/assets/main_new.js"></script>
+<script type="text/javascript">
+    function adjustBg(){
+        var imgWidth=$(".bg").width();
+        var imgHeight=$(".bg").height();
+        var windowWidth=window.innerWidth;
+        var windowHeight=window.innerHeight;
+        var imgScale=imgWidth/imgHeight;
+        var windowScale=windowWidth/windowHeight;
+        var width,height;
+        var top= 0,left=0;
+        if(imgScale<=windowScale){
+            width=windowWidth;
+            height=width/imgScale;
+            top=(windowHeight-imgHeight)/2;
+        }else{
+            height=windowHeight;
+            width=height*imgScale;
+            left=(windowWidth-imgWidth)/2;
+        }
+        $(".bg").width(width);
+        $(".bg").height(height);
+        $(".bg").css("top",top);
+        $(".bg").css("left",left);
+    }
+    $(function(){
+        adjustBg();
+    })
+    $(window).resize(function(){
+        adjustBg();
+    })
+</script>
+</body>
+</html>

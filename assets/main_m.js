@@ -6260,7 +6260,7 @@ var SH;
                 this.currentFrameNumber = num;
                 //zzz
                 var globalData = {
-                    endFrame : 750,
+                    endFrame : 758,
                     initFrameStart: 38,
                     initFrameEnd: 53,
                     navFrameStart: this.customFrames.indexOf(1000),

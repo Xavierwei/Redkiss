@@ -34,9 +34,11 @@
     <link rel="stylesheet" href="/s_mobile/demo.css" />
     <link rel="stylesheet" href="/s_mobile/jquery.mmenu.all.css" />
     <link rel="stylesheet" href="/s_mobile/s_mobile.css" />
+    <link rel="stylesheet" href="/s_mobile/s_mobile.css" />
 </head>
 
 <body class="mobile">
+<img id="bg" src="/PICS/end_mobile.jpg">
 <div class="youtube-con hideme">
     <div class="video-bg"></div>
     <div class="video-con">
@@ -414,6 +416,36 @@ Date de création : 04/08/2015
             $("#page .header a").css({opacity: 0}).show().animate({opacity: 1}, 500);
         });
     });
+</script>
+
+<script>
+    function adjustBg(){
+        var imgWidth=$("#bg").width();
+        var imgHeight=$("#bg").height();
+        var windowWidth=window.innerWidth;
+        var windowHeight=window.innerHeight;
+        var imgScale=imgWidth/imgHeight;
+        var windowScale=windowWidth/windowHeight;
+        var width,height;
+        var top= 0,left=0;
+        if(imgScale<=windowScale){
+            width=windowWidth;
+            height=width/imgScale;
+            top=(windowHeight-imgHeight)/2;
+        }else{
+            height=windowHeight;
+            width=height*imgScale;
+            left=(windowWidth-imgWidth)/2;
+        }
+        $("#bg").width(width);
+        $("#bg").height(height);
+    }
+    $(function(){
+        adjustBg();
+    })
+    $(window).resize(function(){
+        adjustBg();
+    })
 </script>
 </body>
 

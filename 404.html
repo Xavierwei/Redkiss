@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="/test5/nav.css">
+    <link type="text/css" rel="stylesheet" href="404/404.css">
+    <script type="text/javascript">
+        var browser = {
+            versions:function(){
+                var u = navigator.userAgent, app = navigator.appVersion;
+                return {//移动终端浏览器版本信息
+                    trident: u.indexOf("Trident") > -1, //IE内核
+                    presto: u.indexOf("Presto") > -1, //opera内核
+                    webKit: u.indexOf("AppleWebKit") > -1, //苹果、谷歌内核
+                    gecko: u.indexOf("Gecko") > -1 && u.indexOf("KHTML") == -1, //火狐内核
+                    mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf("Android") > -1 || u.indexOf("Linux") > -1, //android终端或者uc浏览器
+                    iPhone: u.indexOf("iPhone") > -1 , //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf("iPad") > -1, //是否iPad
+                    webApp: u.indexOf("Safari") == -1 //是否web应该程序，没有头部与底部
+                };
+            }(),
+            language:(navigator.browserLanguage || navigator.language).toLowerCase()
+        };
+
+
+        //test
+        if(browser.versions.mobile){
+            window.location.href="404_m.html";
+        }
+    </script>
+</head>
+<body>
+<img class="bg" src="404/bg.jpg">
+<div class="nav-bar" style="display: block;">
+    <div class=" csstransitions" id="diesel-header">
+        <div class="dh-logo">
+            <a onclick="trackWoodland('diesel-header_to_diesel-homepage');" href="/" class="track-header-click-h_experience">
+                <img width="106" height="56" alt="Diesel" src="/assets/img/diesel-logo.png">
+            </a>
+            <div class="dh-toggle-button"></div>
+        </div>
+        <div class="dh-body">
+            <div class="dh-menu">
+                <div class="dh-menu-body">
+                    <div class="lover-dose-red-kiss-logo">
+                        <a onclick="trackWoodland('diesel-header_to_diesel-homepage');" href="/" class="track-header-click-h_experience">
+                            <img width="295" height="56" alt="Lover Dose" src="/assets/img/lover-dose-red-kiss-logo.png">
+                        </a>
+                    </div>
+                    <div class="dh-menu-block dh-block-a">
+                        <div class="dh-menu-item dh-item-multilevel">
+                            <a href="le_parfum/le_parfum.html" class="s_active track-header-click-h_parfum"><span class="label">LE PARFUM</span></a>
+                        </div>
+                        <div class="dh-menu-item dh-item-multilevel">
+                            <a href="javascript:;" id="file_popup" class="track-header-click-h_film"><span class="label">LE FILM</span></a>
+                        </div>
+                        <div class="dh-menu-item dh-item-multilevel">
+                            <a target="_blank" class="track-header-click-h_jachete" href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415"><span class="label">J'ACHÈTE !</span></a>
+                        </div>
+                        <div class="dh-menu-item dh-item-multilevel">
+                            <a target="_blank" class="track-header-click-h_pressroom" href="http://loverdose-redkiss.com/pressroom"><span class="label">PRESSROOM</span></a>
+                        </div>
+                        <div class="dh-menu-item dh-item-multilevel">
+                            <button id="sound-mute" data-on="1">
+                                <img class="sound-on" src="/assets/img/icon-sound-on.svg">
+                                <img class="sound-off" src="/assets/img/icon-sound-off.svg">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="dh-menu-block dh-block-b">
+                        <div class="dh-social-container">
+                            <a onclick="trackWoodland('diesel-header_to_facebook');" target="_blank" title="Facebook" href="https://www.facebook.com/Diesel" class="dh-social-item dh-item-facebook track-header-click-h_facebook">Facebook</a>
+                            <a onclick="trackWoodland('diesel-header_to_twitter');" target="_blank" title="Twitter" href="https://twitter.com/#!/DIESEL" class="dh-social-item dh-item-twitter track-header-click-h_twitter">Twitter</a>
+                            <a onclick="trackWoodland('diesel-header_to_youtube');" target="_blank" title="YouTube" href="http://www.youtube.com/user/DieselPlanet/Diesel" class="dh-social-item dh-item-youtube track-header-click-h_youtube">YouTube</a>
+                            <a onclick="trackWoodland('diesel-header_to_instagram');" target="_blank" title="Instagram" href="http://instagram.com/diesel" class="dh-social-item dh-item-instagram track-header-click-h_instagram">Instagram</a>
+                            <div class="dh-clear"></div>
+                        </div>
+                    </div>
+                    <div class="dh-clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <img class="img-404" src="404/404.png">
+    <div class="description">LA PAGE QUE VOUS CHERCHEZ n’existe pas</div>
+    <div class="to-home"><i class="icon icon-arrow"></i><a href="/">entrez dans l’expérience</a><i class="icon icon-arrow"></i></div>
+</div>
+<script type="text/javascript" src="/assets/main_new.js"></script>
+<script type="text/javascript">
+    function adjustBg(){
+        var imgWidth=$(".bg").width();
+        var imgHeight=$(".bg").height();
+        var windowWidth=window.innerWidth;
+        var windowHeight=window.innerHeight;
+        var imgScale=imgWidth/imgHeight;
+        var windowScale=windowWidth/windowHeight;
+        var width,height;
+        var top= 0,left=0;
+        if(imgScale<=windowScale){
+            width=windowWidth;
+            height=width/imgScale;
+            top=(windowHeight-imgHeight)/2;
+        }else{
+            height=windowHeight;
+            width=height*imgScale;
+            left=(windowWidth-imgWidth)/2;
+        }
+        $(".bg").width(width);
+        $(".bg").height(height);
+        $(".bg").css("top",top);
+        $(".bg").css("left",left);
+    }
+    $(function(){
+        adjustBg();
+    })
+    $(window).resize(function(){
+        adjustBg();
+    })
+</script>
+</body>
+</html>
