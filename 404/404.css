@@ -142,10 +142,16 @@ img{
 }
 
 @media(max-width: 800px) {
+    .container{
+        top:25%;
+    }
     .container .img-404{
-        width: 50%;
+        width: 40%;
     }
     .container .description{
         font-size: 18px;
+    }
+    .container .to-home a{
+        font-size:16px;
     }
 }
