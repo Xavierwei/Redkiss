@@ -3,7 +3,7 @@
     "prefix": "",
     "extension": "jpg",
     "frameNumberTemplate": "00000",
-    "frameCount": 759,
+    "frameCount": 758,
     "hiResDelay": 100,
     "group": [
       [1, 150],
@@ -28,9 +28,8 @@
     ],
     "sections": [
         ["", 10, 0, "", ""],
-        ["Chapter 2", 10, 180, "", "Chapter 2"],
-        ["Chapter 3", 180, 431, "", "Chapter 3"],
-        ["Packshot Page", 431, 757, "", "Packshot Page"]
+        ["chapter-1", 10, 46, "", "Chapter 1"],
+        ["partage-experience", 431, 757, "", "Partage l'expérience"]
     ],
   "chapters": [{
         "id": 1,

@@ -31,16 +31,9 @@
             cb(maxWidth - step * self.crtLoaded);
         };
 
-        $(document).ready(function () {
-            self.templateEl = $(options['templateSelector']);
-            self.percentEl =  $(options['percentSelector'], self.templateEl);
-
-            options.beforeLoad.apply(self, arguments);
-            documentReady.apply($(selector), arguments);
-        });
 
         // 图片没有加载完
-        function documentReady() {
+        var documentReady = function() {
             var dom = $(this),
                 crtLoaded = 0,
                 minItem = 10;
@@ -64,6 +57,8 @@
                 crtLoaded += 1;
                 self.crtLoaded = crtLoaded;
                 self.total = total;
+
+                console.log(crtLoaded, total);
 
                 options.itemPerLoad.apply(self, [crtLoaded, total]);
 
@@ -107,5 +102,11 @@
 
 
         }
+
+        self.templateEl = $(options['templateSelector']);
+        self.percentEl =  $(options['percentSelector'], self.templateEl);
+
+        options.beforeLoad.apply(self, arguments);
+        documentReady.apply($(selector), arguments);
     }
 })(jQuery);

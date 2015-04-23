@@ -1,0 +1,157 @@
+@font-face {
+    font-family: "Franklin Gothic LT BOOK";
+    src: url("/assets/fonts/FrankGotLTBooCmp.eot");
+    src: url('/assets/fonts/FrankGotLTBooCmp.eot') format('embedded-opentype'),
+    url('/assets/fonts/FrankGotLTBooCmp.woff2') format('woff2'),
+    url('/assets/fonts/FrankGotLTBooCmp.ttf') format('truetype'),
+    url('/assets/fonts/FrankGotLTBooCmp.svg#FrankGotLTBooCmp') format('svg');
+}
+
+@font-face {
+    font-family: "FranklinGothicLT-DemiCmpr";
+    src: url("/assets/fonts/FranklinGothicLT-DemiCmpr.eot");
+    src: url('/assets/fonts/FranklinGothicLT-DemiCmpr.eot') format('embedded-opentype'),
+    url('/assets/fonts/FranklinGothicLT-DemiCmpr.woff2') format('woff2'),
+    url('/assets/fonts/FranklinGothicLT-DemiCmpr.woff') format('woff'),
+    url('/assets/fonts/FranklinGothicLT-DemiCmpr.ttf') format('truetype'),
+    url('/assets/fonts/FranklinGothicLT-DemiCmpr.svg#FrankGotLTBooCmp') format('svg');
+}
+
+@font-face {
+    font-family: 'algol_regular';
+    src: url('/assets/fonts/algol-regular-webfont.eot');
+    src: url('/assets/fonts/algol-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/algol-regular-webfont.woff2') format('woff2'),
+    url('/assets/fonts/algol-regular-webfont.woff') format('woff'),
+    url('/assets/fonts/algol-regular-webfont.ttf') format('truetype'),
+    url('/assets/fonts/algol-regular-webfont.svg#algol_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,body,div{
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+body{
+    color:#ffffff;
+    font-family: 'algol_regular', sst_proregular, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+a:link{
+    color:#fff;
+    text-decoration: none;
+}
+
+a:hover{
+    color:#ccc;
+    text-decoration: underline;
+}
+
+a:active{
+    color:#fff;
+}
+
+a:visited{
+    color:#fff;
+}
+
+
+img{
+    display: block;
+}
+
+.icon{
+    display: inline-block;
+    width:50px;
+    height: 40px;
+    background-size:50px 40px ;
+}
+
+.icon-arrow{
+    background-image: url(/assets/img/icons/icon_arrow.png);
+}
+
+.bg{
+    position: fixed;
+    top:0;
+    width: 100%;
+    z-index: -1;
+}
+
+.container{
+    position: absolute;
+    right: 10%;
+    top:30%;
+}
+
+.container .img-404{
+    float:right;
+    clear:right;
+}
+
+.container .description{
+    float:right;
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-size: 30px;
+    clear:right;
+}
+
+.container .to-home{
+    float:right;
+    margin-top:30px;
+    margin-right:20px;
+    background-color:#000;
+    clear:both;
+}
+
+.container .to-home a{
+    position: relative;
+    top:-15px;
+    text-transform: uppercase;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+#sound-mute {
+    border: none;
+    background: none;
+    display: inline-block;
+    width: 29px;
+    position: relative;
+    top: 16px;
+    left: 50px;
+}
+
+#sound-mute img.sound-on {
+    display: inline-block;
+}
+#sound-mute img {
+    width: 100%;
+}
+
+#sound-mute img.sound-off {
+    display: none;
+}
+#sound-mute img {
+    width: 100%;
+}
+
+@media(max-width: 800px) {
+    .container{
+        top:25%;
+    }
+    .container .img-404{
+        width: 40%;
+    }
+    .container .description{
+        font-size: 18px;
+    }
+    .container .to-home a{
+        font-size:16px;
+    }
+}

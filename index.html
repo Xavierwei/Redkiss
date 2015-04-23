@@ -12,19 +12,23 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="Description" content="" />
-  <meta name="Keywords" content="" />
-  <meta name="robots" content="noindex">
+  <meta name="Description" content="Diesel présente Loverdose Red Kiss, son nouveau parfum féminin. Une fragrance à la sensualité torride et passionnée. Découvre la nouvelle expérience Diesel Loverdose Redkiss." />
+  <meta name="Keywords" content="Diesel, loverdose, redkiss, experience, digital, parfum, fragrances, féminin, red, kiss" />
+  <meta name="author" content="DIESEL LOVERDOSE REDKISS"/>
+  <meta name="robots" content="index"/>
 
-    <meta name="twitter:site" content="@Diesel">
-    <meta name="twitter:title" content="DIESEL LOVERDOSE REDKISS">
-    <meta name="twitter:description" content="Diesel présente Loverdose Red Kiss, son nouveau parfum féminin. Une fragrance à la sensualité torride et passionnée.Découvre la nouvelle expérience Diesel Loverdose Redkiss.">
-    <meta name="twitter:image:src" content="#">
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@Diesel"/>
+  <meta name="twitter:title" content="DIESEL LOVERDOSE REDKISS"/>
+  <meta name="twitter:description" content="Diesel présente Loverdose Red Kiss, son nouveau parfum féminin. Une fragrance à la sensualité torride et passionnée. Découvre la nouvelle expérience Diesel Loverdose Redkiss."/>
+  <meta name="twitter:image:src" content="http://loverdose-redkiss.com/assets/img/og_image.png"/>
 
-    <meta property="og:url" content="www.loverdose-redkiss.com"/>
-    <meta property="og:title" content="DIESEL LOVERDOSE REDKISS"/>
-    <meta property="og:description" content="Diesel présente Loverdose Red Kiss, son nouveau parfum féminin. Une fragrance à la sensualité torride et passionnée.Découvre la nouvelle expérience Diesel Loverdose Redkiss"/>
-    <meta property="og:image" content="http://redkiss.ffshtest.net/assets/img/og_image.png"/>
+  <meta property="og:url" content="http://www.loverdose-redkiss.com/"/>
+  <meta property="og:title" content="DIESEL LOVERDOSE REDKISS"/>
+  <meta property="og:description" content="Diesel présente Loverdose Red Kiss, son nouveau parfum féminin. Une fragrance à la sensualité torride et passionnée. Découvre la nouvelle expérience Diesel Loverdose Redkiss"/>
+  <meta property="og:image" content="http://loverdose-redkiss.com/assets/img/og_image.png"/>
+
+  <link rel="icon" type="image/x-icon" href="assets/img/meta/favicon.ico" />
 
 
   <title>DIESEL | LOVERDOSE REDKISS</title>
@@ -33,7 +37,17 @@
   <link rel="stylesheet" href="test5/nav.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
     <script type="text/javascript">
-        window.console && (window.console = function () {});
+        window.console = window.console || function () {};
+        window.console = function () {};
+    </script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59855817-1', 'auto');
+        ga('send', 'pageview');
     </script>
   <script src="assets/modernizr.js"></script>
     <script type="text/javascript">
@@ -55,7 +69,6 @@
             }(),
             language:(navigator.browserLanguage || navigator.language).toLowerCase()
         };
-
 
         //test
         if(browser.versions.mobile){
@@ -88,7 +101,7 @@ Date de création : 04/08/2015
 <div class="nav-bar" style="display: block;">
     <div class=" csstransitions" id="diesel-header">
         <div class="dh-logo">
-            <a onclick="trackWoodland('diesel-header_to_diesel-homepage');" href="/">
+            <a onclick="trackWoodland('diesel-header_to_diesel-homepage');" href="/" class="track-header-click-h_experience">
                 <img width="106" height="56" alt="Diesel" src="assets/img/diesel-logo.png">
             </a>
             <div class="dh-toggle-button"></div>
@@ -97,30 +110,36 @@ Date de création : 04/08/2015
             <div class="dh-menu">
                 <div class="dh-menu-body">
                     <div class="lover-dose-red-kiss-logo">
-                        <a>
+                        <a onclick="trackWoodland('diesel-header_to_diesel-homepage');" href="/" class="track-header-click-h_experience">
                             <img width="295" height="56" alt="Lover Dose" src="assets/img/lover-dose-red-kiss-logo.png">
                         </a>
                     </div>
                     <div class="dh-menu-block dh-block-a">
                         <div class="dh-menu-item dh-item-multilevel">
-                            <a href="/le_parfum/le_parfum.html" class="s_active"><span class="label">LE PARFUM</span></a>
+                            <a href="le_parfum/le_parfum.html" class="s_active track-header-click-h_parfum"><span class="label">LE PARFUM</span></a>
                         </div>
                         <div class="dh-menu-item dh-item-multilevel">
-                            <a href="javascript:;" id="file_popup"><span class="label">LE FILM</span></a>
+                            <a href="javascript:;" id="file_popup" class="track-header-click-h_film"><span class="label">LE FILM</span></a>
                         </div>
                         <div class="dh-menu-item dh-item-multilevel">
-                            <a target="_blank"  href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415"><span class="label">J'ACHÈTE </span></a>
+                            <a target="_blank" class="track-header-click-h_jachete"  href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415"><span class="label">J'ACHÈTE !</span></a>
                         </div>
                         <div class="dh-menu-item dh-item-multilevel">
-                            <a target="_blank" href="http://loverdose-redkiss.com/pressroom"><span class="label">PRESSROOM</span></a>
+                            <a target="_blank" class="track-header-click-h_pressroom" href="http://loverdose-redkiss.com/pressroom"><span class="label">PRESSROOM</span></a>
+                        </div>
+                        <div class="dh-menu-item dh-item-multilevel">
+                            <button id="sound-mute" data-on="1">
+                              <img class="sound-on" src="assets/img/icon-sound-on.svg" />
+                              <img class="sound-off" src="assets/img/icon-sound-off.svg" />
+                            </button>
                         </div>
                     </div>
                     <div class="dh-menu-block dh-block-b">
                         <div class="dh-social-container">
-                            <a onclick="trackWoodland('diesel-header_to_facebook');" target="_blank" title="Facebook" href="https://www.facebook.com/Diesel" class="dh-social-item dh-item-facebook">Facebook</a>
-                            <a onclick="trackWoodland('diesel-header_to_twitter');" target="_blank" title="Twitter" href="https://twitter.com/#!/DIESEL" class="dh-social-item dh-item-twitter">Twitter</a>
-                            <a onclick="trackWoodland('diesel-header_to_youtube');" target="_blank" title="YouTube" href="http://www.youtube.com/user/DieselPlanet/Diesel" class="dh-social-item dh-item-youtube">YouTube</a>
-                            <a onclick="trackWoodland('diesel-header_to_instagram');" target="_blank" title="Instagram" href="http://instagram.com/diesel" class="dh-social-item dh-item-instagram">Instagram</a>
+                            <a onclick="trackWoodland('diesel-header_to_facebook');" target="_blank" title="Facebook" href="https://www.facebook.com/Diesel" class="dh-social-item dh-item-facebook track-header-click-h_facebook">Facebook</a>
+                            <a onclick="trackWoodland('diesel-header_to_twitter');" target="_blank" title="Twitter" href="https://twitter.com/#!/DIESEL" class="dh-social-item dh-item-twitter track-header-click-h_twitter">Twitter</a>
+                            <a onclick="trackWoodland('diesel-header_to_youtube');" target="_blank" title="YouTube" href="http://www.youtube.com/user/DieselPlanet/Diesel" class="dh-social-item dh-item-youtube track-header-click-h_youtube">YouTube</a>
+                            <a onclick="trackWoodland('diesel-header_to_instagram');" target="_blank" title="Instagram" href="http://instagram.com/diesel" class="dh-social-item dh-item-instagram track-header-click-h_instagram">Instagram</a>
                             <div class="dh-clear"></div>
                         </div>
                     </div>
@@ -141,8 +160,7 @@ Date de création : 04/08/2015
                       <ul>
                           <li class="before"></li>
                           <li id="sns_email" class="sns_email" style="margin-left: 30px">
-                              <a href="mailto:?subject=Entre dans l'expérience Disel Loverdose Redkiss&body=Diesel présente %0D%0A,Loverdose Red Kiss, son nouveau parfum féminin. Une fragrance à la sensualité torride et passionnée.%0D%0A Découvre la nouvelle expérience Diesel Loverdose Redkiss%0D%0Ahttp://www.loverdose-redkiss.com">Email</a>
-
+                              <a class="track-endPage-click-mailto" href="mailto:?subject=Entre dans l'expérience Diesel Loverdose Redkiss&body=Diesel Parfums présente,%0D%0A%0D%0ALoverdose Red Kiss, le nouveau parfum féminin DIESEL. Une fragrance à la sensualité torride et passionnée.%0D%0ACliquez ici pour découvrir la nouvelle expérience DIESEL Loverdose Redkiss%0D%0A--> http://www.loverdose-redkiss.com%0D%0A%0D%0Ahttps://facebook.com/loverdose — https://twitter.com/DIESEL — https://instagram.com/diesel/">Email</a>
                                 <div id="sns_email_popup" class="sns_email_popup">
                                     <div class="sns_email_triangle"></div>
                                     <form class="sns_email_form">
@@ -154,35 +172,35 @@ Date de création : 04/08/2015
                                 </div>
                           </li>
                           <li class="sns_fb">
-                              <a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.loverdose-redkiss.com/&p[images][0]=http://www.loverdose-redkiss.com/assets/img/og_image.png&p[title]=Discover%20the%20loverdose%20Redkiss%20Effect%20%23Loverdose%20%23Redkiss" target="_blank"></a>
+                              <a class="track-endPage-click-facebook_share" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.loverdose-redkiss.com/&p[images][0]=http://www.loverdose-redkiss.com/assets/img/og_image.png&p[title]=Discover%20the%20loverdose%20Redkiss%20Effect%20%23Loverdose%20%23Redkiss" target="_blank"></a>
                           </li>
                           <li class="sns_twitter">
-                              <a target="_blank" href="http://twitter.com/intent/tweet?url=http://www.loverdose-redkiss.com/&amp;&text=D%C3%A9couvre%20l%27effet%20Loverdose%20Redkiss.%20%23redkiss%20&amp;&via=Diesel"></a>
+                              <a class="track-endPage-click-twitter_share" target="_blank" href="http://twitter.com/intent/tweet?url=http://www.loverdose-redkiss.com/&amp;&text=D%C3%A9couvre%20l%27effet%20Loverdose%20Redkiss.%20%23redkiss%20&amp;&via=Diesel"></a>
                           </li>
                           <li class="after"></li>
                       </ul>
                   </div>
                   <div class="end_sns_music">
                       <i class="pull-left icon icon-arrow"></i>
-                      <a href="/download/redkiss.mp3.zip">TÉLÉCHARGE LA MUSIQUE</a>
+                      <a class="track-endPage-click-download_music" href="http://j.mp/vagabond-sumsum-shift">TÉLÉCHARGE LA MUSIQUE</a>
                       <i class="icon icon-music"></i>
                       <i class="pull-right icon icon-arrow"></i>
                   </div>
                   <div class="end_list end_sns_links">
                       <ul>
                           <li class="before"></li>
-                          <li class="end_sns_link"><a target="_blank" href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415">J'ACHÈTE !</a></li>
+                          <li class="end_sns_link"><a class="track-endPage-click-end_jachete" target="_blank" href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415">J'ACHÈTE !</a></li>
                           <li class="after"></li>
                       </ul>
                   </div>
               </div>
               <footer>
                 <ul class="footer_link">
-                  <li><a href="http://www.diesel.com/fragrances/loverdose/" target="_blank">découvrez l’univers l’overdose</a></li>|
-                  <li><a class="inner" href="javascript:void(0)" data-link="1">Mentions légales</a></li>|
-                  <li><a class="inner" href="javascript:void(0)" data-link="3">Cookies - statistiques</a></li>|
-                  <li><a class="inner" href="javascript:void(0)" data-link="2">DONNÉES PERSONNELLES</a></li>|
-                  <li><a class="inner" href="javascript:void(0)" data-link="4">Contact</a></li>
+                  <li><a class="track-footer-click-footer_loverdose" href="http://www.diesel.com/fragrances/loverdose/" target="_blank">découvrez l’univers l’overdose</a></li>|
+                  <li><a class="inner track-footer-click-footer_ml" data-link="1">Mentions légales</a></li>|
+                  <li><a class="inner track-footer-click-footer_cookies" data-link="3">Cookies - statistiques</a></li>|
+                  <li><a class="inner track-footer-click-footer_donnees" data-link="2">DONNÉES PERSONNELLES</a></li>|
+                  <li><a class="inner track-footer-click-footer_contact" data-link="4">Contact</a></li>
                 </ul>
               </footer>
 
@@ -258,20 +276,19 @@ Date de création : 04/08/2015
 
 <div id="welcome_page" class="">
     <div class="left">
-        <div class="container"><img src="/assets/img/welcome_logo1.png"></div>
+        <div class="container"><img src="./assets/img/welcome_logo1.png"></div>
     </div>
     <div class="right">
         <div class="container">
             <div class="first">
                 <i class="pull-left icon icon-arrow"></i>
-                <a class="pull-left" href="#">découvrez le nouveau
-                    parfum féminin diesel</a>
+                <a class="pull-left track-welcome_page-click-w_parfum" href="le_parfum/le_parfum.html">découvrez le nouveau parfum féminin diesel</a>
                 <i class="pull-right icon icon-arrow"></i>
             </div>
             <div class="clear-fix"></div>
             <div class="second">
                 <i class="pull-left icon icon-arrow"></i>
-                <a target="_blank" href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415">J'ACHÈTE !</a>
+                <a target="_blank" class="track-welcome_page-click-w_jachete" href="http://www.sephora.fr/Parfum/Parfum-Femme/Loverdose-Red-Kiss-Eau-de-Parfum/P2168005?cm_mmc=Media_Visibilite_Youtube_CampagneNoSephora_Desktop_Video_DieselLoverdoseRed_130415">J'ACHÈTE !</a>
                 <i class="icon icon-shopping"></i>
                 <i class="pull-right icon icon-arrow"></i>
             </div>
@@ -280,7 +297,7 @@ Date de création : 04/08/2015
     <div class="clear-fix"></div>
 </div>
 <div id="welcome_page_bottom">
-    découvrez l’expérience redkiss
+     Faites défiler pour plonger dans l'expérience Loverdose Redkiss <br> Et télécharger en exclusivité la musique originale du film
 </div>
 
   <section class="static" style="display: none;">
@@ -340,37 +357,62 @@ Date de création : 04/08/2015
 </section>
   <div class="btn_scrolldown"><img width="30" src="assets/img/scroll-arrow.gif" /></div>
   <div class="btn_scrolldown2"><img width="30" src="assets/img/scroll-arrow.gif" /></div>
-
-  <script type="text/javascript" src="/assets/underscore.js"></script>
-  <script type="text/javascript" src="/assets/main_new.js"></script>
-  <script type="text/javascript" src="/assets/jquery.jplayer.min.js"></script>
-  <script type="text/javascript" src="/assets/main2.js"></script>
+  <script type="text/javascript" src="./assets/underscore.js"></script>
+  <script type="text/javascript" src="./assets/main_new.js"></script>
+  <script type="text/javascript" src="./assets/jquery.jplayer.min.js"></script>
+  <script type="text/javascript" src="./assets/main2.js"></script>
+  <script src="assets/tracker_ga.js"></script>
   <script type="text/javascript">
     SH.Interface.Social.MEDIA_ROOT = location.href.replace(/\?.*$/, '').split("#")[0];
     SH.Interface.Social.SITE_ROOT = location.href.split("#")[0];
 
-    //背景音乐
-    $("#jplayer_background").jPlayer({
-        ready: function () {
-            $(this).jPlayer("setMedia", {
-                mp3: '/audio/background.mp3'
-            })
-        },
-        swfPath: "/assets",
-        loop:true,
-        volume:0.4
-    });
 
-    $("#playlist").jPlayer({
-        ready: function () {
-            _.each([10,87,90,250,310,438,441,525,703,720,728,830,915,1193,1208,1226,1233,1301,1320,1519,1597,1607],function(num){
-                $('#playlist').jPlayer("setMedia", {
-                    mp3: '/audio/'+num+'.mp3'
-                });
-            })
-        },
-        swfPath: "/assets",
-        volume:1
+    $(document).ready(function()
+    {
+      //背景音乐
+        $("#jplayer_background").jPlayer({
+            ready: function () {
+                $(this).jPlayer("setMedia", {
+                    mp3: 'audio/background.mp3'
+                })
+            },
+            swfPath: "assets",
+            loop:true,
+            volume:0.3
+        });
+
+        $("#playlist").jPlayer({
+            ready: function () {
+                _.each([10,87,90,250,310,438,441,525,703,720,728,830,915,1193,1208,1226,1233,1301,1320,1519,1597,1607],function(num){
+                    $('#playlist').jPlayer("setMedia", {
+                        mp3: 'audio/'+num+'.mp3'
+                    });
+                })
+            },
+            swfPath: "assets",
+            volume:1
+        });
+
+        var sound = true;
+        $('#sound-mute').on('click', function()
+        {
+          var t = $(this);
+          if( sound ){
+            $("#jplayer_background").jPlayer("volume", 0);
+            $('#playlist').jPlayer("volume", 0);
+            t.find('.sound-on').hide();
+            t.find('.sound-off').show();
+            sound = false;
+          }
+          else{
+            $("#jplayer_background").jPlayer("volume", 0.3);
+            $('#playlist').jPlayer("volume", 1);
+            t.find('.sound-on').show();
+            t.find('.sound-off').hide();
+            sound = true;
+          }
+        });
+
     });
   </script>
   <!--[if lte IE 8 ]>
@@ -425,23 +467,23 @@ Date de création : 04/08/2015
     </style>
   </noscript>
 
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-59855817-1', 'auto');
-    ga('send', 'pageview');
-</script>
+        ga('create', 'UA-59855817-1', 'auto');
+        ga('send', 'pageview');
+    </script>
 
-<div class="youtube-con hideme">
-    <div class="video-bg"></div>
-    <div class="video-con">
-        <iframe id="video" src="http://www.youtube.com/embed/RIAafq4bg_Q?enablejsapi=1" frameborder="0" ></iframe>
+    <div class="youtube-con hideme">
+        <div class="video-bg"></div>
+        <div class="video-con">
+            <iframe id="video" src="http://www.youtube.com/embed/RIAafq4bg_Q?enablejsapi=1" frameborder="0" ></iframe>
+        </div>
+        <div class="close_btn"></div>
     </div>
-    <div class="close_btn"></div>
-</div>
 
 </body>
 

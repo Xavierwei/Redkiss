@@ -27,10 +27,11 @@
       ]
     ],
     "sections": [
-        ["", 10, 0, "", ""],
-        ["Chapter 2", 10, 650, "", "Chapter 2"],
-        ["Chapter 3", 650, 1093, "", "Chapter 3"],
-        ["Packshot Page", 1093, 1707, "", "Packshot Page"]
+        ["", 0, 21, "", ""],
+        ["chapitre-1", 21, 52, "", "Chapter 1"],
+        ["chapitre-2", 60, 650, "", "Chapter 2"],
+        ["chapitre-3", 650, 1093, "", "Chapter 3"],
+        ["partage-experience", 1093, 1707, "", "Share the experience"]
     ],
   "chapters": [{
         "id": 1,

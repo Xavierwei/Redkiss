@@ -12,6 +12,7 @@ body{
     width:38px;
     height: 30px;
     background-size:38px 30px ;
+    background-repeat:no-repeat;
 }
 
 .icon-arrow{
@@ -25,6 +26,17 @@ body{
 .icon-facebook{
     background-image: url(../img/icons/icon_facebook.png);
 }
+.mobile .icon-facebook{
+    background-image: url(../img/icons/facebook.svg);
+    background-size: 87% !important;
+    background-position-y: 6px;
+    width: 25px !important;
+}
+.mobile .icon-soundcloud{
+    background-image: url(../img/icons/soundcloud.svg);
+    background-size: 81% !important;
+    background-position-y: 4px;
+}
 
 .icon-music{
     background-image: url(../img/icons/icon_music.png);
@@ -37,10 +49,34 @@ body{
 .icon-twitter{
     background-image: url(../img/icons/icon_twitter.png);
 }
+.mobile .icon-twitter{
+    background-image: url(../img/icons/twitter.svg);
+    background-position-y: 2px;
+}
 
 .icon-seperator{
     background-image: url(../img/icons/icon_seperator.png);
 }
+
+#sound-mute{
+    border: none;
+    background: none;
+    display: inline-block;
+    width: 29px;
+    position: relative;
+    top: 16px;
+    left:50px
+}
+#sound-mute img{
+    width:100%;
+}
+#sound-mute img.sound-on{
+    display:inline-block;
+}
+#sound-mute img.sound-off{
+    display:none;
+}
+
 
 .bg{
     width: 400px;
@@ -55,6 +91,19 @@ body{
 .pull-right{
     float:right
 }
+
+i.pull-left.icon-arrow{
+    position: relative;
+    left: -3px;
+    top:2px;
+}
+i.pull-right.icon-arrow{
+    position: relative;
+    right: -3px;
+    top:2px;
+}
+
+
 
 .clear-fix{
     clear: both;
@@ -156,7 +205,7 @@ body{
 
 .mobile #welcome_page>.right>.container>.first a{
     position: relative;
-    top:-2px;
+    top:0px;
 }
 
 #welcome_page>.right>.container>.second{
@@ -165,7 +214,7 @@ body{
 }
 
 .mobile #welcome_page>.right>.container>.second{
-    width: 180px;
+    width: 141px;
     height: 30px;
 }
 
@@ -177,12 +226,15 @@ body{
 #welcome_page>.right>.container>.first a{
     width: 140px;
     text-align: center;
-    margin-left:10px;
+    margin-left: 10px;
+    font-family: algol_regular;
+    font-size: 14px;
 }
 
 .mobile #welcome_page>.right>.container>.first a{
     width: 120px;
     height: 30px;
+    font-size: 12px;
 }
 
 #welcome_page>.right>.container>.second{
@@ -191,17 +243,22 @@ body{
 
 .mobile #welcome_page>.right>.container>.second{
     height: 30px;
-    padding-top:10px;
+    padding-top: 10px;
+    position: relative;
+    top: 0px;
+    left: -32px;
 }
 
 #welcome_page>.right>.container>.second a{
-    margin-left:40px;
-    position: relative;
-    top:-5px;
+  margin-left: 40px;
+  position: relative;
+  top: -8px;
+  font-family: algol_regular;
 }
 
 .mobile #welcome_page>.right>.container>.second a{
-    margin-left:35px;
+    margin-left: 8px;
+    top: -5px;
 }
 
 #welcome_page_bottom{
@@ -217,6 +274,8 @@ body{
     -moz-opacity:0;
     -khtml-opacity: 0;
     opacity: 0;
+    font-family: algol_regular;
+    font-size: 21px;
 }
 
 .mobile #welcome_page img{
@@ -250,11 +309,13 @@ body{
 .mobile_end_list_wrap .second a{
     margin-left: 25px;
     position: relative;
-    top:-2px;
+    top: -8px;
     display: inline-block;
-    font-size: 20px;
     text-transform: uppercase;
     text-decoration: none;
+    font-size: 17px;
+    font-family: algol_regular;
+    margin-left: 32px;
 }
 
 .mobile_end_list_wrap .first .icon-arrow{
@@ -265,6 +326,11 @@ body{
 .mobile_end_list_wrap .first a{
     position: relative;
     top:2px;
+    margin-right: 10px;
+}
+
+.mobile_end_list_wrap > .first .icon-facebook{
+    margin-left: 11px;
 }
 
 .mobile_end_list_wrap .second .icon{
@@ -272,10 +338,9 @@ body{
 }
 
 .end_frame_mobile{
-    /*background-size: cover;*/
-    /*background-image: url('../../PICS/end_mobile.jpg');*/
-    /*background-repeat: no-repeat;*/
-    background: none;
+    background-size: cover;
+    background-image: url('../../PICS/end_mobile.jpg');
+    background-repeat: no-repeat;
 }
 
 .mobile .end_title{
@@ -334,11 +399,4 @@ body{
     width: 40px;
     height: 30px;
     background-size: 40px 30px;
-}
-
-.mobile #bg{
-    position: fixed;
-    top:0;
-    width: 100%;
-    z-index: -1;
 }
