@@ -343,9 +343,9 @@ i.pull-right.icon-arrow{
     background-repeat: no-repeat;
 }
 
-.mobile .end_title{
-    top:0;
-}
+/*.mobile .end_title{*/
+    /*top:0;*/
+/*}*/
 
 .mobile .icon{
     width: 25px;
