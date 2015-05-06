@@ -409,9 +409,12 @@ i.pull-right.icon-arrow{
     color:white;
     font-size: 1.0em;
     font-family: arial, helvetica;
-    padding-left:20px;
-    line-height: 60px;
     z-index: 2000;
+}
+
+.prompt-message .relative{
+    position: relative;
+    padding:20px 40px 20px 20px;
 }
 
 .prompt-message span{
@@ -424,12 +427,15 @@ i.pull-right.icon-arrow{
 }
 
 .prompt-message img{
+    position: absolute;
+    top:50%;
+    right: 0;
     width: 20px;
     height: 20px;
     float:right;
     cursor: pointer;
-    margin-top: 20px;
-    margin-right: 30px;
+    margin-top: -10px;
+    margin-right: 10px;
 }
 .prompt-message img:hover{
     opacity: 0.5;
