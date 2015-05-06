@@ -3192,7 +3192,7 @@ article .hotspot {
     
 }
 
-.popup_content {display:none;position: fixed;width:80%;height:80%;top:10%;left:10%;background:rgba(255,255,255,0.8);z-index:100;}
+.popup_content {display:none;position: fixed;width:80%;height:80%;top:10%;left:10%;background:rgba(255,255,255,0.9);z-index:100;}
 .popup_content .close_btn {position: absolute;width:20px;height:20px;background:url('../img/close.png') no-repeat center;cursor: pointer;right:10px;top:10px;cursor: pointer;}
 .youtube-con .close_btn {
     position: absolute;
